@@ -1,0 +1,20 @@
+main{
+    background-color:#f2f6fc;
+    color:#69707a;
+    }
+
+#Date1{
+    width: 300px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}
+
+#Date2{
+    width: 300px;
+    height: 40px;
+    margin-left: 18px;
+    border-radius: 5px;
+    border: rgb(177, 200, 214) 1px solid;
+}

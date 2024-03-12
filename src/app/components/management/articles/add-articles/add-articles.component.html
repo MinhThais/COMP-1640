@@ -1,0 +1,85 @@
+<main>
+    <div class="container">
+        <div class="row flex-lg-nowrap">
+        <form [formGroup]="addArticleForm" enctype="multipart/form-data">
+          <div class="col" style=" margin-top: 20px;">
+            <div class="row">
+              <div class="col mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="articles">
+                      <div class="row">
+                        <div class="col-12 col-sm-auto mb-3">
+                          <div class="mx-auto" style="width: 220px; height: 220px;">
+                            <div class="d-flex justify-content-center align-items-center rounded" style="height: 220px; background-color: rgb(233, 236, 239);">
+                              <img src="/assets/img/a.jpg" style="height: 220px; width: 240px;">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                          <div class="text-center text-sm-left mb-2 mb-sm-0">
+                            <div class="mt-2">
+                              <button id="btn_ChangePhoto" class="btn btn-primary" type="button" style="margin-top: 85px;">
+                                <i class="fa fa-fw fa-camera"></i>
+                                <span>Change Photo</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="" class="active nav-link" style="font-size: 22px; font-weight: 600;">New Articles</a></li>
+                      </ul>
+                      <div class="tab-content pt-3">
+                        <div class="tab-pane active">
+                          <!-- <form class="form" novalidate=""> -->
+                            <div class="row">
+                              <div class="col">
+                                <div class="row" style="margin-bottom: 20px;">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Title</label>
+                                      <input formControlName="contribution_title" class="form-control" type="text" name="name">
+                                      <small *ngIf="addArticleForm.controls['contribution_title'].dirty && addArticleForm.hasError('required', 'contribution_title')" class="text-danger">*Title is required</small>
+                                    </div>
+                                  </div>
+                              </div>
+
+                              <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Choose Article File</label>
+                                <input (change)="handleFileInput($event)" class="form-control" type="file" id="formFileMultiple" multiple>
+                              </div>
+<!-- 
+                                <div class="row" style="margin-bottom: 20px;">
+                                    <div class="col">
+                                    <div class="form-group">
+                                      <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Upload Date</label>
+                                      <input formControlName="contribution_submition_date" class="form-control" type="text" name="name">
+                                      <small *ngIf="addArticleForm.controls['contribution_submition_date'].dirty && addArticleForm.hasError('required', 'contribution_submition_date')" class="text-danger">*Upload Date is required</small>
+                                    </div>
+                                  </div>
+                              </div> -->
+                            </div>
+                  
+                          </div>
+                          <div class="row">
+                            <div class="col d-flex justify-content-end">
+                              <button id="btn_Back" class="btn btn-primary" type="submit" routerLink="/Management-Articles">Back</button>
+                              <button id="btn_Add" class="btn btn-primary" type="submit" (click)="onCreate()">Submit</button>
+                            </div>
+                          </div>
+                        <!-- </form> -->
+      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </form>
+    </div>
+    </div>
+</main>
