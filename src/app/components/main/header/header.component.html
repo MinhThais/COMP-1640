@@ -1,9 +1,11 @@
 <main>
     <div class="top-navbar">
       <!-- <p style="font-weight: 600; display: {{n}};">Hi {{fullname}} </p> -->
-      <p style="font-weight: 600;">WELCOME TO ...</p>
+      <!-- <p style="font-weight: 600;">WELCOME {{fullname}}</p> -->
+      <p style="font-weight: 600; display: {{n}};">Hi {{fullname}} </p>
+      <p style="font-weight: 600; display: {{m}};">WELCOME TO...</p>
       <div class="icons" style="display: flex;">
-          <a style="font-weight: 600; margin-right: 5px;" routerLink="" ><i class="fa-solid fa-right-to-bracket"  alt="" width="18px"></i>Login</a>
+          <a style="font-weight: 600; margin-right: 5px; display: {{m}};"  routerLink="" ><i class="fa-solid fa-right-to-bracket"  alt="" width="18px"></i>Login</a>
           <!-- <a routerLink="/login" *ngIf="role === 'Admin' || role === 'Customer' || role === 'Manager'" (click)="signOut()" style="display: {{n}};"><i class="fa-solid fa-right-to-bracket"  alt="" width="18px" style="margin-right: 5px;"></i>Logout</a> -->
           <li ngbDropdown class="nav-item dropdown" style="list-style: none;">
             <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
@@ -14,13 +16,13 @@
               <li><a ngbDropdownItem class="dropdown-item" routerLink="/Profile">Profile</a></li>
               <li><a ngbDropdownItem class="dropdown-item" routerLink="/Old-Password">Password</a></li>
               <li><a ngbDropdownItem class="dropdown-item" routerLink="/Create-Account" style="font-size: 15px;">Create Account</a></li>
-              <li><a ngbDropdownItem class="dropdown-item" href="#">Log out</a></li>
+              <li><a ngbDropdownItem class="dropdown-item" href="#" (click)="signOut()">Log out</a></li>
             </ul>
           </li>
       </div>
   </div>
     <!-- top navbar -->
-  
+
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
@@ -37,8 +39,8 @@
               <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink="/Management-Articles">Management</a>
               </li> -->
-  
-              <li ngbDropdown class="nav-item dropdown">
+
+              <li ngbDropdown class="nav-item dropdown"  *ngIf="role === 'Admin'">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                   Management
@@ -60,4 +62,3 @@
       </nav>
     <!-- navbar -->
   </main>
-  
