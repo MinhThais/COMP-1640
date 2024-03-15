@@ -1,3 +1,4 @@
+import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/account/login/login.component';
@@ -19,6 +20,9 @@ import { CommentViewingComponent } from './components/coordinator/comment/commen
 import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
 import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
 import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
+import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -37,11 +41,19 @@ const routes: Routes = [
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty', component: UpdateFacultyComponent},
 
+  //Student
+  {path:'View-Student', component: StudentViewingComponent},
+  {path:'View-StudentComment', component: StudentCommentComponent},
+
   //Coordinator
   {path:'Manager-Comment', component: CommentViewingComponent},
   {path:'Add-Comment', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
+
+  //Admin
+  {path:'Admin-Home', component: AdminHomeComponent},
+  {path:'Admin-Statistic', component: AdminStatisticComponent}, 
 ];
 
 @NgModule({
