@@ -38,7 +38,7 @@ const routes: Routes = [
   {path:'Update-Faculty', component: UpdateFacultyComponent},
 
   //Coordinator
-  {path:'View-Comment', component: CommentViewingComponent},
+  {path:'Manager-Comment', component: CommentViewingComponent},
   {path:'Add-Comment', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},

@@ -18,8 +18,6 @@ export class UserService {
     this.userPayLoad = this.decodedToken();
   }
 
-  createUser( user:any) {
-    return this.http.post<any>(this.baseUrl+'Register', user);
   createUser(user:any) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -50,9 +48,6 @@ export class UserService {
   getToken(){
     return localStorage.getItem('token');
   }
-
-
-}
 
   getRefreshToken(){
     return localStorage.getItem('refreshToken');
