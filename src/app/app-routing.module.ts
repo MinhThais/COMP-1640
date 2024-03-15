@@ -15,6 +15,10 @@ import { UpdateAcademicYearComponent } from './components/management/academicYea
 import { ManagementFacultyComponent } from './components/management/faculties/management-faculty/management-faculty.component';
 import { AddFacultyComponent } from './components/management/faculties/add-faculty/add-faculty.component';
 import { UpdateFacultyComponent } from './components/management/faculties/update-faculty/update-faculty.component';
+import { CommentViewingComponent } from './components/coordinator/comment/comment-viewing/comment-viewing.component';
+import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
+import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
+import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -32,6 +36,12 @@ const routes: Routes = [
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty', component: UpdateFacultyComponent},
+
+  //Coordinator
+  {path:'View-Comment', component: CommentViewingComponent},
+  {path:'Add-Comment', component: CommentAddingComponent},
+  {path:'View-Pub', component: PublicationViewingComponent},
+  {path:'Detail-Pub', component: PublicationDetailComponent},
 ];
 
 @NgModule({

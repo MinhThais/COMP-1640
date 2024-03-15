@@ -25,6 +25,10 @@ import { AddFacultyComponent } from './components/management/faculties/add-facul
 import { UpdateFacultyComponent } from './components/management/faculties/update-faculty/update-faculty.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { CommentViewingComponent } from './components/coordinator/comment/comment-viewing/comment-viewing.component';
+import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
+import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
+import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,10 @@ import { ToastrModule } from 'ngx-toastr';
     ManagementFacultyComponent,
     AddFacultyComponent,
     UpdateFacultyComponent,
+    CommentViewingComponent,
+    CommentAddingComponent,
+    PublicationViewingComponent,
+    PublicationDetailComponent,
   ],
   imports: [
     BrowserModule,
