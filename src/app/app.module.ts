@@ -14,7 +14,7 @@ import { CreateAccountComponent } from './components/account/create-account/crea
 import { DetailArticlesComponent } from './components/articles/detail-articles/detail-articles.component';
 import { ManagementArticlesComponent } from './components/management/articles/management-articles/management-articles.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddArticlesComponent } from './components/management/articles/add-articles/add-articles.component';
 import { UpdateArticlesComponent } from './components/management/articles/update-articles/update-articles.component';
 import { ManagementAcademicYearComponent } from './components/management/academicYear/management-academic-year/management-academic-year.component';
@@ -23,6 +23,12 @@ import { UpdateAcademicYearComponent } from './components/management/academicYea
 import { ManagementFacultyComponent } from './components/management/faculties/management-faculty/management-faculty.component';
 import { AddFacultyComponent } from './components/management/faculties/add-faculty/add-faculty.component';
 import { UpdateFacultyComponent } from './components/management/faculties/update-faculty/update-faculty.component';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { CommentViewingComponent } from './components/coordinator/comment/comment-viewing/comment-viewing.component';
+import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
+import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
+import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +50,25 @@ import { UpdateFacultyComponent } from './components/management/faculties/update
     ManagementFacultyComponent,
     AddFacultyComponent,
     UpdateFacultyComponent,
+    CommentViewingComponent,
+    CommentAddingComponent,
+    PublicationViewingComponent,
+    PublicationDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+      progressBar: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
