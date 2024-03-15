@@ -29,6 +29,10 @@ import { CommentViewingComponent } from './components/coordinator/comment/commen
 import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
 import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
 import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
+import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
+import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,10 @@ import { PublicationDetailComponent } from './components/coordinator/publication
     CommentAddingComponent,
     PublicationViewingComponent,
     PublicationDetailComponent,
+    AdminHomeComponent,
+    AdminStatisticComponent,
+    StudentViewingComponent,
+    StudentCommentComponent,
   ],
   imports: [
     BrowserModule,
