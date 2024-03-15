@@ -21,7 +21,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   createUser( user:any) {
-    return this.http.post<any>(this.baseUrl+'Register', user)
-    // console.log('hello');
+    return this.http.post<any>(this.baseUrl+'Register', user);
   }
+
+
 }

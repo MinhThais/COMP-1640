@@ -84,7 +84,4 @@ export class CreateAccountComponent implements OnInit{
       return null;
     };
   }
-
-  
-  
 }
