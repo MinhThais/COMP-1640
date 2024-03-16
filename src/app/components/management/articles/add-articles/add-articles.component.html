@@ -50,27 +50,18 @@
                                 <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Choose Article File</label>
                                 <input (change)="handleFileInput($event)" class="form-control" type="file" id="formFileMultiple" multiple>
                               </div>
-<!-- 
-                                <div class="row" style="margin-bottom: 20px;">
-                                    <div class="col">
-                                    <div class="form-group">
-                                      <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Upload Date</label>
-                                      <input formControlName="contribution_submition_date" class="form-control" type="text" name="name">
-                                      <small *ngIf="addArticleForm.controls['contribution_submition_date'].dirty && addArticleForm.hasError('required', 'contribution_submition_date')" class="text-danger">*Upload Date is required</small>
-                                    </div>
-                                  </div>
-                              </div> -->
+                              
                             </div>
                   
                           </div>
                           <div class="row">
                             <div class="col d-flex justify-content-end">
                               <button id="btn_Back" class="btn btn-primary" type="submit" routerLink="/Management-Articles">Back</button>
-                              <button id="btn_Add" class="btn btn-primary" type="submit" (click)="onCreate()">Submit</button>
+                              <!-- <button [disabled]="isChecked" id="btn_Add" class="btn btn-primary" type="submit" (click)="onCreate()">Submit</button> -->
+                              <button id="btn_Add" class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Submit</button>
                             </div>
                           </div>
                         <!-- </form> -->
-      
                       </div>
                     </div>
                   </div>
@@ -78,9 +69,33 @@
               </div>
             </div>
           </div>
-      
         </div>
       </form>
     </div>
     </div>
 </main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Term & Condition</h5>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et rerum magnam voluptas,
+           omnis porro incidunt sunt odit odio repudiandae officia totam. Nesciunt modi dolore,
+           iure natus ex molestias fugiat repellat?</p>
+        <div class="mb-3" style="display: flex;">
+          <input type="checkbox" [(ngModel)]="!isChecked" (change)="toggleButton()">
+          <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions of the service.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button [disabled]="isChecked" id="btn-Confirm" type="button" class="btn btn-primary" data-bs-dismiss="modal"   (click)="onCreate()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

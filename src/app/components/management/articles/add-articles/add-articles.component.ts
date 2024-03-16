@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AddArticlesComponent {
   addArticleForm!: FormGroup
   filetoUpload!: any;
+  isChecked: boolean = true;
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
@@ -49,4 +50,22 @@ export class AddArticlesComponent {
     this.filetoUpload = event.target.files[0];
   }
 
+  // checkbox
+  toggleButton() {
+    // Toggle button's disabled state based on checkbox state
+    this.isChecked = !this.isChecked
+    this.isChecked ? this.enableButton() : this.disableButton() ;
+  }
+
+  disableButton() {
+    // Disable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = true;
+  }
+
+  enableButton() {
+    // Enable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = false;
+  }
 }
