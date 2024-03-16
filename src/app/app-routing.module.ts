@@ -20,9 +20,9 @@ import { CommentViewingComponent } from './components/coordinator/comment/commen
 import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
 import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
 import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
-import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
 import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
+import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -51,9 +51,11 @@ const routes: Routes = [
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
 
+  //Manager
+  {path:'View-ManagerHome', component: ManagerHomeComponent},
+
   //Admin
-  {path:'Admin-Home', component: AdminHomeComponent},
-  {path:'Admin-Statistic', component: AdminStatisticComponent}, 
+  {path:'Admin-Statistic', component: AdminStatisticComponent}
 ];
 
 @NgModule({
