@@ -18,3 +18,18 @@ main{
     border-radius: 5px;
     border: rgb(177, 200, 214) 1px solid;
 }
+
+#submit-aca{
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #ff014fff;
+    border-radius: 25px;
+    border: none;
+}
+
+#submit-aca:hover{
+    background-color: rgb(247, 6, 78);
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(255, 1, 1, 0.5);
+}
+

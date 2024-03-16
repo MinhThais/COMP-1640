@@ -23,6 +23,7 @@ import { PublicationDetailComponent } from './components/coordinator/publication
 import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
 import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
+import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -46,7 +47,7 @@ const routes: Routes = [
   {path:'View-StudentComment', component: StudentCommentComponent},
 
   //Coordinator
-  {path:'Manager-Comment', component: CommentViewingComponent},
+  {path:'View-Comment', component: CommentViewingComponent},
   {path:'Add-Comment', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
@@ -55,7 +56,8 @@ const routes: Routes = [
   {path:'View-ManagerHome', component: ManagerHomeComponent},
 
   //Admin
-  {path:'Admin-Statistic', component: AdminStatisticComponent}
+  {path:'Admin-Statistic', component: AdminStatisticComponent}, 
+  {path:'Admin-Account', component: AdminAccountComponent},
 ];
 
 @NgModule({

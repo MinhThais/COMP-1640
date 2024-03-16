@@ -6,6 +6,7 @@ main{
     #btn_Add{
         background-color: #ff014fff;
         border: #ff014fff;
+        width: 62.58px;
       }
       
       #btn_Add:hover{

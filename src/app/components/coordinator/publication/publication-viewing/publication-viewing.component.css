@@ -64,6 +64,68 @@ td button:nth-child(3):hover{
     background-color: rgb(255, 120, 120);
 }
 
+.button-fail{
+    background-color: #dc3545 !important;
+    width: 56.79px;
+}
+.button-pass{
+    background-color: rgb(39, 249, 123) !important;
+    width: 56.79px;
+}
+.button-waiting{
+    background-color: rgb(110 132 119) !important;
+}
+.button-private{
+    background-color: #dc3545 !important;
+    width: 74.71px;
+}
+.button-public{
+    background-color: rgb(39, 249, 123) !important;
+    width: 74.71px;
+}
+
+.button-fail:hover{
+    background-color: rgb(39, 249, 123) !important;
+    box-shadow: 0 0 10px rgb(39, 249, 123);
+}
+.button-pass:hover{
+    background-color: #dc3545 !important;
+    box-shadow: 0 0 10px #dc3545;
+}
+.button-private:hover{
+    background-color: rgb(39, 249, 123) !important;
+    box-shadow: 0 0 10px rgb(39, 249, 123);
+}
+.button-public:hover{
+    background-color: #dc3545 !important;
+    box-shadow: 0 0 10px #dc3545;
+}
+
+.button-fail::before{
+    content: 'Fail';
+}
+.button-pass::before{
+    content: 'Pass';
+}
+.button-private::before{
+    content: 'Private';
+}
+.button-public::before{
+    content: 'Public';
+}
+
+.button-fail:hover::before{
+    content: 'Pass';
+}
+.button-pass:hover::before{
+    content: 'Fail';
+}
+.button-private:hover::before{
+    content: 'Public';
+}
+.button-public:hover::before{
+    content: 'Private';
+}
 
 
 .add_new{

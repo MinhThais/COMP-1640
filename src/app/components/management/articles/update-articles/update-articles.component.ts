@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UpdateArticlesComponent {
   updateArticleForm!: FormGroup
+  isChecked: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -42,5 +43,24 @@ export class UpdateArticlesComponent {
         } 
       });
     }
+  }
+
+   // checkbox
+   toggleButton() {
+    // Toggle button's disabled state based on checkbox state
+    this.isChecked = !this.isChecked
+    this.isChecked ? this.enableButton() : this.disableButton() ;
+  }
+
+  disableButton() {
+    // Disable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = true;
+  }
+
+  enableButton() {
+    // Enable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = false;
   }
 }
