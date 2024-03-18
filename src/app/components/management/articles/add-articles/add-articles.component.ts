@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
+import { UserStoreService } from 'src/app/services/user-store.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,14 +12,16 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AddArticlesComponent {
   addArticleForm!: FormGroup
-  filetoUpload!: any;
-  fileImg: any;
+  filetoUpload!: File;
+  isChecked: boolean = true;
+  fileImg!: File;
   fullname = "";
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
     private article: ArticleService,
-    private userStore:UserStoreService
+    private userStore:UserStoreService,
+    private toast:ToastrService
     ){
   }
 
@@ -42,14 +46,20 @@ export class AddArticlesComponent {
 
       console.log(formData);
       console.log(this.addArticleForm.get('contribution_title')?.value);
-      this.article.addNewArticle(formData).subscribe(
-        (res)=>{
-          console.log("success")
-        },
-        (err) =>{
-          console.log("err")
-        }
-      );
+      this.article.addNewArticle(formData).subscribe(res => {
+        this.toast.success(res.message, 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+      },
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+      });
     }
     else{
       Object.keys(this.addArticleForm.controls).forEach((field) => {
@@ -70,17 +80,27 @@ export class AddArticlesComponent {
 
   handleFileInput(event: any){
     const file = event.target.files;
-
     if(file && file.length > 0){
       this.filetoUpload = event.target.files[0];
-
-      // this.article.uploadImage(formData).subscribe(res =>{
-      //   alert(res.message);
-      // },
-      // error => {
-      //   alert(error.error.message);
-      // })
     }
   }
 
+  // checkbox
+  toggleButton() {
+    // Toggle button's disabled state based on checkbox state
+    this.isChecked = !this.isChecked
+    this.isChecked ? this.enableButton() : this.disableButton() ;
+  }
+
+  disableButton() {
+    // Disable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = true;
+  }
+
+  enableButton() {
+    // Enable the button
+    const button = document.getElementById('btn-Confirm') as HTMLButtonElement;
+    button.disabled = false;
+  }
 }

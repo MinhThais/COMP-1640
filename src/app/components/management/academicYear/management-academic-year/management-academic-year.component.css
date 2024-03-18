@@ -18,7 +18,7 @@ h4{
     align-items: center;
     flex-wrap: wrap;
     padding: 20px;
-    background-color: rgb(122, 13, 152);
+    background-color: rgb(242 242 242);
 }
 
 .table_header p{
@@ -60,6 +60,7 @@ td button:nth-child(2):hover{
     padding: 10px 20px;
     color: #ffffff;
     background-color: #ff014fff;
+    border-radius: 25px;
 }
 
 .add_new:hover{

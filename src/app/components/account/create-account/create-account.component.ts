@@ -20,6 +20,9 @@ export class CreateAccountComponent implements OnInit{
   eyeIcon: string = "fa-eye-slash";
 
   public selectFaculty : number = 0;
+  public facultyName : string = "";
+
+  public roleName : string = "";
   public selectRole : number = 0
 
   lstFaculties : any = [];
@@ -70,10 +73,16 @@ export class CreateAccountComponent implements OnInit{
 
   onSelectFaculty(event:any):void{
     this.selectFaculty = event.target.value;
+    // this.facultyAPI.getFacultyID(this.facultyName).subscribe(data => {
+    //   this.selectFaculty = data;
+    // });
   };
 
   onSelectRole(event:any){
     this.selectRole = event.target.value;
+    // this.roleAPI.getRoleID(this.roleName).subscribe(data => {
+    //   this.selectRole = data;
+    // })
   }
 
   hideShowPass(){
@@ -90,6 +99,8 @@ export class CreateAccountComponent implements OnInit{
         user_password: this.createForm.get('user_password')?.value,
         user_confirm_password: this.createForm.get('user_confirmPassword')?.value,
         user_gender: this.createForm.get('user_gender')?.value,
+        // role : {"role_id": this.selectRole, "role_name": this.roleName},
+        // faculties : { "faculty_id": this.selectFaculty, "faculty_name": this.facultyName}
         user_role_id: this.selectRole,
         user_faculty_id: this.selectFaculty
       }

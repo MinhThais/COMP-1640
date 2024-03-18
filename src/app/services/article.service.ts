@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
 
-  private baseUrl: string = 'https://localhost:7195/contribution/';
+  private baseUrl : string = 'https://localhost:7195/contribution/';
+  Img : string = 'https://localhost:7195/Imgs/';
+  doc : string = 'https://localhost:7195/Articles/';
 
   constructor(private http:HttpClient) { }
 
@@ -16,11 +19,23 @@ export class ArticleService {
   //   return this.http.post(this.baseUrl+"Add-New-Article", formData, {params: {contribution_title}})
   // }
 
+  getArticleOfStudent(username : string) : Observable<any>{
+    return this.http.get<any>(this.baseUrl + "username", {params : {username}});
+  }
+
+  getArticleById(contribution_id:number) : Observable<any>{
+    return this.http.get<any>(this.baseUrl + "contribution_id", {params : {contribution_id}});
+  }
+
   addNewArticle(formdata:any){
-    return this.http.post(this.baseUrl+"Add-New-Article", formdata);
+    return this.http.post<any>(this.baseUrl+"Add-New-Article", formdata);
   }
 
   uploadImage(file:any){
     return this.http.post<any>(`${this.baseUrl}uploadFile`, file);
+  }
+
+  UpdateArticles(formData:any){
+    return this.http.post<any>(this.baseUrl + "Update-Article", formData);
   }
 }

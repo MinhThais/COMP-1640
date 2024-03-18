@@ -25,6 +25,15 @@ import { AddFacultyComponent } from './components/management/faculties/add-facul
 import { UpdateFacultyComponent } from './components/management/faculties/update-faculty/update-faculty.component';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { CommentViewingComponent } from './components/coordinator/comment/comment-viewing/comment-viewing.component';
+import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
+import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
+import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
+import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
+import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
+import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
+import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
+import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +55,17 @@ import { ToastrModule } from 'ngx-toastr';
     ManagementFacultyComponent,
     AddFacultyComponent,
     UpdateFacultyComponent,
+    CommentViewingComponent,
+    CommentAddingComponent,
+    PublicationViewingComponent,
+    PublicationDetailComponent,
+    AdminStatisticComponent,
+    StudentViewingComponent,
+    StudentCommentComponent,
+    ManagerHomeComponent,
+    AdminAccountComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

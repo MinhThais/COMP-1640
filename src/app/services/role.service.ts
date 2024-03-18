@@ -14,4 +14,8 @@ export class RoleService {
     return this.http.get<any>(this.baseUrl);
   }
 
+  getRoleID(roleName:string) : Observable<any>{
+    return this.http.get<any>(this.baseUrl + 'role_name', {params : {roleName}});
+  }
+
 }

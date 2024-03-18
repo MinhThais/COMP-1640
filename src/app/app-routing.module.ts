@@ -1,3 +1,4 @@
+import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/account/login/login.component';
@@ -15,6 +16,14 @@ import { UpdateAcademicYearComponent } from './components/management/academicYea
 import { ManagementFacultyComponent } from './components/management/faculties/management-faculty/management-faculty.component';
 import { AddFacultyComponent } from './components/management/faculties/add-faculty/add-faculty.component';
 import { UpdateFacultyComponent } from './components/management/faculties/update-faculty/update-faculty.component';
+import { CommentViewingComponent } from './components/coordinator/comment/comment-viewing/comment-viewing.component';
+import { CommentAddingComponent } from './components/coordinator/comment/comment-adding/comment-adding.component';
+import { PublicationViewingComponent } from './components/coordinator/publication/publication-viewing/publication-viewing.component';
+import { PublicationDetailComponent } from './components/coordinator/publication/publication-detail/publication-detail.component';
+import { AdminStatisticComponent } from './components/admin/admin-statistic/admin-statistic.component';
+import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
+import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
+import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -25,13 +34,30 @@ const routes: Routes = [
   {path:'Create-Account', component: CreateAccountComponent},
   {path:'Management-Articles', component: ManagementArticlesComponent},
   {path:'Add-Articles', component: AddArticlesComponent},
-  {path:'Update-Articles', component: UpdateArticlesComponent},
+  {path:'Update-Articles/:id', component: UpdateArticlesComponent},
   {path:'Management-AcademicYear', component: ManagementAcademicYearComponent},
   {path:'Add-AcademicYear', component: AddAcademicYearComponent},
   {path:'Update-AcademicYear/:id', component: UpdateAcademicYearComponent},
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty', component: UpdateFacultyComponent},
+
+  //Student
+  {path:'View-Student', component: StudentViewingComponent},
+  {path:'View-StudentComment', component: StudentCommentComponent},
+
+  //Coordinator
+  {path:'View-Comment', component: CommentViewingComponent},
+  {path:'Add-Comment', component: CommentAddingComponent},
+  {path:'View-Pub', component: PublicationViewingComponent},
+  {path:'Detail-Pub', component: PublicationDetailComponent},
+
+  //Manager
+  {path:'View-ManagerHome', component: ManagerHomeComponent},
+
+  //Admin
+  {path:'Admin-Statistic', component: AdminStatisticComponent},
+  {path:'Admin-Account', component: AdminAccountComponent},
 ];
 
 @NgModule({

@@ -1,28 +1,29 @@
 <main>
   <div class="container">
       <div class="row flex-lg-nowrap">
-      <form [formGroup]="updateArticleForm">
+      <form [formGroup]="updateArticleForm" >
         <div class="col" style=" margin-top: 20px;">
           <div class="row">
             <div class="col mb-3">
               <div class="card">
                 <div class="card-body">
-                  <div class="articles">
+                  <div class="articles" *ngFor="let a of lstArticles">
                     <div class="row">
                       <div class="col-12 col-sm-auto mb-3">
                         <div class="mx-auto" style="width: 220px; height: 220px;">
                           <div class="d-flex justify-content-center align-items-center rounded" style="height: 220px; background-color: rgb(233, 236, 239);">
-                            <img src="/assets/img/a.jpg" style="height: 220px; width: 240px;">
+                            <img [src]="(pathImg + a.contribution_image)" style="height: 220px; width: 240px;">
                           </div>
                         </div>
                       </div>
                       <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                         <div class="text-center text-sm-left mb-2 mb-sm-0">
                           <div class="mt-2">
-                            <button id="btn_ChangePhoto" class="btn btn-primary" type="button" style="margin-top: 85px;">
+                            <!-- <button id="btn_ChangePhoto" class="btn btn-primary" type="button" style="margin-top: 85px;">
                               <i class="fa fa-fw fa-camera"></i>
                               <span>Change Photo</span>
-                            </button>
+                            </button> -->
+                            <input style="margin-top: 85px;" (change)="uploadImage($event)" type="file" id="myFile" name="filename">
                           </div>
                         </div>
                       </div>
@@ -47,7 +48,8 @@
 
                             <div class="mb-3">
                               <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Choose Article File</label>
-                              <input class="form-control" type="file" id="formFileMultiple" multiple>
+                              <input (change)="handleFileInput($event)"  class="form-control" type="file" id="formFileMultiple" multiple>
+                              <label>File Name: {{a.contribution_content}}</label>
                             </div>
 
                               <div class="row" style="margin-bottom: 20px;">
@@ -60,16 +62,16 @@
                                 </div>
                             </div>
                           </div>
-                
+
                         </div>
                         <div class="row">
                           <div class="col d-flex justify-content-end">
                               <button id="btn_Back" class="btn btn-primary" type="submit" routerLink="/Management-Articles">Back</button>
-                              <button id="btn_Update" class="btn btn-primary" type="submit" (click)="onCreate()">Update</button>
+                              <button id="btn_Update" class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" >Update</button>
                           </div>
                         </div>
                       <!-- </form> -->
-    
+
                     </div>
                   </div>
                 </div>
@@ -77,9 +79,33 @@
             </div>
           </div>
         </div>
-    
+
       </div>
     </form>
   </div>
   </div>
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Term & Condition</h5>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et rerum magnam voluptas,
+           omnis porro incidunt sunt odit odio repudiandae officia totam. Nesciunt modi dolore,
+           iure natus ex molestias fugiat repellat?</p>
+        <div class="mb-3" style="display: flex;">
+          <input type="checkbox" [(ngModel)]="!isChecked" (change)="toggleButton()">
+          <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions of the service.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button [disabled]="isChecked" id="btn-Confirm" type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="UpdateArticles()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
