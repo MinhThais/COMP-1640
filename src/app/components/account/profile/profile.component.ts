@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ProfileComponent implements OnInit{
   profileForm!: FormGroup;
-
+  imageUrl: string | ArrayBuffer = '';
 
   constructor(
     private fb: FormBuilder,
@@ -57,6 +57,18 @@ export class ProfileComponent implements OnInit{
           control.markAsDirty({ onlySelf: true });
         } 
       });
+    }
+  }
+
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader: FileReader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
 }

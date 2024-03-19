@@ -11,8 +11,8 @@
                       <div class="row">
                         <div class="col-12 col-sm-auto mb-3">
                           <div class="mx-auto" style="width: 220px; height: 220px;">
-                            <div class="d-flex justify-content-center align-items-center rounded" style="height: 220px; background-color: rgb(233, 236, 239);">
-                              <img src="/assets/img/a.jpg" style="height: 220px; width: 240px;">
+                            <div class="d-flex justify-content-center align-items-center rounded" style="height: 220px; width: 240px; background-color: rgb(233, 236, 239);">
+                              <img [src]="imageUrl" style="max-width: 100%; max-height: 100%; ">
                             </div>
                           </div>
                         </div>
@@ -23,7 +23,8 @@
                                 <i class="fa fa-fw fa-camera"></i>
                                 <span>Change Photo</span>
                               </button> -->
-                              <input style="margin-top: 85px;" (change)="uploadImage($event)" type="file" id="myFile" name="filename">
+                              <!-- <input style="margin-top: 85px;" (change)="uploadImage($event)" type="file" id="myFile" name="filename"> -->
+                              <input type="file" (change)="onFileSelected($event)" style="margin-top: 85px;">
                             </div>
                           </div>
                         </div>

@@ -24,6 +24,7 @@ import { AdminStatisticComponent } from './components/admin/admin-statistic/admi
 import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
+import { ChangePasswordComponent } from './components/account/change-password/change-password.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty', component: UpdateFacultyComponent},
+  {path:'Change-Password', component: ChangePasswordComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},

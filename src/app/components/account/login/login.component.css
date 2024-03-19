@@ -115,11 +115,15 @@ main {
 /* Send Email */
 
 .input-email{
-  width: 400px; 
+  width: 280px; 
   height: 40px;
   margin-left: 15px; 
   border-radius: 5px;
   border: #ccc 1px solid;
+}
+
+#error_message{
+  margin-left: 40px;
 }
 
 #btn-Save{

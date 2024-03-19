@@ -16,6 +16,9 @@ export class AddArticlesComponent {
   isChecked: boolean = true;
   fileImg!: File;
   fullname = "";
+  imageUrl: string | ArrayBuffer = '';
+
+
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
@@ -71,10 +74,22 @@ export class AddArticlesComponent {
     }
   }
 
-  uploadImage(event: any){
-    const file = event.target.files;
-    if(file && file.length > 0){
-      this.fileImg = event.target.files[0];
+  // uploadImage(event: any){
+  //   const file = event.target.files;
+  //   if(file && file.length > 0){
+  //     this.fileImg = event.target.files[0];
+  //   }
+  // }
+
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader: FileReader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      };
+      reader.readAsDataURL(file);
     }
   }
 

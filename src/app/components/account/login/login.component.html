@@ -26,8 +26,8 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 370px;" role="document">
+    <div class="modal-content mx-auto" >
 
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Send Email</h5>
@@ -40,8 +40,8 @@
           <span class="fa fa-envelope" style="font-size: 22px;"></span>
           <input [(ngModel)]="resetPasswordEmail" (ngModelChange)="checkValidEmail($event)" class="input-email" type="text" placeholder="Email">
         </div>
-        <small *ngIf="!resetPasswordEmail" class="text-danger">*Email is required*</small>
-        <small *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">*Email is invalid*</small>
+        <small id="error_message" *ngIf="!resetPasswordEmail" class="text-danger">*Email is required*</small>
+        <small id="error_message" *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">*Email is invalid*</small>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

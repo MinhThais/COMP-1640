@@ -115,3 +115,11 @@ main{
        button:hover{
         background-color: rgb(255, 58, 117);
        }
+
+
+       @media (min-width: 1000px) { 
+        /* #images{
+          width: 10%; 
+          height: 10%;
+        }    */
+    }

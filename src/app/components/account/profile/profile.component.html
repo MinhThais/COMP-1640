@@ -6,15 +6,15 @@
                 <!-- Profile picture card-->
                 <div class="card mb-4 mb-xl-0">
                     <div class="card-header">Profile Picture</div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" style="height: 325px;">
                         <!-- Profile picture image-->
-                        <img style="border-radius: unset; width: 50%; height: auto;"  class="img-account-profile rounded-circle mb-2" 
-                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" >
+                        <img id="images" style="border-radius: unset; width: 60%; height: 60%;"  class="img-account-profile rounded-circle mb-2" 
+                        [src]="imageUrl">
                         <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">Minh Thai</div>
+                        <!-- <div class="small font-italic text-muted mb-4">Minh Thai</div> -->
                         <!-- Profile picture upload button-->
                         <!-- <button class="btn btn-primary" type="button">Upload new image</button> -->
-                        <input style="margin-left: 70px;" type="file" id="myFile" name="filename">
+                        <input  type="file" (change)="onFileSelected($event)" style="margin-top: 55px;">
                     </div>
                 </div>
             </div>
