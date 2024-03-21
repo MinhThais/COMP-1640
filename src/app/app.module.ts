@@ -35,6 +35,8 @@ import { StudentCommentComponent } from './components/student/student-comment/st
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
 import { ChangePasswordComponent } from './components/account/change-password/change-password.component';
+import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
+import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { ChangePasswordComponent } from './components/account/change-password/ch
     ManagerHomeComponent,
     AdminAccountComponent,
     ChangePasswordComponent,
+    StatisticAfterClosingComponent,
+    StatisticBeforeClosingComponent,
   ],
 
   imports: [

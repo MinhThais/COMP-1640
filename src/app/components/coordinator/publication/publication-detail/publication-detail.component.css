@@ -328,6 +328,86 @@
     width: 20px;
     left: 80%;
   }
+
+  /*Button-pass*/
+  .button-pass{
+  text-align: center;
+    width: 85.24px;
+    float: right;
+    position: relative;
+    background-color: #ffffff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 20px;
+    transition: 0.5s;
+    border-radius: 5px;
+  }
+  
+  .button-pass:hover{
+    background: var(--clr);
+    color: white;
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px var(--clr);
+    border-radius: 5px;
+  }
+  
+  .button-pass::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #dc3545;
+    border-radius: 5px;
+  }
+  
+  .button-pass span{
+    position: relative;
+    z-index: 1;
+  }
+  
+  .button-pass i{
+    position: absolute;
+    inset: 0;
+    display: block;
+  
+  }
+  
+  .button-pass i::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background: #ffffff;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+  }
+  
+  .button-pass:hover i::before{
+    width: 20px;
+    left: 20%;
+  }
+  
+  .button-pass i::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background: #ffffff;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+  }
+  
+  .button-pass:hover i::after{
+    width: 20px;
+    left: 80%;
+  }
   
   
   @media (max-width: 950px) {
