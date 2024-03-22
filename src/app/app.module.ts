@@ -39,6 +39,7 @@ import { StatisticAfterClosingComponent } from './components/manager/statistic-a
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
 import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { CoordinatorStatisticComponent } from './components/coordinator/coordina
       preventDuplicates: true,
       progressBar: true,
     }),
+    NgxDocViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

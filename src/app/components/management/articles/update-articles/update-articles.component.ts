@@ -24,6 +24,7 @@ export class UpdateArticlesComponent {
   filetoUpload !: File;
   contribution_id: any;
   fullname: any;
+  imageUrl: string | ArrayBuffer = '';
 
   constructor(
     private fb: FormBuilder,
@@ -69,10 +70,22 @@ export class UpdateArticlesComponent {
     });
   }
 
-  uploadImage(event:any){
-    const file = event.target.files;
-    if(file && file.length > 0){
-      this.imgUri = event.target.files[0];
+  // uploadImage(event:any){
+  //   const file = event.target.files;
+  //   if(file && file.length > 0){
+  //     this.imgUri = event.target.files[0];
+  //   }
+  // }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader: FileReader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+        this.imgUri = event.target.files[0];
+      };
+      reader.readAsDataURL(file);
     }
   }
 

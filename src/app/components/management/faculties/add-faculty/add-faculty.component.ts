@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import ValidateForm from 'src/app/Helper/ValidateForm';
+import { FacultyService } from 'src/app/services/faculty.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +15,9 @@ export class AddFacultyComponent {
 
   constructor(
     private fb: FormBuilder,
-    private auth: UserService
+    private auth: UserService,
+    private facultyAPI:FacultyService,
+    private toast:ToastrService
     ){
   }
 
@@ -24,21 +29,27 @@ export class AddFacultyComponent {
 
   onCreate(){
     if(this.addFacultyForm.valid){
-        this.auth.createUser(this.addFacultyForm).subscribe(
-        (res)=>{
-          console.log("success")
-        },
-        (err) =>{
-          console.log("err")
-        }
-      );
+      this.facultyAPI.addFaculty(this.addFacultyForm.value).subscribe(res => {
+        this.toast.success(res.message, 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+      },
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+      })
     }
     else{
-      Object.keys(this.addFacultyForm.controls).forEach((field) => {
-        const control = this.addFacultyForm.get(field);
-        if (control instanceof FormControl) {
-          control.markAsDirty({ onlySelf: true });
-        } 
+      ValidateForm.ValidateAllFormFileds(this.addFacultyForm);
+      this.toast.warning("Please enter all field to add", 'Warning', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
       });
     }
   }

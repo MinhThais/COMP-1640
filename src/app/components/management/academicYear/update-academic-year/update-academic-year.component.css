@@ -18,3 +18,9 @@ main{
     border-radius: 5px;
     border: rgb(177, 200, 214) 1px solid;
 }
+
+#btn_Back{
+  margin-right: 5px;
+  background-color: #69707a;
+  border: #69707a;
+}

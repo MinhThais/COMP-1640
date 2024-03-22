@@ -13,24 +13,18 @@
                         <th>ID</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Birthday</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let a of lstAccount">
+                        <td>{{a.user_id}}</td>
+                        <td>{{a.user_username}}</td>
+                        <td>{{a.user_email}}</td>
+                        <td>{{a.role_name}}</td>
+                        <td>{{a.user_status}}</td>
                         <td >
                             <button routerLink ><i class="fa-solid fa-lock"></i></button>
                             <button ><i class="fa-solid fa-lock-open"></i></button>
@@ -41,4 +35,3 @@
         </div>
     </div>
   </main>
-  

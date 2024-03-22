@@ -17,6 +17,7 @@
                         <th>ID</th>
                         <th>Image</th>
                         <th>Title</th>
+                        <!-- <th>Content</th> -->
                         <th>Submission Date</th>
                         <!-- <th>Closing Date</th> -->
                         <th>Status</th>
@@ -28,18 +29,44 @@
                         <td>{{c.contribution_id}}</td>
                         <td><img [src]="(pathImg + c.contribution_image)"></td>
                         <td>{{c.contribution_title}}</td>
+                        <!-- <td>{{pathDoc + c.contribution_content}}</td> -->
                         <!-- <td><img [src]="(pathDoc + c.contribution_content)"></td> -->
                         <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
                         <!-- <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td> -->
                         <td>Submitted</td>
                         <td>
-                            <button routerLink="/Detail-Articles"><i class="fa-solid fa-eye"></i></button>
+                            <button [routerLink]="['/Detail-Articles', c.contribution_id]"><i class="fa-solid fa-eye"></i></button>
                             <button [routerLink]="['/Update-Articles', c.contribution_id]"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
+                            <button data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
+
+
+                      <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+      </div>
+      <div class="modal-body">
+        <h5>Are you sure to delete?</h5>
+        <!-- <div class="mb-3" style="display: flex;">
+          <input type="checkbox">
+          <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions of the service.</p>
+        </div> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="btn-Confirm" type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteContribution(c.contribution_id)">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
                 </tbody>
             </table>
         </div>
     </div>
   </main>
+
+

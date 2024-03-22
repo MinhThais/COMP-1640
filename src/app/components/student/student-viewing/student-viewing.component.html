@@ -6,13 +6,13 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of lstContribution">
           <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/a.jpg" class="img-fluid" id="img"/>
+            <img [src]="(pathImg + item.contribution_image)" class="img-fluid" id="img"/>
 
             <div class="card-body">
               <div class="card-title">
-                <h2>Article 1</h2>
+                <h2>{{item.contribution_title}}</h2>
               </div>
               <div class="card-text">
                 <p>
@@ -23,52 +23,6 @@
                 </p>
               </div>
               <a routerLink="/View-StudentArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
-                >Read More</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/b.jpg" class="img-fluid" id="img"/>
-
-            <div class="card-body">
-              <div class="card-title">
-                <h2>Article 1</h2>
-              </div>
-              <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-              <a href="#" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
-                >Read More</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/c.jpg" class="img-fluid" id="img"/>
-
-            <div class="card-body">
-              <div class="card-title">
-                <h2>Article 1</h2>
-              </div>
-              <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-              <a href="#" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
                 >Read More</a
               >
             </div>
