@@ -1,3 +1,4 @@
+import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
 import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
@@ -57,6 +58,7 @@ const routes: Routes = [
   {path:'Add-Comment', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
+  {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},

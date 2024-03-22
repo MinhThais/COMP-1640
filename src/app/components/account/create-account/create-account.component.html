@@ -70,7 +70,7 @@
               <div style="display: flex;">
                 <input formControlName="user_gender" type="radio" value="Male" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Male</p>
                 <input formControlName="user_gender" type="radio" value="Female" style="margin-right: 10px;"><p style="margin-top: 13px; margin-right: 45px;">Female</p>
-                <input formControlName="user_gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Prefer not to say</p>
+                <input formControlName="user_gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Other</p>
               </div>
             </div>
             <small *ngIf="createForm.controls['user_gender'].dirty && createForm.hasError('required', 'user_gender')" class="text-danger">*Gender is required</small>
