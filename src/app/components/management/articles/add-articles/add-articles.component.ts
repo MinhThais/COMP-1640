@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
@@ -16,12 +17,16 @@ export class AddArticlesComponent {
   isChecked: boolean = true;
   fileImg!: File;
   fullname = "";
+  imageUrl: string | ArrayBuffer = '';
+
+
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
     private article: ArticleService,
     private userStore:UserStoreService,
-    private toast:ToastrService
+    private toast:ToastrService,
+    private route:Router
     ){
   }
 
@@ -52,6 +57,8 @@ export class AddArticlesComponent {
           progressBar: true,
           positionClass: 'toast-top-center'
         });
+
+        this.route.navigate(["/Management-Articles"]);
       },
       error => {
         this.toast.error(error.error.message, 'Error', {
@@ -71,10 +78,23 @@ export class AddArticlesComponent {
     }
   }
 
-  uploadImage(event: any){
-    const file = event.target.files;
-    if(file && file.length > 0){
-      this.fileImg = event.target.files[0];
+  // uploadImage(event: any){
+  //   const file = event.target.files;
+  //   if(file && file.length > 0){
+  //     this.fileImg = event.target.files[0];
+  //   }
+  // }
+
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader: FileReader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+        this.fileImg = event.target.files[0];
+      };
+      reader.readAsDataURL(file);
     }
   }
 

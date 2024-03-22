@@ -4,7 +4,7 @@ main {
   place-items: center;
   margin-top: 0px;
   background-color: rgb(122, 13, 152);
-  height: 77vh;
+  height: 100vh;
   width: 100%;
 }
 ::selection {
@@ -115,11 +115,15 @@ main {
 /* Send Email */
 
 .input-email{
-  width: 400px; 
+  width: 280px; 
   height: 40px;
   margin-left: 15px; 
   border-radius: 5px;
   border: #ccc 1px solid;
+}
+
+#error_message{
+  margin-left: 40px;
 }
 
 #btn-Save{

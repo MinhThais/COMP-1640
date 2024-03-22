@@ -33,30 +33,56 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink="/View-Articles">Home</a>
-              </li>
+              </li> -->
               <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink="/Management-Articles">Management</a>
               </li> -->
               <!-- *ngIf="role === 'Admin' -->
-              <li ngbDropdown class="nav-item dropdown">
+
+              <!-- <li ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Home
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Articles">Guest</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Student">Student</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerHome">Manager</a></li>
+                </ul>
+              </li> -->
+
+              <li ngbDropdown class="nav-item dropdown" *ngIf="this.role === 'Admin' || this.role === 'Manager' || this.role === 'Student'">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                   Management
                 </a>
                 <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Management-Articles">Articles</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerHome">Marketing</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Management-Faculty">Faculties</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Management-AcademicYear">Academic Year</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Admin-Account">Account</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Comment">Comment</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Pub">Publishcation</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Admin-Statistic">Statictis</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Student'" routerLink="/Management-Articles">Articles</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-Faculty">Faculties</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-AcademicYear">Academic Year</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Account">Account</a></li>
+                  <!-- <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Comment">Comment</a></li> -->
+                  <!-- <li><a ngbDropdownItem class="dropdown-item"  routerLink="/View-Pub">Publishcation</a></li> -->
                 </ul>
               </li>
+
+              <li *ngIf="this.role === 'Admin' || this.role === 'Manager'" ngbDropdown class="nav-item dropdown">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Statistic
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Admin-Statistic">Faculty-Wide</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerBeforeClosing">Before Closing</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerAfterClosing">After Closing</a></li>
+                </ul>
+              </li>
+
             </ul>
+
+
             <form class="d-flex" id="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button style="margin-top: 18px;"  class="btn btn-outline-success" type="submit">Search</button>

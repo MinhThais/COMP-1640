@@ -23,6 +23,14 @@ export class ArticleService {
     return this.http.get<any>(this.baseUrl + "username", {params : {username}});
   }
 
+  getAllArticleOfStudent(username : string) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}Get-Article-Of-Student?username=${username}`);
+  }
+
+  getAllArticleOfStudentInFaculty(username:string) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}GetContributionByFaculty?username=${username}`);
+  }
+
   getArticleById(contribution_id:number) : Observable<any>{
     return this.http.get<any>(this.baseUrl + "contribution_id", {params : {contribution_id}});
   }
@@ -41,5 +49,9 @@ export class ArticleService {
 
   getArticleContent(contribution_id:number) : Observable<any>{
     return this.http.get<any>(`${this.baseUrl}Get-Article`, {params : {contribution_id}});
+  }
+
+  deleteArticle(contribution_id:number){
+    return this.http.delete<any>(`${this.baseUrl}delete-contribution`, {params : {contribution_id}});
   }
 }

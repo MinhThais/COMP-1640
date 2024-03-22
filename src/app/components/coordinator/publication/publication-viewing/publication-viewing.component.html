@@ -3,46 +3,45 @@
     <div class="public">
         <!-- <p class="public-p1">Due Date:</p>  -->
         <!-- <p class="public-p2"> 14 days</p> -->
-        
+
     </div>
 
     <div class="table">
-        
+
         <div class="table_section">
             <table>
                 <thead>
                     <tr>
-                        <th>User ID</th>
-                        <th>Username</th>
-                        <th>Image</th>
+                        <!-- <th>User ID</th> -->
                         <th>Title</th>
+                        <th>Image</th>
                         <th>Submission</th>
-                        <th>Closing Date</th>
+                        <!-- <th>Closing Date</th> -->
                         <th>Rate</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let i of lstArticle">
                     <tr>
-                        <td>1</td>
-                        <td>TranChiHuynh</td>
-                        <td><img src="/assets/img/a.jpg" alt=""></td>
-                        <td>Article</td>
-                        <td>5/3/2024</td>
-                        <td>5/4/2024</td>
+                        <td>{{i.contribution_title}}</td>
+                        <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
+                        <td>{{i.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
+                        <!-- <td>5/4/2024</td> -->
                         <td>
-                            <!-- <button routerLink="" class="button-fail"></button> -->
-                            <button routerLink="" class="button-pass"></button>
-                        </td>
-                        <td>
-                            <!-- <button routerLink="" class="button-waiting"> 
+                            <!-- <button routerLink="/View-Pub" class="button-waiting">
                                 Waiting</button> -->
-                            <!-- <button routerLink="" class="button-private"> </button> -->
-                            <button routerLink="" class="button-public"> </button>
+                            <!-- <button routerLink="/View-Pub" class="button-fail"></button> -->
+                            <button routerLink="/View-Pub" class="button-pass"></button>
                         </td>
                         <td>
-                            <button routerLink="/Detail-Pub"><i class="fa-solid fa-eye"></i></button>          
+                            <!-- <button routerLink="/View-Pub" class="button-waiting">
+                                Waiting</button> -->
+                            <!-- <button routerLink="/View-Pub" class="button-private"> </button> -->
+                            <button routerLink="/View-Pub" class="button-public"> </button>
+                        </td>
+                        <td>
+                            <button routerLink="/Detail-Pub"><i class="fa-solid fa-eye"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -50,4 +49,4 @@
         </div>
     </div>
   </main>
-  
+
