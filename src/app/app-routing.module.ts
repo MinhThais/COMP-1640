@@ -1,3 +1,4 @@
+import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +26,7 @@ import { StudentCommentComponent } from './components/student/student-comment/st
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
 import { ChangePasswordComponent } from './components/account/change-password/change-password.component';
+import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -46,7 +48,7 @@ const routes: Routes = [
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
-  {path:'View-StudentComment', component: StudentCommentComponent},
+  {path:'View-StudentArticleDetail', component: StudentCommentComponent},
 
   //Coordinator
   {path:'View-Comment', component: CommentViewingComponent},
@@ -56,6 +58,8 @@ const routes: Routes = [
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},
+  {path:'View-ManagerBeforeClosing', component: StatisticBeforeClosingComponent},
+  {path:'View-ManagerAfterClosing', component: StatisticAfterClosingComponent},
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},
