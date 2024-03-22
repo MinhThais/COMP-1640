@@ -34,9 +34,10 @@ import { StudentViewingComponent } from './components/student/student-viewing/st
 import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
-import { ChangePasswordComponent } from './components/account/change-password/change-password.component';
+import { ChangePasswordComponent } from './components/account/changePassword/change-password/change-password.component';
 import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
+import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { StatisticBeforeClosingComponent } from './components/manager/statistic-
     ChangePasswordComponent,
     StatisticAfterClosingComponent,
     StatisticBeforeClosingComponent,
+    OldPasswordComponent,
   ],
 
   imports: [
