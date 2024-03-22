@@ -20,7 +20,7 @@ export class UpdateAcademicYearComponent {
     private fb: FormBuilder,
     private auth: UserService,
     private addAcademicYear: AcademicYearService,
-    private activatedRouter: ActivatedRoute, 
+    private activatedRouter: ActivatedRoute,
     private route: Router
     ){
   }
@@ -40,10 +40,10 @@ export class UpdateAcademicYearComponent {
             this.academic = res;
             this.updateAcademicForm.patchValue({
               academic_year_title:[this.academic.academic_year_title],
-              academic_Year_startClosureDate:[format(this.academic.academic_Year_startClosureDate, 'yyyy-MM-dd')],
-              academic_Year_endClosureDate:[format(this.academic.academic_Year_endClosureDate, 'yyyy-MM-dd')]
+              academic_Year_startClosureDate:[format(this.academic.academic_year_startClosureDate, 'yyyy-MM-dd')],
+              academic_Year_endClosureDate:[format(this.academic.academic_year_endClosureDate, 'yyyy-MM-dd')]
             })
-          }, 
+          },
           (err) =>{
             console.log("error")
           }
@@ -60,8 +60,8 @@ export class UpdateAcademicYearComponent {
       let academicYear = {
         academic_year_id: this.academic_id,
         academic_year_title:this.updateAcademicForm.get('academic_year_title')?.value,
-        academic_Year_startClosureDate: startClosureDate,
-        academic_Year_endClosureDate: endClosureDate
+        academic_year_startClosureDate: startClosureDate,
+        academic_year_endClosureDate: endClosureDate
       }
         this.addAcademicYear.updateAcademicYear(academicYear).subscribe(
         (res)=>{
@@ -78,7 +78,7 @@ export class UpdateAcademicYearComponent {
         const control = this.updateAcademicForm.get(field);
         if (control instanceof FormControl) {
           control.markAsDirty({ onlySelf: true });
-        } 
+        }
       });
     }
   }

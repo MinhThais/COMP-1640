@@ -273,3 +273,16 @@ blockquote::before {
     grid-template-columns: 1fr;
   }
 }
+:host{
+  display: block;
+}
+.office-viewer {
+  width: 100%;
+  height: calc(100% - 44px);
+  overflow: hidden;
+
+  iframe {
+    /* height: calc(100% - 4px); */
+        height: calc(100% - -22px);
+  }
+}

@@ -34,6 +34,7 @@ import { StudentViewingComponent } from './components/student/student-viewing/st
 import { StudentCommentComponent } from './components/student/student-comment/student-comment.component';
 import { ManagerHomeComponent } from './components/manager/manager-home/manager-home.component';
 import { AdminAccountComponent } from './components/admin/admin-account/admin-account.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { AdminAccountComponent } from './components/admin/admin-account/admin-ac
       preventDuplicates: true,
       progressBar: true,
     }),
+    NgxDocViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,7 +30,7 @@ const routes: Routes = [
   {path:'Reset-Password', component: ResetPasswordComponent},
   {path:'Profile', component: ProfileComponent},
   {path:'View-Articles', component: ViewArticlesComponent},
-  {path:'Detail-Articles', component: DetailArticlesComponent},
+  {path:'Detail-Articles/:id', component: DetailArticlesComponent},
   {path:'Create-Account', component: CreateAccountComponent},
   {path:'Management-Articles', component: ManagementArticlesComponent},
   {path:'Add-Articles', component: AddArticlesComponent},
@@ -40,7 +40,7 @@ const routes: Routes = [
   {path:'Update-AcademicYear/:id', component: UpdateAcademicYearComponent},
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
-  {path:'Update-Faculty', component: UpdateFacultyComponent},
+  {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},

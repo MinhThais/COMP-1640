@@ -38,4 +38,8 @@ export class ArticleService {
   UpdateArticles(formData:any){
     return this.http.post<any>(this.baseUrl + "Update-Article", formData);
   }
+
+  getArticleContent(contribution_id:number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}Get-Article`, {params : {contribution_id}});
+  }
 }

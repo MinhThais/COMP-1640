@@ -17,13 +17,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>IT</td>
+                    <tr *ngFor="let f of lstFaculty">
+                        <td>{{f.faculty_id}}</td>
+                        <td>{{f.faculty_name}}</td>
                         <td>
                             <!-- <button routerLink=""><i class="fa-solid fa-eye"></i></button> -->
-                            <button routerLink="/Update-Faculty"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button><i class="fa-solid fa-trash"></i></button>
+                            <button [routerLink]="['/Update-Faculty', f.faculty_id]"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button (click)="deleteFaculty(f.faculty_id)"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -31,4 +31,3 @@
         </div>
     </div>
   </main>
-  

@@ -1,4 +1,4 @@
-<main>
+<!-- <main>
   <div class="container">
     <header>
       <h1 class="heading-1">the light star</h1>
@@ -30,7 +30,7 @@
                 elit. Odio, veritatis! Lorem ipsum dolor sit, amet consectetur
                 adipisicing elit. Odio, veritatis!
               </p>
-              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button>     
+              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button>
             </div>
 
             <div class="list">
@@ -41,7 +41,7 @@
                 elit. Odio, veritatis! Lorem ipsum dolor sit, amet consectetur
                 adipisicing elit. Odio, veritatis!
               </p>
-              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button> 
+              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button>
             </div>
 
             <div class="list">
@@ -52,7 +52,7 @@
                 elit. Odio, veritatis! Lorem ipsum dolor sit, amet consectetur
                 adipisicing elit. Odio, veritatis!
               </p>
-              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button> 
+              <button class="button-button" routerLink=""><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
 
@@ -92,4 +92,48 @@
       </p>
     </article>
   </div>
-</main>
+</main> -->
+
+
+<!-- <div *ngFor="let c of fileWord">
+  <p>{{pathDoc}}</p>
+  <ngx-doc-viewer
+    [url]="pathDoc + c.contribution_content"
+    viewer="google"
+    style="width:100%;height:50vh;"
+  ></ngx-doc-viewer>
+</div> -->
+<!-- <p *ngFor="let c of fileWord">{{pathDoc + c.contribution_content}}</p> -->
+<p >{{a}}</p>
+<!-- <ngx-doc-viewer
+[viewerUrl]="'https://docs.google.com/gview?url=%URL%&embedded=true'"
+  [url]="'https://docs.google.com/document/d/1r4P--XuMih2pEzfusDjKa7qwau8o_P9e/edit?usp=drive_link&ouid=117246478324494449004&rtpof=true&sd=true'"
+  viewer="url"
+  style="width:100%;height:50vh;"
+></ngx-doc-viewer> -->
+<!-- <ngx-doc-viewer
+  [viewerUrl] =" 'https://docs.google.com/gview?url=%URL%&embedded=true' "
+   [url] =" 'https://docs.google.com/document/d/1r4P--XuMih2pEzfusDjKa7qwau8o_P9e/edit?usp=drive_link&ouid=117246478324494449004&rtpof=true&sd=true' "
+   Viewer =" url "
+   style =" width:100%;height:50vh; "
+ >
+</ngx-doc-viewer > -->
+
+<!-- <div>
+  <iframe src="http://docs.google.com/gview?url=http://localhost:7195/Articles/Report.docx&embedded=true" width="100%" height="650px" frameBorder="0"></iframe> -->
+  <!-- <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=https://localhost:7195/Articles/Report.docx' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe> -->
+  <!-- <iframe src='https://docs.google.com/gview?url=https://localhost:7195/Articles/Report.docx' width='100%' height='650px' frameborder='0'></iframe> -->
+  <!-- <iframe [src]="a" width="1100px" height="500px" frameBorder="0"></iframe> -->
+  <!-- <iframe [src]="'https://view.officeapps.live.com/op/embed.aspx?src=https://localhost:7195/Articles/Report.docx'" width="100%" height="650px" frameBorder="0"></iframe> -->
+<!-- </div> -->
+
+<!-- <div>
+  <input type="file" (change)="onFileSelected($event)" name="" id="">
+</div>
+<div *ngIf="wordContent">
+  <pre>{{ wordContent }}</pre>
+</div> -->
+
+<div class="office-viewer">
+	<iframe [src]='urlSafe' width='100%' height='100%' frameborder='0'></iframe>
+</div>
