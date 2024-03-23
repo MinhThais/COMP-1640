@@ -1,3 +1,4 @@
+import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
 import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
@@ -28,6 +29,7 @@ import { AdminAccountComponent } from './components/admin/admin-account/admin-ac
 import { ChangePasswordComponent } from './components/account/changePassword/change-password/change-password.component';
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
+import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -48,6 +50,9 @@ const routes: Routes = [
   {path:'Old-Password', component:OldPasswordComponent},
   {path:'Change-Password', component:ChangePasswordComponent},
 
+  //Guest
+  {path:'Guest-Statistic', component: GuestStatisticComponent},
+
   //Student
   {path:'View-Student', component: StudentViewingComponent},
   {path:'View-StudentArticleDetail', component: StudentCommentComponent},
@@ -57,6 +62,7 @@ const routes: Routes = [
   {path:'Add-Comment/:id', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
+  {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},

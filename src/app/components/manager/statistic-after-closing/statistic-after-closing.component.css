@@ -106,8 +106,8 @@ table{
 .public p{
     font-weight: bold;
     font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     color: rgb(255, 0, 0);
 }
 
@@ -148,6 +148,13 @@ tr:hover td{
     color: #ff014fff;
     cursor: pointer;
     background-color: #f6f9fc;
+}
+
+/*Academic Year*/
+#select-option{
+    width: 15em;
+    margin-left: 5x;
+    margin-bottom: 10px;
 }
 
 /* .pagination{

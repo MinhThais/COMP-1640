@@ -70,15 +70,25 @@
                 </ul>
               </li>
 
-              <li *ngIf="this.role === 'Admin' || this.role === 'Manager'" ngbDropdown class="nav-item dropdown">
+              <li *ngIf="this.role === 'Guest' || this.role === 'Admin' || this.role === 'Manager'" ngbDropdown class="nav-item dropdown">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Statistic
                 </a>
                 <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+                  <!-- Admin -->
                   <li><a ngbDropdownItem class="dropdown-item" routerLink="/Admin-Statistic">Faculty-Wide</a></li>
+
+                  <!-- Coordinator -->
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-CoordinatorStatistic">Faculty</a></li>
+
+                  <!-- Guest -->
+                  <li><a ngbDropdownItem class="dropdown-item" routerLink="/Guest-Statistic">Faculty</a></li>
+
+                  <!-- Admin and Manager -->
                   <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerBeforeClosing">Before Closing</a></li>
                   <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-ManagerAfterClosing">After Closing</a></li>
+
                 </ul>
               </li>
 
