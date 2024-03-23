@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   main {
     font-family: sans-serif;
     min-height: 100vh;
@@ -11,29 +11,29 @@
     line-height: 1.4;
     padding: 20px 100px;
   }
-  
+
   .container {
-    max-width: 1200px;
+    max-width: 100%;
   }
-  
+
   .heading-1 {
     font-size: 40px;
     text-transform: uppercase;
   }
-  
+
   .heading-2 {
     font-size: 40px;
     line-height: 1.1;
     margin-bottom: 20px;
   }
-  
+
   .heading-3 {
     font-size: 20px;
     text-transform: uppercase;
     color: crimson;
     margin-bottom: 10px;
   }
-  
+
   .sub-heading {
     font-size: 20px;
     display: flex;
@@ -42,81 +42,81 @@
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
   }
-  
+
   .sub-heading p {
     font-weight: 700;
     text-transform: capitalize;
     margin-right: 10px;
   }
-  
+
   .sub-heading span {
     color: #555;
     font-weight: 300;
     border-right: 1px solid #ccc;
     padding-right: 10px;
   }
-  
+
   .sub-heading .importent {
     color: crimson;
     text-transform: uppercase;
     font-weight: 300;
   }
-  
+
   /* HOME */
   .home {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 40px;
   }
-  
+
   .home-img {
     width: 100%;
   }
-  
+
   .lists{
     overflow: auto;
     height: 380px;
     margin-bottom: 20px;
   }
-  
-  
+
+
   .list {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
   }
-  
+
   .list .button-button{
     background-color: transparent;
     border: transparent;
   }
-  
+
   .list .button-button i{
     color: rgb(97, 97, 97);
     margin-right: 2px;
   }
-  
+
   .list .button-button i:hover{
     color: black;
   }
-  
-  
-  
+
+
+
   /* ARTICLE */
   article > p {
     font-size: 20px;
     margin-bottom: 20px;
-  
+
     columns: 3 25ch;
     column-gap: 40px;
     hyphens: auto;
   }
-  
+
   article p:first-child::first-line {
     font-weight: 700;
     font-size: 25px;
   }
-  
+
   /*Textarea*/
   .area .area-textarea{
     pointer-events: none;
@@ -130,17 +130,17 @@
       border-radius: 5px;
       margin-top: 20px;
   }
-  
+
   .area .area-textarea:is(:focus, :valid){
     border-color: #29d8d8;
     border-width: 2px;
     padding: 14p;
   }
-  
+
   .area .area-textarea::-webkit-scrollbar{
     width: 0px;
   }
-  
+
   /* blockquote */
   blockquote {
     font-size: 20px;
@@ -148,7 +148,7 @@
     margin-bottom: 40px;
     position: relative;
   }
-  
+
   blockquote::before {
     content: open-quote;
     position: absolute;
@@ -158,20 +158,20 @@
     color: #666;
     font-size: 150px;
   }
-  
+
   .cards {
     columns: 25ch 3;
     gap: 40px;
     margin-bottom: 40px;
   }
-  
+
   .card {
     font-size: 20px;
     border: 1px solid;
     padding: 10px 20px;
     break-inside: avoid;
   }
-  
+
   /* Button */
   .button{
     float: right;
@@ -187,7 +187,7 @@
     transition: 0.5s;
     border-radius: 5px;
   }
-  
+
   .button:hover{
     background: var(--clr);
     color: white;
@@ -195,7 +195,7 @@
     box-shadow: 0 0 35px var(--clr);
     border-radius: 5px;
   }
-  
+
   .button::before{
     content: '';
     position: absolute;
@@ -203,20 +203,20 @@
     background: rgb(39, 249, 123);
     border-radius: 5px;
   }
-  
+
   .button span{
     position: relative;
     z-index: 1;
   }
 
-  
+
   .button i{
     position: absolute;
     inset: 0;
     display: block;
-  
+
   }
-  
+
   .button i::before{
     content: '';
     position: absolute;
@@ -228,12 +228,12 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button:hover i::before{
     width: 20px;
     left: 20%;
   }
-  
+
   .button i::after{
     content: '';
     position: absolute;
@@ -245,7 +245,7 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button:hover i::after{
     width: 20px;
     left: 80%;
@@ -266,7 +266,7 @@
     transition: 0.5s;
     border-radius: 5px;
   }
-  
+
   .button-1:hover{
     background: var(--clr);
     color: white;
@@ -274,7 +274,7 @@
     box-shadow: 0 0 35px var(--clr);
     border-radius: 5px;
   }
-  
+
   .button-1::before{
     content: '';
     position: absolute;
@@ -282,19 +282,19 @@
     background: #dc3545;
     border-radius: 5px;
   }
-  
+
   .button-1 span{
     position: relative;
     z-index: 1;
   }
-  
+
   .button-1 i{
     position: absolute;
     inset: 0;
     display: block;
-  
+
   }
-  
+
   .button-1 i::before{
     content: '';
     position: absolute;
@@ -306,12 +306,12 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button-1:hover i::before{
     width: 20px;
     left: 20%;
   }
-  
+
   .button-1 i::after{
     content: '';
     position: absolute;
@@ -323,7 +323,7 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button-1:hover i::after{
     width: 20px;
     left: 80%;
@@ -346,7 +346,7 @@
     transition: 0.5s;
     border-radius: 5px;
   }
-  
+
   .button-pass:hover{
     background: var(--clr);
     color: white;
@@ -354,7 +354,7 @@
     box-shadow: 0 0 35px var(--clr);
     border-radius: 5px;
   }
-  
+
   .button-pass::before{
     content: '';
     position: absolute;
@@ -362,19 +362,19 @@
     background: #dc3545;
     border-radius: 5px;
   }
-  
+
   .button-pass span{
     position: relative;
     z-index: 1;
   }
-  
+
   .button-pass i{
     position: absolute;
     inset: 0;
     display: block;
-  
+
   }
-  
+
   .button-pass i::before{
     content: '';
     position: absolute;
@@ -386,12 +386,12 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button-pass:hover i::before{
     width: 20px;
     left: 20%;
   }
-  
+
   .button-pass i::after{
     content: '';
     position: absolute;
@@ -403,36 +403,35 @@
     transform: translateX(-50%) skewX(325deg);
     transition: 0.5s;
   }
-  
+
   .button-pass:hover i::after{
     width: 20px;
     left: 80%;
   }
-  
-  
+
+
   @media (max-width: 950px) {
     .home {
       grid-template-columns: 1fr;
     }
-  
+
     .lists {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-  
+
     .list {
       grid-template-columns: 1fr 5fr;
     }
-  
+
     .card {
       margin-bottom: 40px;
     }
   }
-  
+
   @media (max-width: 650px) {
     .lists {
       grid-template-columns: 1fr;
     }
   }
-  

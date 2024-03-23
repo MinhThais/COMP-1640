@@ -27,21 +27,23 @@ export class ManagementFacultyComponent implements OnInit{
   }
 
   deleteFaculty(faculty_id:number){
-    this.facultyAPI.deleteFaculty(faculty_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
-      });
+    if(confirm("Are you sure to delete?")){
+      this.facultyAPI.deleteFaculty(faculty_id).subscribe(res => {
+        this.toast.success(res.message, 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
 
-      this.ngOnInit();
-    },
-    error => {
-      this.toast.error(error.error.message, 'Error', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
+        this.ngOnInit();
+      },
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
       });
-    });
+    }
   }
 }

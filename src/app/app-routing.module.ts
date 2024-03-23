@@ -45,6 +45,8 @@ const routes: Routes = [
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
+  {path:'Old-Password', component:OldPasswordComponent},
+  {path:'Change-Password', component:ChangePasswordComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -52,7 +54,7 @@ const routes: Routes = [
 
   //Coordinator
   {path:'View-Comment', component: CommentViewingComponent},
-  {path:'Add-Comment', component: CommentAddingComponent},
+  {path:'Add-Comment/:id', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
 

@@ -88,5 +88,22 @@ export class UserService {
   renewToken(tokenApi:TokenApiModel){
     return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi);
   }
+
+  CheckOldPass(username:string, password:string){
+    const params = new HttpParams()
+    .set('username', username)
+    .set('password', password);
+
+    return this.http.put<any>(`${this.baseUrl}check-old-password`, {}, {params});
+  }
+
+  ChangePass(password:string, confirmpassword:string, username:string){
+    const params = new HttpParams()
+    .set('newPass', password)
+    .set('conPass', confirmpassword)
+    .set('username', username);
+
+    return this.http.put<any>(`${this.baseUrl}ChangePassword`, {}, {params});
+  }
 }
 

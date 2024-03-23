@@ -50,22 +50,24 @@ export class ManagementArticlesComponent implements OnInit{
 
 
   deleteContribution(contribution_id : number){
-    this.article.deleteArticle(contribution_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
-      });
+    if(confirm("Are you sure to delete?")){
+      this.article.deleteArticle(contribution_id).subscribe(res => {
+        this.toast.success(res.message, 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
 
-      this.ngOnInit();
-    },
-    error => {
-      this.toast.error(error.error.message, "Error", {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
+        this.ngOnInit();
+      },
+      error => {
+        this.toast.error(error.error.message, "Error", {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
       });
-    })
+    }
   }
 
 }
