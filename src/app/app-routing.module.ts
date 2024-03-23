@@ -30,13 +30,16 @@ import { ChangePasswordComponent } from './components/account/changePassword/cha
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
 import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
+import { GuestViewArticleDetailComponent } from './components/guest/guest-view-article-detail/guest-view-article-detail.component';
+import { ManagePublishedArticleComponent } from './components/manager/manage-published-article/manage-published-article.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
   {path:'Reset-Password', component: ResetPasswordComponent},
   {path:'Profile', component: ProfileComponent},
   {path:'View-Articles', component: ViewArticlesComponent},
-  {path:'Detail-Articles/:id', component: DetailArticlesComponent},
+  // {path:'Detail-Articles/:id', component: DetailArticlesComponent},
+  {path:'Detail-Articles', component: DetailArticlesComponent},
   {path:'Create-Account', component: CreateAccountComponent},
   {path:'Management-Articles', component: ManagementArticlesComponent},
   {path:'Add-Articles', component: AddArticlesComponent},
@@ -47,9 +50,12 @@ const routes: Routes = [
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
+  {path:'Old-Password', component:OldPasswordComponent},
+  {path:'Change-Password', component:ChangePasswordComponent},
 
   //Guest
   {path:'Guest-Statistic', component: GuestStatisticComponent},
+  {path:'Guest-ViewArticleDetail', component: GuestViewArticleDetailComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -57,7 +63,7 @@ const routes: Routes = [
 
   //Coordinator
   {path:'View-Comment', component: CommentViewingComponent},
-  {path:'Add-Comment', component: CommentAddingComponent},
+  {path:'Add-Comment/:id', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
   {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
@@ -66,6 +72,7 @@ const routes: Routes = [
   {path:'View-ManagerHome', component: ManagerHomeComponent},
   {path:'View-ManagerBeforeClosing', component: StatisticBeforeClosingComponent},
   {path:'View-ManagerAfterClosing', component: StatisticAfterClosingComponent},
+  {path:'View-PublishedArticles', component: ManagePublishedArticleComponent},
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},

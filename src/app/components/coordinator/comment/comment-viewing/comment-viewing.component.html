@@ -1,13 +1,13 @@
 <main>
 
     <div class="public">
-        <p class="public-p1">Due Date:</p> 
+        <p class="public-p1">Due Date:</p>
         <p class="public-p2"> 14 days</p>
-        
+
     </div>
 
     <div class="table">
-        
+
         <div class="table_section">
             <table>
                 <thead>
@@ -21,21 +21,36 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let i of lstArticle">
                     <tr>
-                        <td>1</td>
-                        <td>TranChiHuynh</td>
-                        <td><img src="/assets/img/a.jpg" alt=""></td>
-                        <td>Article</td>
-                        <td>5/3/2024</td>
-                        <td>5/4/2024</td>
+                        <td>{{i.user_id}}</td>
+                        <td>{{i.username}}</td>
+                        <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
+                        <td>{{i.contribution_title}}</td>
+                        <td>{{i.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
+                        <td>{{i.final_clouser_date | date : 'yyyy-MM-dd'}}</td>
                         <td>
-                            <button routerLink="/Add-Comment"><i class="fa-solid fa-eye"></i></button>          
+                            <button [routerLink]="['/Add-Comment', i.contribution_id]"><i class="fa-solid fa-eye"></i></button>
                         </td>
                     </tr>
                 </tbody>
+<!-- 
+                <tbody >
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button [routerLink]=""><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
+                </tbody> -->
+
             </table>
         </div>
     </div>
   </main>
-  
+

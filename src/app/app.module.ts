@@ -41,6 +41,8 @@ import { OldPasswordComponent } from './components/account/changePassword/old-pa
 import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
+import { GuestViewArticleDetailComponent } from './components/guest/guest-view-article-detail/guest-view-article-detail.component';
+import { ManagePublishedArticleComponent } from './components/manager/manage-published-article/manage-published-article.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { GuestStatisticComponent } from './components/guest/guest-statistic/gues
     OldPasswordComponent,
     CoordinatorStatisticComponent,
     GuestStatisticComponent,
+    GuestViewArticleDetailComponent,
+    ManagePublishedArticleComponent,
   ],
 
   imports: [

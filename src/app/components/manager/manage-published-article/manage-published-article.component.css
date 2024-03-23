@@ -75,12 +75,12 @@ td button:nth-child(3):hover{
 .button-waiting{
     background-color: rgb(110 132 119) !important;
 }
-.button-reject1{
+.button-private{
     color: white;
     background-color: #dc3545 !important;
     width: 98.34px;
 }
-.button-approve1{
+.button-public{
     background-color: rgb(39, 249, 123) !important;
     width: 98.34px;
 }
@@ -93,11 +93,11 @@ td button:nth-child(3):hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
 }
-.button-reject1:hover{
+.button-private:hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
 }
-.button-approve1:hover{
+.button-public:hover{
     background-color: #dc3545 !important;
     box-shadow: 0 0 10px #dc3545;
 }
@@ -108,10 +108,10 @@ td button:nth-child(3):hover{
 .button-pass::before{
     content: 'Pass';
 } */
-.button-reject1::before{
+.button-private::before{
     content: 'Rejected';
 }
-.button-approve1::before{
+.button-public::before{
     content: 'Approved';
 }
 
@@ -121,10 +121,10 @@ td button:nth-child(3):hover{
 .button-pass:hover::before{
     content: 'Fail';
 } */
-.button-reject1:hover::before{
+.button-private:hover::before{
     content: 'Approved';
 }
-.button-approve1:hover::before{
+.button-public:hover::before{
     content: 'Rejected';
 }
 
