@@ -109,10 +109,10 @@ td button:nth-child(3):hover{
     content: 'Pass';
 } */
 .button-private::before{
-    content: 'Rejected';
+    content: 'Private';
 }
 .button-public::before{
-    content: 'Approved';
+    content: 'Public';
 }
 
 /* .button-fail:hover::before{
@@ -122,10 +122,10 @@ td button:nth-child(3):hover{
     content: 'Fail';
 } */
 .button-private:hover::before{
-    content: 'Approved';
+    content: 'Public';
 }
 .button-public:hover::before{
-    content: 'Rejected';
+    content: 'Private';
 }
 
 
