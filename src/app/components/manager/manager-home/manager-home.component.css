@@ -4,8 +4,23 @@
 
 /* Button */
 .div-button{
-    display: flow-root;
+    display: grid;
     margin-bottom: 10px;
+}
+
+#select-option{
+    width: 260px;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}
+
+.download-button{
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    width: 260px;
+    border: 1px solid red !important;
+    padding: 3px 5px 3px 5px;
 }
 
 #btn-readMore{
@@ -18,3 +33,13 @@
     color: rgb(255, 255, 255);
     background-color: #ff014fff;
 }
+
+@media (max-width: 286px) {
+    #select-option{
+        width: 100%;
+    }
+    
+    .download-button{
+        width: 100%;
+    }
+  }
