@@ -40,6 +40,7 @@ import { StatisticBeforeClosingComponent } from './components/manager/statistic-
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
 import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     StatisticBeforeClosingComponent,
     OldPasswordComponent,
     CoordinatorStatisticComponent,
+    GuestStatisticComponent,
   ],
 
   imports: [
