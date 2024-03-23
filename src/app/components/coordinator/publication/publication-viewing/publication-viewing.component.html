@@ -35,13 +35,13 @@
                             <button routerLink="/View-Pub" class="button-pass"></button>
                         </td>
                         <td>
-                            <!-- <button routerLink="/View-Pub" class="button-waiting">
-                                Waiting</button> -->
-                            <!-- <button routerLink="/View-Pub" class="button-private"> </button> -->
-                            <button routerLink="/View-Pub" class="button-public"> </button>
+                            <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">
+                                Pending</button>
+                            <button *ngIf="i.isView === 'View'" routerLink="/View-Pub" class="button-private"> </button>
+                            <button *ngIf="i.isView === 'View'" routerLink="/View-Pub" class="button-public"> </button>
                         </td>
                         <td>
-                            <button routerLink="/Detail-Pub"><i class="fa-solid fa-eye"></i></button>
+                            <button routerLink="/Detail-Pub" (click)="view(i.contribution_id)"><i class="fa-solid fa-eye"></i></button>
                         </td>
                     </tr>
                 </tbody>

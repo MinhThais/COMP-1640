@@ -50,4 +50,21 @@ export class PublicationViewingComponent implements OnInit{
       this.lstArticle = data;
     });
   }
+
+  view(contribution_id:number){
+    this.article.ViewArticle(contribution_id).subscribe(res => {
+      this.toast.success(res.message, 'Success', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+    },
+    error => {
+      this.toast.error(error.error.message, 'Error', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+    });
+  }
 }

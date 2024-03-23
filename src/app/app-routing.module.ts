@@ -29,6 +29,7 @@ import { AdminAccountComponent } from './components/admin/admin-account/admin-ac
 import { ChangePasswordComponent } from './components/account/changePassword/change-password/change-password.component';
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
+import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -46,6 +47,11 @@ const routes: Routes = [
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
   {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
+  {path:'Old-Password', component:OldPasswordComponent},
+  {path:'Change-Password', component:ChangePasswordComponent},
+
+  //Guest
+  {path:'Guest-Statistic', component: GuestStatisticComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -53,7 +59,7 @@ const routes: Routes = [
 
   //Coordinator
   {path:'View-Comment', component: CommentViewingComponent},
-  {path:'Add-Comment', component: CommentAddingComponent},
+  {path:'Add-Comment/:id', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
   {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},

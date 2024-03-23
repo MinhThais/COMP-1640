@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -45,6 +45,12 @@ export class ArticleService {
 
   UpdateArticles(formData:any){
     return this.http.post<any>(this.baseUrl + "Update-Article", formData);
+  }
+
+  ViewArticle(contribution_id:number){
+    const params = new HttpParams()
+    .set('contribution_id', contribution_id);
+    return this.http.put<any>(`${this.baseUrl}View`, {}, {params});
   }
 
   getArticleContent(contribution_id:number) : Observable<any>{
