@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit{
   resetPasswordEmail !: string;
   isValidEmail !: boolean;
 
+  role : string = "";
+
   constructor(
     private fb: FormBuilder,
     private api: APIService,
@@ -61,7 +63,26 @@ export class LoginComponent implements OnInit{
             positionClass: 'toast-top-center',
           });
 
-          this.router.navigate(['/View-Articles']);
+          this.userStore.getRoleFromStore().subscribe(res => {
+            let roleFromToken = this.auth.getRoleFromToken();
+            this.role = res || roleFromToken;
+          });
+
+          if(this.role === "Admin"){
+            this.router.navigate(['/View-Articles']);
+          }
+          else if(this.role === "Coordinator"){
+            this.router.navigate(['/View-Pub']);
+          }
+          else if(this.role === "Student"){
+            this.router.navigate(['/View-Student']);
+          }
+          else if(this.role === "Manager"){
+            this.router.navigate(['/View-Articles']);
+          }
+          else{
+            this.router.navigate(['/View-Articles']);
+          }
         },
         error =>{
           this.toast.error(error.error.message, 'Error!', {

@@ -38,6 +38,8 @@ import { ChangePasswordComponent } from './components/account/changePassword/cha
 import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StatisticBeforeClosingComponent } from './components/manager/statistic-before-closing/statistic-before-closing.component';
 import { OldPasswordComponent } from './components/account/changePassword/old-password/old-password.component';
+import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { OldPasswordComponent } from './components/account/changePassword/old-pa
     StatisticAfterClosingComponent,
     StatisticBeforeClosingComponent,
     OldPasswordComponent,
+    CoordinatorStatisticComponent,
   ],
 
   imports: [
@@ -88,6 +91,7 @@ import { OldPasswordComponent } from './components/account/changePassword/old-pa
       preventDuplicates: true,
       progressBar: true,
     }),
+    NgxDocViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

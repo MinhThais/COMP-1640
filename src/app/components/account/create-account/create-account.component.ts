@@ -52,9 +52,9 @@ export class CreateAccountComponent implements OnInit{
       ],
       user_password: ['', Validators.required],
       user_confirmPassword: ['', Validators.required],
-      user_birthday: ['', Validators.required],
+      // user_birthday: ['', Validators.required],
       user_faculty: [''],
-      user_gender: ['', Validators.required],
+      // user_gender: ['', Validators.required],
       user_role: [''],
     })
   }
@@ -98,7 +98,7 @@ export class CreateAccountComponent implements OnInit{
         user_email: this.createForm.get('user_email')?.value,
         user_password: this.createForm.get('user_password')?.value,
         user_confirm_password: this.createForm.get('user_confirmPassword')?.value,
-        user_gender: this.createForm.get('user_gender')?.value,
+        // user_gender: this.createForm.get('user_gender')?.value,
         // role : {"role_id": this.selectRole, "role_name": this.roleName},
         // faculties : { "faculty_id": this.selectFaculty, "faculty_name": this.facultyName}
         user_role_id: this.selectRole,
@@ -112,7 +112,7 @@ export class CreateAccountComponent implements OnInit{
           positionClass: 'toast-top-center',
         });
         this.createForm.reset();
-        this.route.navigate(['']);
+        this.route.navigate(['/Admin-Account']);
       },
       error => {
         this.toast.error(error.error.message, 'Error!', {

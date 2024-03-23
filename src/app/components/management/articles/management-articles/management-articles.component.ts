@@ -34,7 +34,7 @@ export class ManagementArticlesComponent implements OnInit{
   }
 
   getArticle(username:string) {
-    this.article.getArticleOfStudent(username).subscribe(data => {
+    this.article.getAllArticleOfStudent(username).subscribe(data => {
       this.lstArticles = data;
       this.pathImg = this.article.Img;
       this.pathDoc = this.article.doc;
@@ -48,5 +48,24 @@ export class ManagementArticlesComponent implements OnInit{
     })
   }
 
+
+  deleteContribution(contribution_id : number){
+    this.article.deleteArticle(contribution_id).subscribe(res => {
+      this.toast.success(res.message, 'Success', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+
+      this.ngOnInit();
+    },
+    error => {
+      this.toast.error(error.error.message, "Error", {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+    })
+  }
 
 }

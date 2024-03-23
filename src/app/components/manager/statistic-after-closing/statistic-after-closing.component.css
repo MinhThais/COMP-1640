@@ -150,6 +150,13 @@ tr:hover td{
     background-color: #f6f9fc;
 }
 
+/*Academic Year*/
+#select-option{
+    width: 15em;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}
+
 /* .pagination{
     display: flex;
     justify-content: flex-end;

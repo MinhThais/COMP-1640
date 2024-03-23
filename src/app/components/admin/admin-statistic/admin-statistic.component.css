@@ -197,3 +197,10 @@ tr:hover td{
 ::-webkit-scrollbar-thumb{
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+
+/*Academic Year*/
+#select-option{
+    width: 15em;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}

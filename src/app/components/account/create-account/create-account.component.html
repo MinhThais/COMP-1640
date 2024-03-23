@@ -57,23 +57,23 @@
                 <small *ngIf="createForm.controls['user_role'].dirty && createForm.hasError('required', 'user_role')" class="text-danger">*Role is required</small>
               </div>
 
-              <div class="input-box" >
+              <!-- <div class="input-box" >
                 <label for="birthday" style="font-weight: 500; color: var(--grey-color); margin-top: 5px;">Birthday:</label>
                 <input formControlName="user_birthday" type="date" id="birthday" name="birthday" required>
                 <small *ngIf="createForm.controls['user_birthday'].dirty && createForm.hasError('required', 'user_birthday')" class="text-danger">*Birthday is required</small>
-              </div>
+              </div> -->
 
           </div>
 
-            <div class="gender-details">
+            <!-- <div class="gender-details">
               <span style="font-weight: 500; color: var(--grey-color);">Gender</span><br>
               <div style="display: flex;">
                 <input formControlName="user_gender" type="radio" value="Male" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Male</p>
                 <input formControlName="user_gender" type="radio" value="Female" style="margin-right: 10px;"><p style="margin-top: 13px; margin-right: 45px;">Female</p>
-                <input formControlName="user_gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Prefer not to say</p>
+                <input formControlName="user_gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Other</p>
               </div>
             </div>
-            <small *ngIf="createForm.controls['user_gender'].dirty && createForm.hasError('required', 'user_gender')" class="text-danger">*Gender is required</small>
+            <small *ngIf="createForm.controls['user_gender'].dirty && createForm.hasError('required', 'user_gender')" class="text-danger">*Gender is required</small> -->
 
             <div class="button">
               <input type="submit" value="Create" (click)="onCreate()">

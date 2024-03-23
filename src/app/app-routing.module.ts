@@ -1,3 +1,4 @@
+import { CoordinatorStatisticComponent } from './components/coordinator/coordinator-statistic/coordinator-statistic.component';
 import { StatisticAfterClosingComponent } from './components/manager/statistic-after-closing/statistic-after-closing.component';
 import { StudentViewingComponent } from './components/student/student-viewing/student-viewing.component';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,7 @@ const routes: Routes = [
   {path:'Reset-Password', component: ResetPasswordComponent},
   {path:'Profile', component: ProfileComponent},
   {path:'View-Articles', component: ViewArticlesComponent},
-  {path:'Detail-Articles', component: DetailArticlesComponent},
+  {path:'Detail-Articles/:id', component: DetailArticlesComponent},
   {path:'Create-Account', component: CreateAccountComponent},
   {path:'Management-Articles', component: ManagementArticlesComponent},
   {path:'Add-Articles', component: AddArticlesComponent},
@@ -44,9 +45,7 @@ const routes: Routes = [
   {path:'Update-AcademicYear/:id', component: UpdateAcademicYearComponent},
   {path:'Management-Faculty', component: ManagementFacultyComponent},
   {path:'Add-Faculty', component: AddFacultyComponent},
-  {path:'Update-Faculty', component: UpdateFacultyComponent},
-  {path:'Old-Password', component: OldPasswordComponent},
-  {path:'Change-Password', component: ChangePasswordComponent},
+  {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -57,6 +56,7 @@ const routes: Routes = [
   {path:'Add-Comment', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub', component: PublicationDetailComponent},
+  {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},
