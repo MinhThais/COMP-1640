@@ -1,19 +1,17 @@
 <main>
 
     <div class="public">
-        <p class="public-p1">Faculties Statistic</p>     
+        <p class="public-p1">Faculties Statistic</p>
     </div>
 
-    <select id="select-option" class="form-select" aria-label="Default select example">
-        <option selected>Choose Academic Year</option>
-        <option  value="1">05/03/2024 - 05/04/2024</option>
+    <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
+        <option value="0" selected>All Academic Year</option>
+        <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
     </select>
 
     <div class="table">
-        
+
         <div class="table_section">
-           
-            
             <table>
                 <thead>
                     <tr>
@@ -26,23 +24,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Academic Year 1</td>
-                        <td>05/03/2024</td>
-                        <td>05/04/2024</td>    
-                        <td>100</td>
-                        <td>200</td>
+                    <tr *ngFor="let s of lstStatistic">
+                        <td>{{s.academic_year_id}}</td>
+                        <td>{{s.title}}</td>
+                        <td>{{s.startDate | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{s.endDate | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{s.usersCount}}</td>
+                        <td>{{s.contribution}}</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 
-            
+
         </div>
     </div>
 
 
-    
+
   </main>
-  
+
