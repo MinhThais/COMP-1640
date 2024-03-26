@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row flex-lg-nowrap">
-        
+
           <div class="col" style=" margin-top: 20px;">
             <div class="row">
               <div class="col mb-3">
@@ -30,8 +30,8 @@
                                     <div class="col" style="display: flex;">
                                         <div class="input-box" >
                                             <label for="startday" style="font-weight: 600; color: var(--grey-color); margin-top: 5px; margin-left: 15px">Closure Date:</label>
-                                            <input formControlName="academic_Year_startClosureDate" type="date" id="Date1" name="startday" required style="margin-left: 60px;">
-                                            <small style="margin-left: 10px;" *ngIf="addAcademicForm.controls['academic_Year_startClosureDate'].dirty && addAcademicForm.hasError('required', 'academic_Year_startClosureDate')" class="text-danger">*Start Closure Date is required</small>
+                                            <input formControlName="academic_Year_ClosureDate" type="date" id="Date1" name="startday" required style="margin-left: 60px;">
+                                            <small style="margin-left: 10px;" *ngIf="addAcademicForm.controls['academic_Year_ClosureDate'].dirty && addAcademicForm.hasError('required', 'academic_Year_ClosureDate')" class="text-danger">*Closure Date is required</small>
                                         </div>
                                     </div>
                                 </div>
@@ -40,15 +40,15 @@
                                     <div class="col" style="display: flex;">
                                         <div class="input-box" >
                                             <label for="endday" style="font-weight: 600; color: var(--grey-color); margin-top: 5px; margin-left: 15px">Final Closure Date:</label>
-                                            <input formControlName="academic_Year_endClosureDate" type="date" id="Date2" name="endday" required>
-                                            <small style="margin-left: 10px;" *ngIf="addAcademicForm.controls['academic_Year_endClosureDate'].dirty && addAcademicForm.hasError('required', 'academic_Year_endClosureDate')" class="text-danger">*End Closure Date is required</small>
+                                            <input formControlName="academic_Year_FinalClosureDate" type="date" id="Date2" name="endday" required>
+                                            <small style="margin-left: 10px;" *ngIf="addAcademicForm.controls['academic_Year_FinalClosureDate'].dirty && addAcademicForm.hasError('required', 'academic_Year_FinalClosureDate')" class="text-danger">*Final Closure Date is required</small>
                                         </div>
                                     </div>
                                 </div>
 
-                                
+
                             </div>
-                  
+
                           </div>
                           <div class="row">
                             <div  class="col d-flex justify-content-end">
@@ -57,7 +57,7 @@
                             </div>
                           </div>
                         </form>
-      
+
                       </div>
                     </div>
                   </div>
@@ -65,7 +65,7 @@
               </div>
             </div>
           </div>
-      
+
         </div>
       </div>
       </div>

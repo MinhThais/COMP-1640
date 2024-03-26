@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
 import { AcademicYearService } from 'src/app/services/academic-year.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -17,35 +18,46 @@ export class AddAcademicYearComponent {
     private fb: FormBuilder,
     private auth: UserService,
     private addAcademicYear: AcademicYearService,
-    private route: Router
+    private route: Router,
+    private toast:ToastrService
     ){
   }
 
   ngOnInit(): void {
     this.addAcademicForm = this.fb.group({
       academic_year_title:['', Validators.required],
-      academic_Year_startClosureDate:['', Validators.required],
-      academic_Year_endClosureDate:['', Validators.required]
+      academic_Year_ClosureDate:['', Validators.required],
+      academic_Year_FinalClosureDate:['', Validators.required]
     })
   }
 
   addAcademic(){
     if(this.addAcademicForm.valid){
-      const startClosureDate = moment(new Date(this.addAcademicForm.get('academic_Year_startClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
-      const endClosureDate = moment(new Date(this.addAcademicForm.get('academic_Year_endClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
+      const ClosureDate = moment(new Date(this.addAcademicForm.get('academic_Year_ClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
+      const finalClosureDate = moment(new Date(this.addAcademicForm.get('academic_Year_FinalClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
 
       let academicYear = {
         academic_year_title:this.addAcademicForm.get('academic_year_title')?.value,
-        academic_Year_startClosureDate: startClosureDate,
-        academic_Year_endClosureDate: endClosureDate
+        academic_Year_ClosureDate: ClosureDate,
+        academic_Year_FinalClosureDate: finalClosureDate
       }
-        this.addAcademicYear.addAcademicYear(academicYear).subscribe(
+
+      this.addAcademicYear.addAcademicYear(academicYear).subscribe(
         (res)=>{
+          this.toast.success(res.message, "Success", {
+            timeOut: 3000,
+            progressBar: true,
+            positionClass: 'toast-top-center'
+          });
           this.addAcademicForm.reset();
           this.route.navigate(["Management-AcademicYear"])
         },
         (err) =>{
-          console.log(err)
+          this.toast.error(err.error.message, 'Error', {
+            timeOut: 3000,
+            progressBar: true,
+            positionClass: 'toast-top-center'
+          });
         }
       );
     }
@@ -54,7 +66,7 @@ export class AddAcademicYearComponent {
         const control = this.addAcademicForm.get(field);
         if (control instanceof FormControl) {
           control.markAsDirty({ onlySelf: true });
-        } 
+        }
       });
     }
   }

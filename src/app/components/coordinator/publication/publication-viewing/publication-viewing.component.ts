@@ -16,7 +16,6 @@ export class PublicationViewingComponent implements OnInit{
   pathImg : string = "";
   pathDoc : string = "";
 
-
   constructor(
     private article:ArticleService,
     private toast:ToastrService,
@@ -58,6 +57,42 @@ export class PublicationViewingComponent implements OnInit{
         progressBar: true,
         positionClass: 'toast-top-center'
       });
+    },
+    error => {
+      this.toast.error(error.error.message, 'Error', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+    });
+  }
+
+  Approve(contribution_id:number){
+    this.article.approve(contribution_id).subscribe(res => {
+      this.toast.success(res.message, 'Success', {
+        timeOut: 3000,
+        progressBar:true,
+        positionClass: 'toast-top-center'
+      });
+      this.ngOnInit();
+    },
+    error => {
+      this.toast.error(error.error.message, 'Error', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
+    });
+  }
+
+  Reject(contribution_id:number){
+    this.article.reject(contribution_id).subscribe(res => {
+      this.toast.success(res.message, 'Success', {
+        timeOut: 3000,
+        progressBar:true,
+        positionClass: 'toast-top-center'
+      });
+      this.ngOnInit();
     },
     error => {
       this.toast.error(error.error.message, 'Error', {
