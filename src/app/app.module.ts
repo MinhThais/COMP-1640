@@ -43,6 +43,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
 import { GuestViewArticleDetailComponent } from './components/guest/guest-view-article-detail/guest-view-article-detail.component';
 import { ManagePublishedArticleComponent } from './components/manager/manage-published-article/manage-published-article.component';
+import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-us-home.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { ManagePublishedArticleComponent } from './components/manager/manage-pub
     GuestStatisticComponent,
     GuestViewArticleDetailComponent,
     ManagePublishedArticleComponent,
+    AboutUsHomeComponent,
   ],
 
   imports: [

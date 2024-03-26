@@ -32,6 +32,7 @@ import { OldPasswordComponent } from './components/account/changePassword/old-pa
 import { GuestStatisticComponent } from './components/guest/guest-statistic/guest-statistic.component';
 import { GuestViewArticleDetailComponent } from './components/guest/guest-view-article-detail/guest-view-article-detail.component';
 import { ManagePublishedArticleComponent } from './components/manager/manage-published-article/manage-published-article.component';
+import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-us-home.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -52,6 +53,9 @@ const routes: Routes = [
   {path:'Update-Faculty/:id', component: UpdateFacultyComponent},
   {path:'Old-Password', component:OldPasswordComponent},
   {path:'Change-Password', component:ChangePasswordComponent},
+
+  //About us
+  {path:'About-Us', component: AboutUsHomeComponent},
 
   //Guest
   {path:'Guest-Statistic', component: GuestStatisticComponent},
