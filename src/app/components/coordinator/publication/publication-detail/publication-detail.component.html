@@ -24,49 +24,36 @@
           <h3 class="heading-3">Comments</h3>
           <div class="lists">
 
-            
-            <div class="list">
+
+            <div class="list" *ngFor="let c of lstcomment">
 
               <div class="comment-left">
 
-                <p class="comment-name">
-                 Huynh-it
+                <p class="comment-name" [ngStyle]="{ border: c.comment_user_id == userID ? '2px solid #29d8d8' : '1px solid #4c6d6d59' }">
+                  {{c.comment_username }}
                 </p>
-              <p class="comment-date">03-01-2024 | 03:33</p>
-              
+                <p class="comment-date">{{c.comment_date | date : 'yyyy-MM-dd | hh:mm'}}</p>
+
               </div>
-              
+
               <div  class="comment-left">
 
-                <!-- <p class="comment-text" [ngStyle]="{ color: c.comment_user_id == userID ? 'red' : 'black' }" >{{c.comment_content}}
-                </p>   -->
+                <p class="comment-isMine" [ngStyle]="{ background: c.comment_user_id == userID ? 'rgb(32 171 171)' : 'rgb(76 109 109 / 59%)' }" >{{c.comment_content}}
+                </p>
 
-                <p class="comment-isMine">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis numquam accusamus officiis, fuga id eos temporibus maiores molestiae facilis. Repellendus dicta illum incidunt provident tenetur ipsam culpa deserunt, officiis praesentium.
-                </p>  
-                
-                
               </div>
-
-              
-              <!-- <div class="div-button">
-                <button class="button-button"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="button-button"><i class="fa-solid fa-trash"></i></button>
-              </div> -->
-            
-
             </div>
           </div>
 
           <div class="area" >
 
-           
+
 
               <textarea class ="area-textarea"  disabled>
               </textarea>
 
-          
-          
+
+
 
             <a class="button" style="--clr:#29d8d8; cursor: pointer;"><span>Send</span><i></i></a>
 
@@ -74,10 +61,10 @@
           </div>
         </div>
       </div>
-  
+
       <blockquote>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio reprehenderit magnam vitae sint laborum quod sapiente assumenda obcaecati. Id, fugit amet. Quas, deserunt quibusdam ex fuga quam sunt cumque debitis.
-        
+
       </blockquote>
     </div>
   </div>
