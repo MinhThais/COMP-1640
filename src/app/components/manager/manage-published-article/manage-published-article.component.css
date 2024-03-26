@@ -93,14 +93,14 @@ td button:nth-child(3):hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
 }
-.button-private:hover{
+/* .button-private:hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
-}
-.button-public:hover{
+} */
+/* .button-public:hover{
     background-color: #dc3545 !important;
     box-shadow: 0 0 10px #dc3545;
-}
+} */
 
 /* .button-fail::before{
     content: 'Fail';
@@ -121,12 +121,12 @@ td button:nth-child(3):hover{
 .button-pass:hover::before{
     content: 'Fail';
 } */
-.button-private:hover::before{
+/* .button-private:hover::before{
     content: 'Public';
-}
-.button-public:hover::before{
+} */
+/* .button-public:hover::before{
     content: 'Private';
-}
+} */
 
 
 .add_new{

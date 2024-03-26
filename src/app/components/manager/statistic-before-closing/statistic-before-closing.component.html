@@ -3,20 +3,19 @@
 <!-- Admin and Manager -->
 
     <div class="public">
-        <p class="public-p1">Contributions have not yet been commented on</p> 
-        
+        <p class="public-p1">Contributions have not yet been commented on</p>
+
     </div>
 
-    <select id="select-option" class="form-select" aria-label="Default select example">
-        <option selected>Choose Academic Year</option>
-        <option  value="1">05/03/2024 - 05/04/2024</option>
+    <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
+        <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
     </select>
 
     <div class="table">
-        
+
         <div class="table_section">
-           
-            
+
+
             <table>
                 <thead>
                     <tr>
@@ -31,27 +30,27 @@
                         <th>Final Closure Date</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="/assets/img/a.jpg" alt=""></td>
-                        <td>1</td>
-                        <td>Article 1</td>
-                        <td>TranChiHuynh</td>
-                        <td>IT</td>
-                        <td>NguyenVanHo</td>
-                        <td>05/03/2024</td>
-                        <td>05/03/2024</td>
-                        <td>05/04/2024</td>
+                <tbody >
+                    <tr *ngFor="let s of lstStatistic">
+                        <td><img src="{{baseImgUrl + s.contributionImages}}" alt=""></td>
+                        <td>{{s.contributionID}}</td>
+                        <td>{{s.contributionTitle}}</td>
+                        <td>{{s.contributor}}</td>
+                        <td>{{s.faculty}}</td>
+                        <td>{{s.coordinator}}</td>
+                        <td>{{s.contributionSubmit | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{s.startDate | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{s.endDate | date: 'yyyy-MM-dd'}}</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
 
-            
+
         </div>
     </div>
 
 
-    
+
   </main>
-  
+

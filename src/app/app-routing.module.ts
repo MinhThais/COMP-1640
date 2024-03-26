@@ -40,7 +40,7 @@ const routes: Routes = [
   {path:'Profile', component: ProfileComponent},
   {path:'View-Articles', component: ViewArticlesComponent},
   // {path:'Detail-Articles/:id', component: DetailArticlesComponent},
-  {path:'Detail-Articles', component: DetailArticlesComponent},
+  {path:'Detail-Articles/:id', component: DetailArticlesComponent},
   {path:'Create-Account', component: CreateAccountComponent},
   {path:'Management-Articles', component: ManagementArticlesComponent},
   {path:'Add-Articles', component: AddArticlesComponent},
@@ -69,7 +69,7 @@ const routes: Routes = [
   {path:'View-Comment', component: CommentViewingComponent},
   {path:'Add-Comment/:id', component: CommentAddingComponent},
   {path:'View-Pub', component: PublicationViewingComponent},
-  {path:'Detail-Pub', component: PublicationDetailComponent},
+  {path:'Detail-Pub/:id', component: PublicationDetailComponent},
   {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
 
   //Manager

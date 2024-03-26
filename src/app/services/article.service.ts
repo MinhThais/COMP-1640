@@ -60,4 +60,29 @@ export class ArticleService {
   deleteArticle(contribution_id:number){
     return this.http.delete<any>(`${this.baseUrl}delete-contribution`, {params : {contribution_id}});
   }
+
+  approve(contribution_id:number){
+
+    return this.http.put<any>(`${this.baseUrl}Approve`, {},{params : {contribution_id}});
+  }
+
+  reject(contribution_id:number){
+    return this.http.put<any>(`${this.baseUrl}Reject`, {}, {params : {contribution_id}});
+  }
+
+  getAllArticlesSelected() : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}Get-All-Articles-Selected`);
+  }
+
+  getAllArticlesPublic() : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}Get-All-Articles-Public`);
+  }
+
+  public(contribution_id:number){
+    return this.http.put<any>(`${this.baseUrl}Public`, {}, {params : {contribution_id}});
+  }
+
+  private(contribution_id:number){
+    return this.http.put<any>(`${this.baseUrl}Private`, {}, {params : {contribution_id}});
+  }
 }
