@@ -1,7 +1,7 @@
 <main class="bg-light">
     <div class="container">
       <div class="text-center my-5">
-        <h1 style="color: rgb(67 0 86);">Articles Public</h1>
+        <h1 style="color: rgb(67 0 86);">Published Articles</h1>
         <hr />
       </div>
 
@@ -10,16 +10,13 @@
           <div class="card mb-5 shadow-sm">
             <img [src]="(pathImg + a.contribution_image)" class="img-fluid" id="img"/>
 
-            <div class="card-body">
+            <div class="card-body" id="card-article">
               <div class="card-title">
-                <h2>{{a.contribution_title}}</h2>
+                <h2 class="title">{{a.contribution_title}}</h2>
               </div>
               <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
+                <p class="content">
+                  Artificial Intelligence (AI) is the field of research and development of computer systems capable of learning and adaptation, aiming to simulate human-like thinking and decision-making abilities, if not better. From recognizing images and voices to predicting trends and interacting with humans, AI has permeated most modern life domains.
                 </p>
               </div>
               <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"

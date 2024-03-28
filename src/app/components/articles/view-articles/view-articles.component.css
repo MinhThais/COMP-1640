@@ -12,3 +12,42 @@
     color: rgb(255, 255, 255);
     background-color: #ff014fff;
 }
+
+.content{
+    height: 100px;
+    overflow: hidden; 
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap;  */
+}
+
+#card-article{
+    height: 250px;
+}
+
+#card-article{
+    height: 270px;
+}
+
+.title{
+    height: 76.79px;
+    overflow: auto; 
+}
+
+.title::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Thiết lập màu sắc của thanh cuộn */
+  .title::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Màu nền của thanh cuộn */
+  }
+  
+  /* Thiết lập màu sắc cho phần trên và dưới của thanh cuộn */
+  .title::-webkit-scrollbar-thumb {
+    background: #888; /* Màu của phần trên và dưới của thanh cuộn */
+  }
+  
+  /* Thiết lập màu sắc khi di chuột qua thanh cuộn */
+  .title::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Màu của phần khi di chuột qua */
+  }

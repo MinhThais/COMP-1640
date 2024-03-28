@@ -26,7 +26,16 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#" id="logo"><span id="span1">AUM</span>Article</a>
+
+
+
+          <a class="navbar-brand" *ngIf="this.role === 'Student'" routerLink="/View-Student"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Guest'" routerLink="/View-Articles"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Manager'" routerLink="/View-ManagerHome"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Admin'" routerLink="/Admin-Statistic"  id="logo"><span id="span1">AUM</span>Article</a>
+          <a class="navbar-brand" *ngIf="this.role === 'Coordinator'" routerLink="/View-Comment"  id="logo"><span id="span1">AUM</span>Article</a>
+
+
           <button class="btn-bar navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="fa-solid fa-bars" style="color: white;" alt="" width="30px"></i></span>
@@ -53,6 +62,13 @@
                 </ul>
               </li> -->
 
+              <!-- Home -->
+
+              <a id="home-home" *ngIf="this.role === 'Student'" class="nav-link active" aria-current="page" routerLink="/View-Student">Home</a>
+              <a id="home-home" *ngIf="this.role === 'Guest'" class="nav-link active" aria-current="page" routerLink="/View-Articles">Home</a>
+              <a id="home-home" *ngIf="this.role === 'Manager'" class="nav-link active" aria-current="page" routerLink="/View-ManagerHome">Home</a>
+
+
               <li ngbDropdown class="nav-item dropdown" *ngIf="this.role === 'Admin' || this.role === 'Manager'
               || this.role === 'Student' || this.role === 'Coordinator'">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -60,12 +76,12 @@
                   Management
                 </a>
                 <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
-                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-Pub">Articles</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-Pub">Articles Approbation</a></li>
                   <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Student'" routerLink="/Management-Articles">Articles</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-Faculty">Faculties</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-AcademicYear">Academic Year</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/Management-Faculty">Faculties</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Management-AcademicYear">Academic Years</a></li>
                   <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Account">Account</a></li>
-                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-PublishedArticles">Article Approved</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Manager'" routerLink="/View-PublishedArticles">Article Publication</a></li>
                   <!-- <li><a ngbDropdownItem class="dropdown-item" routerLink="/View-Comment">Comment</a></li> -->
                   <!-- <li><a ngbDropdownItem class="dropdown-item"  routerLink="/View-Pub">Publishcation</a></li> -->
                 </ul>
