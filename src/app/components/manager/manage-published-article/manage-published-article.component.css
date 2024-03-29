@@ -64,6 +64,46 @@ td button:nth-child(3):hover{
     background-color: rgb(255, 120, 120);
 }
 
+
+/* Download */
+.div-button{
+    display: grid;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#select-option{
+    width: 260px;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}
+
+.download-button{
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    width: 260px;
+    border: 1px solid red !important;
+    padding: 3px 5px 3px 5px;
+}
+
+
+#btn-readMore{
+    border-color: #ff014fff;
+    color: #ff014fff;
+}
+
+#btn-readMore:hover{
+    border-color: #ff014fff;
+    color: rgb(255, 255, 255);
+    background-color: #ff014fff;
+}
+
+
+
+
 .button-reject{
     background-color: #b51c2b !important;
     width: 98.34px;
