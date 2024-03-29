@@ -36,8 +36,15 @@
                             <p>{{a.isPublic}}</p>
                         </td>
                         <td>
-                            <button (click)="Public(a.contribution_id)"  class="button-public"></button>
-                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private"></button>
+                            <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"   
+                            class="button-public"></button>
+
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === ''"  class="button-private"></button>
+
+                            <button (click)="Public(a.contribution_id)" *ngIf="a.isPublic === 'Public'"  class="button-public1"></button>
+
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private1"></button>
+
                         </td>
                         <td>
                             <button [routerLink]="['/Guest-ViewArticleDetail',a.contribution_id]"><i class="fa-solid fa-eye"></i></button>

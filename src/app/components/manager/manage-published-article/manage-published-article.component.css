@@ -85,6 +85,18 @@ td button:nth-child(3):hover{
     width: 98.34px;
 }
 
+
+.button-private1{
+    color: white;
+    background-color: #dc3545 !important;
+    width: 98.34px;
+}
+.button-public1{
+    background-color: rgb(39, 249, 123) !important;
+    width: 98.34px;
+}
+
+
 .button-reject:hover{
     background-color: #dc3545 !important;
     box-shadow: 0 0 10px #dc3545 ;
@@ -115,18 +127,39 @@ td button:nth-child(3):hover{
     content: 'Public';
 }
 
+.button-private1:hover{
+    background-color: rgb(39, 249, 123) !important;
+    box-shadow: 0 0 10px rgb(39, 249, 123);
+}
+
+.button-public1:hover{
+   
+    background-color: #dc3545 !important;
+    box-shadow: 0 0 10px #dc3545 ;
+}
+
+
+.button-private1::before{
+    content: 'Private';
+  
+}
+.button-public1::before{
+    content: 'Public';
+}
+
 /* .button-fail:hover::before{
     content: 'Pass';
 }
 .button-pass:hover::before{
     content: 'Fail';
 } */
-/* .button-private:hover::before{
+
+.button-private1:hover::before{
     content: 'Public';
-} */
-/* .button-public:hover::before{
+} 
+.button-public1:hover::before{
     content: 'Private';
-} */
+}
 
 
 .add_new{

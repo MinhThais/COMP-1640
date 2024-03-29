@@ -93,14 +93,15 @@ td button:nth-child(3):hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
 }
-/* .button-reject1:hover{
+
+.button-reject1:hover{
     background-color: rgb(39, 249, 123) !important;
     box-shadow: 0 0 10px rgb(39, 249, 123);
 }
 .button-approve1:hover{
     background-color: #dc3545 !important;
     box-shadow: 0 0 10px #dc3545;
-} */
+}
 
 /* .button-fail::before{
     content: 'Fail';
@@ -109,10 +110,12 @@ td button:nth-child(3):hover{
     content: 'Pass';
 } */
 .button-reject1::before{
-    content: 'Rejected';
+    content: 'Reject';
+    
 }
 .button-approve1::before{
-    content: 'Approved';
+    content: 'Approve';
+    
 }
 
 /* .button-fail:hover::before{
@@ -121,12 +124,13 @@ td button:nth-child(3):hover{
 .button-pass:hover::before{
     content: 'Fail';
 } */
-/* .button-reject1:hover::before{
-    content: 'Approved';
+.button-reject1:hover::before{
+    content: 'Approve';
 }
 .button-approve1:hover::before{
-    content: 'Rejected';
-} */
+    content: 'Reject';
+    
+}
 
 
 .add_new{
