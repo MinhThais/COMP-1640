@@ -43,9 +43,10 @@ export class CommentViewingComponent implements OnInit{
     }
   }
 
-  geCurrentUser(){
+  getCurrentUser(){
 
   }
+  
   getAllArticles(username:string){
     this.article.getAllArticleOfStudentInFaculty(username).subscribe(data => {
       this.lstArticle = data;

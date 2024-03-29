@@ -19,12 +19,12 @@ export class ArticleService {
   //   return this.http.post(this.baseUrl+"Add-New-Article", formData, {params: {contribution_title}})
   // }
 
-  getArticleOfStudent(username : string) : Observable<any>{
-    return this.http.get<any>(this.baseUrl + "username", {params : {username}});
+  getArticleOfStudent(username : string, articleId:number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}Get-Article-Of-Student?username=${username}&contribution_id=${articleId}`);
   }
 
   getAllArticleOfStudent(username : string) : Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}Get-Article-Of-Student?username=${username}`);
+    return this.http.get<any>(`${this.baseUrl}Get-All-Article-Of-Student?username=${username}`);
   }
 
   getAllArticleOfStudentInFaculty(username:string) : Observable<any>{

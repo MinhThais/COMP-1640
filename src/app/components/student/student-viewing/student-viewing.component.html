@@ -22,7 +22,7 @@
                   maxime facere, quod harum aliquid in...
                 </p>
               </div>
-              <a routerLink="/View-StudentArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+              <a [routerLink]="['/View-StudentArticleDetail', item.contribution_id]" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
                 >Read More</a
               >
             </div>

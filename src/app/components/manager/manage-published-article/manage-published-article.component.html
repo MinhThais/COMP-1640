@@ -40,7 +40,7 @@
                             <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private"></button>
                         </td>
                         <td>
-                            <button routerLink="/Guest-ViewArticleDetail"><i class="fa-solid fa-eye"></i></button>
+                            <button [routerLink]="['/Guest-ViewArticleDetail',a.contribution_id]"><i class="fa-solid fa-eye"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -48,4 +48,3 @@
         </div>
     </div>
   </main>
-

@@ -18,6 +18,8 @@ export class CommentAddingComponent implements OnInit{
   commentcontent : string = "";
   fullname : string = "";
   userID: any;
+  contribution: any;
+  htmlContent: any;
 
   public deadline : boolean = true;
 
@@ -26,13 +28,15 @@ export class CommentAddingComponent implements OnInit{
     private userStore:UserStoreService,
     private auth:UserService,
     private comment:CommentService,
-    private toast:ToastrService
+    private toast:ToastrService,
+    private articleService: ArticleService
   ){}
 
   ngOnInit(): void {
     this.ActivatedRoute.params.subscribe((params) => {
       this.contributionID = +params['id'];
       this.getComment(this.contributionID);
+      this.getArticleContent(this.contributionID);
     });
 
     this.userStore.getFullNameFromStore().subscribe(res => {
@@ -43,6 +47,14 @@ export class CommentAddingComponent implements OnInit{
     this.auth.getUserID(this.fullname).subscribe(res=>{
       this.userID = res;
     })
+  }
+
+  getArticleContent(contribution_id: number) {
+    this.articleService.getArticleContent(contribution_id).subscribe((data: any) => {
+      this.contribution = data.result;
+      this.htmlContent = this.contribution.contribution_content;
+      console.table(this.contribution);
+    });
   }
 
   getComment(contribution_id:number){
