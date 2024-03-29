@@ -59,11 +59,11 @@ const routes: Routes = [
 
   //Guest
   {path:'Guest-Statistic', component: GuestStatisticComponent},
-  {path:'Guest-ViewArticleDetail', component: GuestViewArticleDetailComponent},
+  {path:'Guest-ViewArticleDetail/:id', component: GuestViewArticleDetailComponent},
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
-  {path:'View-StudentArticleDetail', component: StudentCommentComponent},
+  {path:'View-StudentArticleDetail/:id', component: StudentCommentComponent},
 
   //Coordinator
   {path:'View-Comment', component: CommentViewingComponent},

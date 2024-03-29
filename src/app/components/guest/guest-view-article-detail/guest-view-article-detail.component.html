@@ -1,9 +1,9 @@
 <body>
     <div class="container">
       <header>
-      <h1 class="heading-1">the light star</h1>
+      <h1 class="heading-1">{{contribution.contribution_title}}</h1>
       <div class="sub-heading">
-        <p>Saterday, <span>june 26, 2021</span></p>
+        <p>{{ contribution.contribution_submition_date | date: 'EEEE'}}, <span>{{ contribution.contribution_submition_date | date: 'yyyy-MM-dd'}}</span></p>
         <p class="importent">your right to know</p>
       </div>
       </header>
@@ -11,14 +11,14 @@
       <div class="main">
         <div class="home">
           <div class="left">
-            <img src="/assets/img/c.jpg" class="home-img" alt="Paper photo">
+            <img src="https://localhost:7195/Imgs/{{contribution.contribution_image}}" class="home-img" alt="Paper photo">
 
-            <h2 class="heading-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit cupiditate possimus.
-            </h2>
+            <!-- <h2 class="heading-2">
+              {{contribution.contribution_title}}
+            </h2> -->
           </div>
 
-          <div class="right">
+          <!-- <div class="right">
             <h3 class="heading-3">latest news</h3>
             <div class="lists">
               <div class="list">
@@ -49,13 +49,13 @@
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, veritatis!</p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
       </div>
     </div>
 
-    <blockquote [innerHTML]="">
+    <blockquote [innerHTML]="htmlContent">
     </blockquote>
 
   </body>

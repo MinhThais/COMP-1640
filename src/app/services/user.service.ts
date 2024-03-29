@@ -109,5 +109,11 @@ export class UserService {
   getUserID(user_username:string){
     return this.http.get(`${this.baseUrl}get-user-id`, {params:{user_username}})
   }
+  getUserProfile(user_username:string){
+    return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {params:{user_username}})
+  }
+  updateProfile(formdata : any){
+    return this.http.post<any>(this.baseUrl+"Update-User-Profile", formdata);
+  }
 }
 
