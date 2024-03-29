@@ -14,6 +14,7 @@ main{
       }
 
     #btn_Back{
+      width: 83px;
         margin-right: 5px;
         background-color: #69707a;
         border: #69707a;
