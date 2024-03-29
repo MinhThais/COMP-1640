@@ -111,7 +111,7 @@
 }
 .dropdown-menu li a{
     margin-left: 20px;
-    width: 40px;
+    width: fit-content;
     color: white;
     transition: 0.5s ease;
 }
@@ -164,6 +164,22 @@
 .btn-bar:hover{
     background-color: #ff014fff;
 }
+
+
+/* Home */
+#home-home{
+    color: white;
+    font-size: larger;
+    font-weight: 500
+}
+#home-home:hover{
+    color: #ff014fff;
+}
+
+
+
+
+
 /* navbar */
 
 /* @media (max-width: 576px) { 

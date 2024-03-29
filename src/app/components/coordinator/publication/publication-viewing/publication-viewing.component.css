@@ -65,7 +65,7 @@ td button:nth-child(3):hover{
 }
 
 .button-reject{
-    background-color: #b51c2b !important;
+    background-color: #dc3545 !important;
     width: 98.34px;
 }
 .button-approve{
@@ -81,7 +81,7 @@ td button:nth-child(3):hover{
     width: 98.34px;
 }
 .button-approve1{
-    background-color: rgb(39, 249, 123) !important;
+    background-color: rgb(6, 222, 93) !important;
     width: 98.34px;
 }
 
