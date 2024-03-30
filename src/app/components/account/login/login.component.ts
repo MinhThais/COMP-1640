@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit{
     })
   }
 
+  onTest(){
+    alert('test');
+  }
+
   onLogin(){
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;

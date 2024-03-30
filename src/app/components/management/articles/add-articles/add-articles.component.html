@@ -44,6 +44,11 @@
                                       <input formControlName="contribution_title" class="form-control" type="text" name="name">
                                       <small *ngIf="addArticleForm.controls['contribution_title'].dirty && addArticleForm.hasError('required', 'contribution_title')" class="text-danger">*Title is required</small>
                                     </div>
+                                    <div class="form-group">
+                                      <label for="formFileMultiple" class="form-label" style="font-weight: 600;">Submission Date</label>
+                                      <input formControlName="contribution_title" class="form-control" type="text" name="name" style="opacity: 0.5; pointer-events: none;">
+                                  
+                                    </div>
                                   </div>
                               </div>
 

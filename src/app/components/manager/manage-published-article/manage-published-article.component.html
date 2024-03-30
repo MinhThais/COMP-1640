@@ -8,7 +8,7 @@
 
 
     <div class="div-button">
-        <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a>
+        
         <select id="select-option" class="form-select" aria-label="Default select example">
           <option selected>Choose Academic Year</option>
           <option value="1">05/03/2024 - 05/04/2024</option>
@@ -19,6 +19,7 @@
           <option value="1">IT</option>
           <option value="1">ART</option>
         </select>
+        <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a>
   
       </div>
 
@@ -45,7 +46,7 @@
                         <td>{{a.contribution_id}}</td>
                         <td>{{a.contribution_title}}</td>
 
-                        <td>{{a.contribution_submition_date}}</td>
+                        <td>{{a.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
                         <!-- <td>5/4/2024</td> -->
                         <td>
                             <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"   

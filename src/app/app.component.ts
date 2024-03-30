@@ -3,11 +3,13 @@ import { Subscription } from 'rxjs';
 import { LoadService } from './services/load.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit{
   title = 'ProjectComp1640';
   isShow:boolean = false
@@ -19,8 +21,13 @@ export class AppComponent implements OnInit{
       }
     });
   }
+  
+
 
   ngOnInit() {
+
+
+    
 
   // setTimeout(() => { this.ngOnInit() }, 0);
   //   this.isshowHeadFoot()
@@ -55,4 +62,8 @@ export class AppComponent implements OnInit{
   // callLoad(): void {
   //   this.load.triggerLoad();
   // }
+
+
+
+  
 }

@@ -12,6 +12,19 @@ h4{
     width: 100%;
 }
 
+.table_section{
+    height: 500px;
+    overflow: auto;
+}
+
+.table_section table th{
+    word-break: keep-all;
+}
+
+.table_section table td{
+    word-break: break-word;
+}
+
 .table_header {
     display: flex;
     justify-content: space-between;
@@ -67,14 +80,16 @@ td button:nth-child(3):hover{
 
 /* Download */
 .div-button{
-    display: grid;
-    margin-left: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    gap: 5px;
 }
 
 #select-option{
-    width: 260px;
+    width: 100%;
     margin-left: 5x;
     margin-bottom: 10px;
 }
@@ -91,6 +106,7 @@ td button:nth-child(3):hover{
 
 
 #btn-readMore{
+    width: 100%;
     border-color: #ff014fff;
     color: #ff014fff;
 }
