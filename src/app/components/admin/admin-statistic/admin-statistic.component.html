@@ -5,9 +5,23 @@
 
     </div>
 
-    <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
-        <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
-    </select>
+    <div class="div-combo">
+
+        <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
+            <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
+        </select>
+    
+        <div class="div-left" >
+    
+            <button id="id-table" class="download-button">Table</button>
+            <button id="id-chart" class="download-button" routerLink="/Admin-Chart" id="btn-readMore">Chart</button>
+    
+        </div>
+
+    </div>
+
+    
+
 
     <div class="table">
 

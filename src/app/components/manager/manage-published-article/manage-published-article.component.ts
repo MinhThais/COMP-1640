@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
@@ -28,6 +29,7 @@ export class ManagePublishedArticleComponent implements OnInit{
       this.pathImg = this.article.Img;
     });
   }
+  
 
   Public(contribution_id:number){
     this.article.public(contribution_id).subscribe(res => {

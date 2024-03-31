@@ -35,6 +35,7 @@ import { ManagePublishedArticleComponent } from './components/manager/manage-pub
 import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-us-home.component';
 import { ManagerStatisticApproveRejectComponent } from './components/manager/manager-statistic-approve-reject/manager-statistic-approve-reject.component';
 import { ChartComponent } from '@syncfusion/ej2-angular-charts';
+import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -56,8 +57,9 @@ const routes: Routes = [
   {path:'Old-Password', component:OldPasswordComponent},
   {path:'Change-Password', component:ChangePasswordComponent},
 
-  //Chart
-  {path:'chart', component: ChartComponent},
+
+ 
+
 
   //About us
   {path:'About-Us', component: AboutUsHomeComponent},
@@ -87,6 +89,8 @@ const routes: Routes = [
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},
   {path:'Admin-Account', component: AdminAccountComponent},
+  // {path:'Admin-Chart', component: ManagerChartAprrovalRejectComponent},
+  {path:'Admin-Chart', component: AdminChartApprovalRejectComponent},
 ];
 
 @NgModule({

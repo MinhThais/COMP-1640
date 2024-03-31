@@ -42,9 +42,6 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  onTest(){
-    alert('test');
-  }
 
   onLogin(){
     const username = this.loginForm.get('username')?.value;
@@ -117,6 +114,7 @@ export class LoginComponent implements OnInit{
   }
 
   hideShowPass(){
+
     this.isText = !this.isText;
     this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
     this.isText ? this.type = "text" : this.type = "password";

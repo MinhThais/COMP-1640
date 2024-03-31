@@ -66,6 +66,8 @@ td button:nth-child(3):hover{
 
 
 /* Download */
+
+
 .div-button{
     margin-top: 10px;
     margin-left: 5px;
@@ -96,6 +98,7 @@ td button:nth-child(3):hover{
     width: 100%;
     border-color: #ff014fff;
     color: #ff014fff;
+    border-radius: 5px;
 }
 
 #btn-readMore:hover{
@@ -210,6 +213,8 @@ td button:nth-child(3):hover{
     color: #ffffff;
     background-color: #ff014fff;
 }
+
+
 
 .add_new:hover{
     background-color: rgba(221, 19, 79, 0.774);
