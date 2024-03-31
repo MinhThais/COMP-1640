@@ -29,36 +29,215 @@ h4{
 
 /*Academic Year*/
 #select-option{
-    width: 15em;
-    margin-left: 5px;
+    width: 265px;
+    /* margin-left: 5px; */
     margin-bottom: 10px;
     text-align: center;
 }
 
+/*Sort Button*/
+.ui-btn {
+    --btn-default-bg: white;
+    --btn-padding: 15px 20px;
+    --btn-hover-bg: #ff014fff;
+    --btn-transition: .3s;
+    --btn-letter-spacing: .1rem;
+    --btn-animation-duration: 1.2s;
+    --btn-shadow-color: #ff014fff;
+    --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+    --hover-btn-color: white;
+    --default-btn-color: #ff014fff;
+    --font-size: 16px;
+  
+    /* 👆 this field should not be empty */
+    --font-weight: 600;
+    --font-family: Menlo,Roboto Mono,monospace;
+    /* 👆 this field should not be empty */
+  }
+  
+  /* button settings 👆 */
+  
+  .ui-btn {
+    width: 103.67px;
+    height: 37.31px;
+    /* border-color:  1px solid #ff014fff; */
+    border: 1px solid #ff014fff !important;
+    user-select: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: var(--btn-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--default-btn-color);
+    font: var(--font-weight) var(--font-size) var(--font-family);
+    background: var(--btn-default-bg);
+    /* border: none; */
+    cursor: pointer;
+    transition: var(--btn-transition);
+
+    overflow: hidden;
+    /* box-shadow: var(--btn-shadow); */
+    /* box-shadow: 0 0px 7px #ff014fff; */
+  }
+  
+  .ui-btn span {
+    letter-spacing: var(--btn-letter-spacing);
+    transition: var(--btn-transition);
+    box-sizing: border-box;
+    position: relative;
+    background: inherit;
+  }
+  
+  .ui-btn span::before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    background: inherit;
+  }
+  
+  .ui-btn:hover, .ui-btn:focus {
+    background: var(--btn-hover-bg);
+    box-shadow: 0 0px 7px #ff014fff;
+  }
+  
+  .ui-btn:hover span, .ui-btn:focus span {
+    color: var(--hover-btn-color);
+  }
+  
+  .ui-btn:hover span::before, .ui-btn:focus span::before {
+    animation: chitchat linear both var(--btn-animation-duration);
+  }
+  
+  @keyframes chitchat {
+    0% {
+      content: "#";
+    }
+  
+    5% {
+      content: ".";
+    }
+  
+    10% {
+      content: "^{";
+    }
+  
+    15% {
+      content: "-!";
+    }
+  
+    20% {
+      content: "#$";
+    }
+  
+    25% {
+      content: "№";
+    }
+  
+    30% {
+      content: "+.";
+    }
+  
+    35% {
+      content: "@-?";
+    }
+  
+    40% {
+      content: "@%";
+    }
+  
+    45% {
+      content: "^!";
+    }
+  
+    50% {
+      content: "@%";
+    }
+  
+    55% {
+      content: "1]";
+    }
+  
+    60% {
+      content: "?%";
+      right: 0;
+    }
+  
+    65% {
+      content: "rot";
+      right: 0;
+    }
+  
+    70% {
+      content: "{4%";
+      right: 0;
+    }
+  
+    75% {
+      content: "1";
+      right: 0;
+    }
+  
+    80% {
+      content: "{0";
+      right: 0;
+    }
+  
+    85% {
+      content: "'";
+      right: 0;
+    }
+  
+    90% {
+      content: "4";
+      right: 0;
+    }
+  
+    95% {
+      content: "2";
+      right: 0;
+    }
+  
+    100% {
+      content: "";
+      right: 0;
+    }
+  }
+
 /* Button VIP */
 .btn-conteiner {
-    display: flex;
     justify-content: center;
     --color-text: #ffffff;
-    --color-background: #ff135a;
+    --color-background: #ff014fff;
     --color-outline: #ff145b80;
     --color-shadow: #00000080;
   }
+
+  .btn-title{
+    /* transform: rotate(-180deg); */
+    user-select: none;
+    color: white;
+  }
   
   .btn-content {
+    /* transform: rotate(-180deg); */
     display: flex;
     align-items: center;
     padding: 5px 30px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 15px;
     color: var(--color-text);
     background: var(--color-background);
     transition: 1s;
     border-radius: 100px;
     box-shadow: 0 0 0.2em 0 var(--color-background);
+    height: 37.32px;
+    /* width: 130px; */
+    transition: width 0.3s ease;
   }
+
   
   .btn-content:hover, .btn-content:focus {
     transition: 0.5s;
@@ -175,7 +354,7 @@ button{
     margin-bottom: 10px;
     text-decoration: none;
     text-align: center;
-    border: 1px solid red !important;
+    border: 1px solid #ff014fff !important;
     padding:3px 5px 3px 5px;
     user-select: none;
 }
@@ -186,7 +365,7 @@ button{
     margin-bottom: 10px;
     text-decoration: none;
     text-align: center;
-    border: 1px solid red !important;
+    border: 1px solid #ff014fff !important;
     padding:3px 5px 3px 5px;
     user-select: none;
     width: 91.81px;

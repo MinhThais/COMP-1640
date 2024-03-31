@@ -10,16 +10,20 @@
             <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
                     <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
             </select>
-            <button class="button-sort">Sort</button>
+            <button class="ui-btn">
+                <span>
+                  Sort 
+                </span>
+              </button>
         </div>
         
     
         <div class="div-left" >
-            <button id="id-table" class="download-button">Table</button>
-            <button id="id-chart" class="download-button" routerLink="/Admin-Chart" id="btn-readMore">Chart</button>
+            <!-- <button id="id-table" class="download-button">Table</button> -->
+            <!-- <button id="id-chart" class="download-button" routerLink="/Admin-Chart" id="btn-readMore">Chart</button> -->
             <div class="btn-conteiner">
-                <a class="btn-content" href="#">
-                  <span class="btn-title">NEXT</span>
+                <a class="btn-content" href="#" routerLink="/Admin-Chart" >
+                  <span class="btn-title">Chart</span>
                   <span class="icon-arrow">
                     <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
