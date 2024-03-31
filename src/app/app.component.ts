@@ -10,6 +10,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
+
+
 export class AppComponent implements OnInit{
   title = 'ProjectComp1640';
   isShow:boolean = false
@@ -39,11 +41,19 @@ export class AppComponent implements OnInit{
     // }
   }
 
+
+
+
+
   shouldShowHeader(): boolean {
     // Xác định xem header có nên hiển thị dựa trên logic của bạn.
     // Ví dụ:
     const currentPath = this.router.url;
-    return currentPath !== '/';
+    if(currentPath === '/Welcome' || currentPath === '/'){
+      return false;
+    }
+
+    return true;
   }
 
   // isshowHeadFoot(){

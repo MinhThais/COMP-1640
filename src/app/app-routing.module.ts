@@ -37,6 +37,7 @@ import { ManagerStatisticApproveRejectComponent } from './components/manager/man
 import { ChartComponent } from '@syncfusion/ej2-angular-charts';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
 import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
+import { WelcomeComponent } from './components/main/welcome/welcome.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -58,8 +59,8 @@ const routes: Routes = [
   {path:'Old-Password', component:OldPasswordComponent},
   {path:'Change-Password', component:ChangePasswordComponent},
 
-
- 
+ //Welcome page
+ {path:'Welcome', component: WelcomeComponent},
 
 
   //About us

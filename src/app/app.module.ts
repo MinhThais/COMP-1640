@@ -47,6 +47,7 @@ import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-u
 import { ManagerStatisticApproveRejectComponent } from './components/manager/manager-statistic-approve-reject/manager-statistic-approve-reject.component';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
 import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
+import { WelcomeComponent } from './components/main/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { GuestChartComponent } from './components/charts/guest-chart/guest-chart
     ManagerStatisticApproveRejectComponent,
     AdminChartApprovalRejectComponent,
     GuestChartComponent,
+    WelcomeComponent,
   ],
 
   imports: [
