@@ -1,8 +1,8 @@
 <main>
 
     <div class="public">
-        <p class="public-p1">Due Date:</p>
-        <p class="public-p2"> 14 days</p>
+        <!-- <p class="public-p1">Due Date:</p> -->
+        <!-- <p class="public-p2"> 14 days</p> -->
 
     </div>
 
@@ -17,7 +17,9 @@
                         <th>Image</th>
                         <th>Title</th>
                         <th>Submission Date</th>
+                        <th>Closure Date</th>
                         <th>Final Closure Date</th>
+                        <th>Remaining date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -27,8 +29,10 @@
                         <td>{{i.username}}</td>
                         <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
                         <td>{{i.contribution_title}}</td>
-                        <td>{{i.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
-                        <td>{{i.final_clouser_date | date : 'yyyy-MM-dd'}}</td>
+                        <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
+                        <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
+                        <td>{{i.final_clouser_date | date : 'mm-dd-yyyy'}}</td>
+                        <td>14 </td>
                         <td>
                             <button [routerLink]="['/Add-Comment', i.contribution_id]"><i class="fa-solid fa-eye"></i></button>
                         </td>

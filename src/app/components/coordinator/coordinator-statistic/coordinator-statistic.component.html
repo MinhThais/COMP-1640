@@ -27,8 +27,8 @@
                     <tr *ngFor="let s of lstStatistic">
                         <td>{{s.academic_year_id}}</td>
                         <td>{{s.title}}</td>
-                        <td>{{s.startDate | date: 'yyyy-MM-dd'}}</td>
-                        <td>{{s.endDate | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{s.startDate | date: 'MM-dd-yyyy'}}</td>
+                        <td>{{s.endDate | date: 'MM-dd-yyyy'}}</td>
                         <td>{{s.usersCount}}</td>
                         <td>{{s.contribution}}</td>
                     </tr>

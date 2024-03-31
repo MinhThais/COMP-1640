@@ -81,6 +81,14 @@ input{
     overflow: auto;
 }
 
+.table_section table th{
+    word-break: keep-all;
+}
+
+.table_section table td{
+    word-break: break-word;
+}
+
 table{
     width: 100%;
     table-layout: fixed;

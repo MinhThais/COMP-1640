@@ -19,6 +19,7 @@
           <option *ngFor="let f of lstFaculties" value="{{f.faculty_id}}">{{f.faculty_name}}</option>
           <!-- <option value="1">ART</option> -->
         </select>
+        <!-- <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a> -->
 
       </div>
 
@@ -44,7 +45,7 @@
                         <td><img [src]="(pathImg + a.contribution_image)"></td>
                         <td>{{a.contribution_id}}</td>
                         <td>{{a.contribution_title}}</td>
-                        <td>{{a.contribution_submition_date}}</td>
+                        <td>{{a.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
                         <td>{{a.contribution_academic_years_id}}</td>
                         <!-- <td>5/4/2024</td> -->
                         <td>

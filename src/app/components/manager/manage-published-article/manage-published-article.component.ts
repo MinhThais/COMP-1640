@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -64,6 +65,7 @@ export class ManagePublishedArticleComponent implements OnInit {
       this.pathImg = this.article.Img;
     });
   }
+
 
   downLoadOneAriticle(contribution_id:number) {
     this.article.downloadOneArticle(contribution_id).subscribe((data: Blob) => {
