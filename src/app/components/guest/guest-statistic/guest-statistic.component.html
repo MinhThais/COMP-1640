@@ -1,16 +1,25 @@
 <main>
 
     <div class="public">
-        <p class="public-p1">Faculty-wide Statistics</p>
+        <p class="public-p1">Statistics</p>
 
     </div>
 
-    <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
-        <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
-    </select>
+    <div class="div-combo">
+        <div class="combo-combo">
+            <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
+                <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
+            </select>
+            <button class="button-sort">Sort</button>
+        </div>
+    
+        <div class="div-left" >
+            <button id="id-table" class="download-button">Table</button>
+            <button id="id-chart" class="download-button" routerLink="/Guest-Chart" id="btn-readMore">Chart</button>
+        </div>
+    </div>
 
     <div class="table">
-
         <div class="table_section">
             <table>
                 <thead>
