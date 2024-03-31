@@ -27,6 +27,33 @@
 }
 
 /* Button */
+.button-sort{
+    color: #ff014fff;
+    background-color:rgb(255, 255, 255);
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid red !important;
+    padding:3px 5px 3px 5px;
+    user-select: none;
+    width: 91.81px;
+    height: 37.32px;
+    transition: box-shadow 0.3s ease;
+}
+
+.button-sort:hover{
+    border-color: #ff014fff;
+    /* color: white; */
+    /* background-color: #ff014fff; */
+    box-shadow: 0 0px 7px #ff014fff;
+}
+
+
+#select-option{
+    width: 265px;
+    margin-left: 5x;
+    margin-bottom: 10px;
+}
 
 button{
     outline: none;
@@ -92,4 +119,10 @@ button{
     color: #ff014fff;
     /* background-color: #ff014fff; */
     box-shadow: 0 0px 7px #ff014fff;
+}
+
+@media (max-width: 550px) {
+    #select-option {
+      width: 100%;
+    }
 }

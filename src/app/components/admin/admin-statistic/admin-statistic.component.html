@@ -6,10 +6,13 @@
     </div>
 
     <div class="div-combo">
-
-        <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
+        <div class="combo-combo">
+            <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
             <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
         </select>
+        <button class="button-sort">Sort</button>
+    </div>
+        
     
         <div class="div-left" >
     

@@ -43,6 +43,10 @@ h4{
     justify-content: space-between
 }
 
+.combo-combo{
+    display: flex;
+}
+
 .div-combo .div-left{
     margin-right: 5px;
 }
@@ -63,8 +67,21 @@ button{
     text-decoration: none;
     text-align: center;
     border: 1px solid red !important;
-    padding:
-     3px 5px 3px 5px;
+    padding:3px 5px 3px 5px;
+    user-select: none;
+}
+
+.button-sort{
+    color: #ff014fff;
+    background-color:rgb(255, 255, 255);
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid red !important;
+    padding:3px 5px 3px 5px;
+    user-select: none;
+    width: 91.81px;
+    transition: box-shadow 0.3s ease;
 }
 
 #id-table{
@@ -73,7 +90,8 @@ button{
     border-color: #ff014fff;
     color: rgb(255, 255, 255);
     background-color: #ff014fff;;
-  
+    pointer-events: none;
+    user-select: none;
 }
 
 
@@ -86,6 +104,13 @@ button{
 }
 
 #btn-readMore:hover{
+    border-color: #ff014fff;
+    color: #ff014fff;
+    /* background-color: #ff014fff; */
+    box-shadow: 0 0px 7px #ff014fff;
+}
+
+.button-sort:hover{
     border-color: #ff014fff;
     color: #ff014fff;
     /* background-color: #ff014fff; */
@@ -265,7 +290,7 @@ tr:hover td{
 ::-webkit-scrollbar-thumb{
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
-@media (max-width: 344px) {
+@media (max-width: 542px) {
     #select-option {
       width: 100%;
     }
