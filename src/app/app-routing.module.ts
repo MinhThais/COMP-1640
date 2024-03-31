@@ -36,6 +36,7 @@ import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-u
 import { ManagerStatisticApproveRejectComponent } from './components/manager/manager-statistic-approve-reject/manager-statistic-approve-reject.component';
 import { ChartComponent } from '@syncfusion/ej2-angular-charts';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
+import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -67,6 +68,9 @@ const routes: Routes = [
   //Guest
   {path:'Guest-Statistic', component: GuestStatisticComponent},
   {path:'Guest-ViewArticleDetail/:id', component: GuestViewArticleDetailComponent},
+  {path:'Guest-Chart', component: GuestChartComponent},
+  
+  
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
