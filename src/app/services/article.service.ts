@@ -85,4 +85,12 @@ export class ArticleService {
   private(contribution_id:number){
     return this.http.put<any>(`${this.baseUrl}Private`, {}, {params : {contribution_id}});
   }
+
+  downloadOneArticle(contribution_id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}Download-One-Article?contribution_id=${contribution_id}`, { responseType: 'blob' });
+  }
+  
+  downloadManyArticle(faculty_id: number, academic_year_id:number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}Download-Many-Article?faculty_id=${faculty_id}&acdemic_year_id=${academic_year_id}`, { responseType: 'blob' });
+  }
 }

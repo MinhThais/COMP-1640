@@ -61,6 +61,7 @@ export class ManagementArticlesComponent implements OnInit{
         this.ngOnInit();
       },
       error => {
+        console.log(error);
         this.toast.error(error.error.message, "Error", {
           timeOut: 3000,
           progressBar: true,

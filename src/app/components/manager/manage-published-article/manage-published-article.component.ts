@@ -1,70 +1,142 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AcademicYearService } from 'src/app/services/academic-year.service';
 import { ArticleService } from 'src/app/services/article.service';
+import { FacultyService } from 'src/app/services/faculty.service';
 
 @Component({
   selector: 'app-manage-published-article',
   templateUrl: './manage-published-article.component.html',
   styleUrls: ['./manage-published-article.component.css']
 })
-export class ManagePublishedArticleComponent implements OnInit{
-  public lstArticles : any = [];
-  pathImg : string = "";
-  status : string = "Pending";
+export class ManagePublishedArticleComponent implements OnInit {
+  public lstArticles: any = [];
+  pathImg: string = "";
+  status: string = "Pending";
+  lstFaculties: any = [];
+  public selectedFaculty: number = 0;
+  lstAcademicYears: any = [];
+  public selectedAcademicYear: number = 0;
+  zipFile: any;
+  contribution_id: number = 0;
 
   constructor(
-    private article:ArticleService,
-    private toast:ToastrService
-  ){}
+    private article: ArticleService,
+    private toast: ToastrService,
+    private facultyAPI: FacultyService,
+    private academicService: AcademicYearService,
+  ) { }
 
   ngOnInit(): void {
     this.getArticle();
+    this.getAllFaculties();
+    this.getAllAcademicYears();
   }
 
+  getAllFaculties() {
+    this.facultyAPI.getAllFaculty().subscribe(data => {
+      this.lstFaculties = data;
+      // console.table(this.lstArticles);
+    });
+  }
+  onSelectFaculty(event: any): void {
+    this.selectedFaculty = event.target.value;
+    console.log(this.selectedFaculty);
+  };
 
-  getArticle(){
+  getAllAcademicYears() {
+    this.academicService.getAllAcademicYear().subscribe(data => {
+      this.lstAcademicYears = data;
+      // console.table(this.lstAcademicYears);
+    });
+  }
+  onSelectAcademicYear(event: any): void {
+    this.selectedAcademicYear = event.target.value;
+    // console.log(this.selectedAcademicYear);
+  }
+
+  getArticle() {
     this.article.getAllArticlesSelected().subscribe(data => {
       this.lstArticles = data;
+      // console.table(this.lstArticles);
       this.pathImg = this.article.Img;
     });
   }
 
-  Public(contribution_id:number){
+  downLoadOneAriticle(contribution_id:number) {
+    this.article.downloadOneArticle(contribution_id).subscribe((data: Blob) => {
+      // console.log(contribution_id);
+      // console.log('Downloaded file:', data);
+      const blobUrl = URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'Download.zip';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    }, (error) => {
+      console.error('Error downloading article:', error);
+    });
+  }
+
+  downLoadManyAriticle() {
+    this.article.downloadManyArticle(this.selectedFaculty, this.selectedAcademicYear).subscribe((data: Blob) => {
+      // console.log(this.selectedAcademicYear);
+      // console.log('Downloaded file:', data);
+      const blobUrl = URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'Download.zip';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    }, (error) => {
+      console.error('Error downloading article:', error);
+    });
+  }
+
+  Public(contribution_id: number) {
     this.article.public(contribution_id).subscribe(res => {
       this.toast.success(res.message, 'Success', {
         timeOut: 3000,
-        progressBar:true,
+        progressBar: true,
         positionClass: 'toast-top-center'
       });
       this.status = "Public";
       this.ngOnInit();
     },
-    error => {
-      this.toast.error(error.error.message, 'Error', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
       });
-    });
   }
 
-  Private(contribution_id:number){
+  Private(contribution_id: number) {
     this.article.private(contribution_id).subscribe(res => {
       this.toast.success(res.message, 'Success', {
         timeOut: 3000,
-        progressBar:true,
+        progressBar: true,
         positionClass: 'toast-top-center'
       });
       this.status = "Private";
       this.ngOnInit();
     },
-    error => {
-      this.toast.error(error.error.message, 'Error', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
       });
-    });
   }
 
 }
