@@ -92,6 +92,7 @@ td button:nth-child(3):hover{
     width: 100%;
     margin-left: 5x;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .download-button{
@@ -107,14 +108,19 @@ td button:nth-child(3):hover{
 
 #btn-readMore{
     width: 100%;
+    height: 37.33px;
     border-color: #ff014fff;
     color: #ff014fff;
+    transition: box-shadow 0.3s ease;
+    user-select: none;
+    border-radius: 5px;
 }
 
 #btn-readMore:hover{
     border-color: #ff014fff;
-    color: rgb(255, 255, 255);
-    background-color: #ff014fff;
+    color: #ff014fff;
+    /* background-color: #ff014fff; */
+    box-shadow: 0 0px 7px #ff014fff;
 }
 
 

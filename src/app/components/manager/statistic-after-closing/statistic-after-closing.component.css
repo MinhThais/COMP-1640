@@ -170,6 +170,7 @@ tr:hover td{
     width: 15em;
     margin-left: 5x;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* .pagination{
