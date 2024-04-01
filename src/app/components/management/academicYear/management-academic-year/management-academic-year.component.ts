@@ -16,6 +16,7 @@ export class ManagementAcademicYearComponent implements OnInit {
       this.academicService.getAllAcademicYear().subscribe(
         (res) => {
           this.academicYears = res;
+          console.table(this.academicYears);
         },
         (err) =>{
           console.log("error")

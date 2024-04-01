@@ -1,4 +1,3 @@
-import { catchError } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
@@ -15,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CommentAddingComponent implements OnInit{
   public lstcomment : any = [];
   contributionID : number = 0;
+  commentId : number = 0;
   commentcontent : string = "";
   fullname : string = "";
   userID: any;
@@ -64,17 +64,33 @@ export class CommentAddingComponent implements OnInit{
   }
 
   sendComment(){
-    this.comment.addComment(this.commentcontent, this.fullname, this.contributionID).subscribe(res => {
-      this.ngOnInit();
-      this.commentcontent = "";
-    },
-    error => {
-      this.toast.error(error.error.message, 'Error', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
+    if(this.commentId != 0){
+      this.comment.updateComment(this.commentId, this.commentcontent).subscribe(res =>{
+        this.ngOnInit();
+        this.commentId = 0;
+        this.commentcontent = "";
+      },
+      err => {
+        this.toast.error(err.error.message, 'Comment was not successful. ', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
       });
-    });
+    }
+    else{
+      this.comment.addComment(this.commentcontent, this.fullname, this.contributionID).subscribe(res => {
+        this.ngOnInit();
+        this.commentcontent = "";
+      },
+      error => {
+        this.toast.error(error.error.message, 'Error', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+      });
+    }
   }
 
   deleteComment(comment_id:number){
@@ -90,5 +106,12 @@ export class CommentAddingComponent implements OnInit{
         });
       });
     }
+  }
+
+  getCommentToUpdate(comment_id:number, comment_content:any){
+    // console.log(comment_id);
+    // console.log(comment_content);
+    this.commentId = comment_id;
+    this.commentcontent = comment_content;
   }
 }
