@@ -7,7 +7,6 @@
     height: 100%;
     background-image: linear-gradient(to bottom, #734b6d, #42275a);
     animation: gradient 9s infinite alternate linear;
-    display: none;
    
 }
 
@@ -112,6 +111,8 @@
     font-size: 16px;
     font-weight: 400;
     color: hsl(241, 100%, 89%);
+    text-transform: capitalize;
+    /* text-transform: uppercase; */
   }
   }
   
