@@ -37,6 +37,9 @@ import { ManagerStatisticApproveRejectComponent } from './components/manager/man
 import { ChartComponent } from '@syncfusion/ej2-angular-charts';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
 import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
+import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
+import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
+
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -89,6 +92,9 @@ const routes: Routes = [
   {path:'View-ManagerAfterClosing', component: StatisticAfterClosingComponent},
   {path:'View-PublishedArticles', component: ManagePublishedArticleComponent},
   {path:'View-StatisticApproveReject', component: ManagerStatisticApproveRejectComponent},
+  {path:'Manager-Chart-Before', component: ManagerChartBeforeComponent},
+  {path:'Manager-Chart-After', component: ManagerChartAfterComponent},
+  
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},
