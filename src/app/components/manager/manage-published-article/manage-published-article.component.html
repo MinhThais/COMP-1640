@@ -49,14 +49,14 @@
                         <td>{{a.contribution_academic_years_id}}</td>
                         <!-- <td>5/4/2024</td> -->
                         <td>
-                            <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"
+                            <!-- <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"
                             class="button-public"></button>
 
-                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === ''"  class="button-private"></button>
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === ''"  class="button-private"></button> -->
 
-                            <button (click)="Public(a.contribution_id)" *ngIf="a.isPublic === 'Public'"  class="button-public1"></button>
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Public'"  class="button-public1"></button>
 
-                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private1"></button>
+                            <button (click)="Public(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private1"></button>
 
                         </td>
                         <td>

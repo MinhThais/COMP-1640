@@ -19,11 +19,21 @@ export class CommentService {
     .set('content', content)
     .set('username', username)
     .set('contribution_id', contribution_id)
-
     return this.http.post<any>(`${this.baseUrl}`, {}, {params});
   }
 
   deletecomment(comment_id:number){
     return this.http.delete<any>(`${this.baseUrl}`, {params : {comment_id}});
+  }
+//xoá nhe
+  getCommentByCommentId(comment_id:number){
+    return this.http.get<any>(`${this.baseUrl}`, {params : {comment_id}});
+  }
+
+  updateComment(contribution_id:number, commentcontent:string){
+    const params = new HttpParams()
+    .set('comment_id', contribution_id)
+    .set('comments_content', commentcontent)
+    return this.http.post<any>(`${this.baseUrl}Update-Comment`, {}, {params});
   }
 }

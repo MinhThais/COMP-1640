@@ -18,7 +18,7 @@ export class AddArticlesComponent {
   fileImg!: File;
   fullname = "";
   imageUrl: string | ArrayBuffer = '';
-
+  currentDate: Date = new Date();
 
   constructor(
     private fb: FormBuilder,
@@ -37,7 +37,8 @@ export class AddArticlesComponent {
     });
 
     this.addArticleForm = this.fb.group({
-      contribution_title:['', Validators.required]
+      contribution_title:['', Validators.required],
+      currentYear:[this.currentDate.getUTCFullYear().toString()]
     })
   }
 
