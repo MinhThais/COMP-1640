@@ -50,6 +50,7 @@ import { GuestChartComponent } from './components/charts/guest-chart/guest-chart
 import { WelcomeComponent } from './components/main/welcome/welcome.component';
 import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
 import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
+import { CoordinatorChartComponent } from './components/charts/coordinator-chart/coordinator-chart.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { ManagerChartAfterComponent } from './components/charts/manager-chart-af
     GuestChartComponent,
     WelcomeComponent,
     ManagerChartBeforeComponent,
-    ManagerChartAfterComponent
+    ManagerChartAfterComponent,
+    CoordinatorChartComponent
   ],
 
   imports: [
