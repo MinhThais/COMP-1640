@@ -1,4 +1,8 @@
-<main>
+<main id="main-main">
+  <div class="div-main">
+
+ 
+
   <!-- <script src="assets/JavaScripts/chart.js"></script> -->
   <div class="container">
       <form [formGroup]="loginForm">
@@ -23,8 +27,9 @@
       </form>
       <div class="option">You forget password ? <a  style="text-decoration: underline; color: #2f7ffd; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Forget Password</a></div>
     </div>
-</main>
 
+</div>
+</main>
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered mx-auto" style="width: 370px;" role="document">
@@ -46,7 +51,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="btn-Save" (keyup.enter)="confirmToSend()" (click)="confirmToSend()">Submit</button>
+        <button type="button" class="btn btn-primary" id="btn-Save" (keyup.enter)="confirmToSend()" (click)="confirmToSend()">Send</button>
       </div>
 
     </div>

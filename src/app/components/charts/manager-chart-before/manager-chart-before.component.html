@@ -1,0 +1,44 @@
+<div class="public">
+    <p class="public-p1">Statistics</p>
+
+</div>
+
+<div class="div-combo">
+    <div class="combo-combo">
+        <select id="select-option" class="form-select" aria-label="Default select example">
+            <option selected>Choose Academic Year</option>
+            <option value="1">05/03/2024 - 05/04/2024</option>
+            <option value="1">05/03/2024 - 05/04/2024</option>
+        </select>
+        <button class="button-sort" routerLink="/Guest-Chart">Sort</button>
+    </div>
+
+    <div class="div-left" >
+        <button id="btn-readMore" class="download-button" (click)="onPage()">Table</button>
+        <button  class="download-button" routerLink="/Manager-Chart-Before" id="id-table">Chart</button>
+    </div>
+</div>
+
+
+<div class="div-form">
+    <div class="div-chart" >
+        
+        <h2 class="title-chart">Statistic{{labelChart}} Chart</h2>
+        <canvas id="barChart" style="display: {{displayBarChart}}"></canvas >
+        <canvas id="lineChart" style="display: {{displayLineChart}}"></canvas > 
+        <canvas id="radarLineChart" style="display: {{displayRadarChart}}"></canvas > 
+       
+
+        <div class="div-left">
+            <button id="{{idButtonBar}}"  class="download-button" style="color: {{buttonBarLetter}}; background: {{buttonBarBackground}}"
+             (click)="onBar()">Bar</button>
+            <button id="{{idButtonLine}}" class="download-button" routerLink="/Admin-Chart" style="color: {{buttonLineLetter}}; background: {{buttonLineBackground}}" 
+            (click)="onLine()">Line</button>
+            <button id="{{idButtonRadar}}"  class="download-button" routerLink="/Admin-Chart" style="color: {{buttonRadarLetter}}; background: {{buttonRadarBackground}}" 
+            (click)="onRadar()">Radar</button>
+        </div>  
+    </div>
+</div>
+
+
+

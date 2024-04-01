@@ -46,6 +46,11 @@ import { ManagePublishedArticleComponent } from './components/manager/manage-pub
 import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-us-home.component';
 import { ManagerStatisticApproveRejectComponent } from './components/manager/manager-statistic-approve-reject/manager-statistic-approve-reject.component';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
+import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
+import { WelcomeComponent } from './components/main/welcome/welcome.component';
+import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
+import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
+import { CoordinatorChartComponent } from './components/charts/coordinator-chart/coordinator-chart.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +92,11 @@ import { AdminChartApprovalRejectComponent } from './components/charts/admin-cha
     AboutUsHomeComponent,
     ManagerStatisticApproveRejectComponent,
     AdminChartApprovalRejectComponent,
+    GuestChartComponent,
+    WelcomeComponent,
+    ManagerChartBeforeComponent,
+    ManagerChartAfterComponent,
+    CoordinatorChartComponent
   ],
 
   imports: [

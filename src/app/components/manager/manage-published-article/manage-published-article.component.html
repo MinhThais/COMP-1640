@@ -1,25 +1,31 @@
 <main>
 
     <div class="public">
-        <!-- <p class="public-p1">Due Date:</p>  -->
+        <p class="public-p1">Approved Articles Viewing</p> 
         <!-- <p class="public-p2"> 14 days</p> -->
 
     </div>
 
 
     <div class="div-button">
-        <button class="download-button" (click)="downLoadManyAriticle()" id="btn-readMore">Download All</button>
+        <div class="div-selected">
+              <!-- <button class="download-button" (click)="downLoadManyAriticle()" id="btn-readMore">Download All</button> -->
         <select (change)="onSelectAcademicYear($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
-          <option selected value="0">Choose Academic Year</option>
-          <option *ngFor="let a of lstAcademicYears" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
-          <!-- <option value="1">05/03/2024 - 05/04/2024</option> -->
-        </select>
-        <select (change)="onSelectFaculty($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
-          <option selected value="0">Choose Faculty</option>
-          <option *ngFor="let f of lstFaculties" value="{{f.faculty_id}}">{{f.faculty_name}}</option>
-          <!-- <option value="1">ART</option> -->
-        </select>
-        <!-- <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a> -->
+            <option selected value="0">Choose Academic Year</option>
+            <option *ngFor="let a of lstAcademicYears" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
+            <!-- <option value="1">05/03/2024 - 05/04/2024</option> -->
+          </select>
+          <select (change)="onSelectFaculty($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
+            <option selected value="0">Choose Faculty</option>
+            <option *ngFor="let f of lstFaculties" value="{{f.faculty_id}}">{{f.faculty_name}}</option>
+            <!-- <option value="1">ART</option> -->
+          </select>
+          <!-- <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a> -->
+        </div>
+      
+        <button class="Btn"  (click)="downLoadManyAriticle()">
+            Download All
+          </button>
 
       </div>
 

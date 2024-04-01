@@ -36,6 +36,12 @@ import { AboutUsHomeComponent } from './components/aboutUs/about-us-home/about-u
 import { ManagerStatisticApproveRejectComponent } from './components/manager/manager-statistic-approve-reject/manager-statistic-approve-reject.component';
 import { ChartComponent } from '@syncfusion/ej2-angular-charts';
 import { AdminChartApprovalRejectComponent } from './components/charts/admin-chart-approval-reject/admin-chart-approval-reject.component';
+import { GuestChartComponent } from './components/charts/guest-chart/guest-chart.component';
+import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
+import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
+import { WelcomeComponent } from './components/main/welcome/welcome.component';
+import { CoordinatorChartComponent } from './components/charts/coordinator-chart/coordinator-chart.component';
+
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -57,8 +63,8 @@ const routes: Routes = [
   {path:'Old-Password', component:OldPasswordComponent},
   {path:'Change-Password', component:ChangePasswordComponent},
 
-
- 
+ //Welcome page
+ {path:'Welcome', component: WelcomeComponent},
 
 
   //About us
@@ -67,6 +73,9 @@ const routes: Routes = [
   //Guest
   {path:'Guest-Statistic', component: GuestStatisticComponent},
   {path:'Guest-ViewArticleDetail/:id', component: GuestViewArticleDetailComponent},
+  {path:'Guest-Chart', component: GuestChartComponent},
+  
+  
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -78,6 +87,7 @@ const routes: Routes = [
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub/:id', component: PublicationDetailComponent},
   {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
+  {path:'Coordinator-Chart', component: CoordinatorChartComponent},
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},
@@ -85,6 +95,9 @@ const routes: Routes = [
   {path:'View-ManagerAfterClosing', component: StatisticAfterClosingComponent},
   {path:'View-PublishedArticles', component: ManagePublishedArticleComponent},
   {path:'View-StatisticApproveReject', component: ManagerStatisticApproveRejectComponent},
+  {path:'Manager-Chart-Before', component: ManagerChartBeforeComponent},
+  {path:'Manager-Chart-After', component: ManagerChartAfterComponent},
+  
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},

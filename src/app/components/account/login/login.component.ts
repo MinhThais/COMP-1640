@@ -69,22 +69,31 @@ export class LoginComponent implements OnInit{
             this.role = res || roleFromToken;
           });
 
-          if(this.role === "Admin"){
-            this.router.navigate(['/View-Articles']);
-          }
-          else if(this.role === "Coordinator"){
-            this.router.navigate(['/View-Comment']);
-            
-          }
-          else if(this.role === "Student"){
-            this.router.navigate(['/View-Student']);
-          }
-          else if(this.role === "Manager"){
-            this.router.navigate(['/View-Articles']);
+          if(this.role !== ''){
+            this.router.navigate(['/Welcome']);
           }
           else{
-            this.router.navigate(['/View-Articles']);
+            this.router.navigate(['/']);
           }
+
+          // if(this.role === "Admin"){
+          //   this.router.navigate(['/View-Articles']);
+          // }
+          // else if(this.role === "Coordinator"){
+          //   this.router.navigate(['/View-Comment']);
+            
+          // }
+          // else if(this.role === "Student"){
+          //   this.router.navigate(['/View-Student']);
+          // }
+          // else if(this.role === "Manager"){
+          //   this.router.navigate(['/View-Articles']);
+          // }
+          // else{
+          //   this.router.navigate(['/View-Articles']);
+          // }
+
+
         },
         error =>{
           this.toast.error(error.error.message, 'Error!', {
