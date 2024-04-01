@@ -88,6 +88,7 @@
                 </ul>
               </li>
 
+              <!-- Statistic -->
               <li *ngIf="this.role === 'Guest' || this.role === 'Admin' || this.role === 'Manager' || this.role === 'Coordinator'" ngbDropdown class="nav-item dropdown">
                 <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,7 +96,10 @@
                 </a>
                 <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
                   <!-- Admin -->
-                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Statistic">Faculty-Wide</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-StatisticActiveTime">Active Time</a></li>
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-Statistic">Faculty-Wide</a></li>     
+                  <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Admin'" routerLink="/Admin-StatisticPageBrowser">Page, Browser, and Role</a></li>
+                  
 
                   <!-- Coordinator -->
                   <li><a ngbDropdownItem class="dropdown-item" *ngIf="this.role === 'Coordinator'" routerLink="/View-CoordinatorStatistic">Faculty</a></li>

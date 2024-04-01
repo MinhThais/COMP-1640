@@ -506,6 +506,7 @@ tr:hover td{
 
 .combo-combo{
     display: flex;
+    margin-left: 5px;
 }
 
 .div-combo .div-left{

@@ -1,16 +1,17 @@
 <main>
 
     <div class="public">
-      <p class="public-p1">Statistics of Articles without Comments Yet</p>
+      <p class="public-p1">User Activity Time Statistics</p>
   
     </div>
   
     <div class="div-combo">
         <div class="combo-combo">
-          <select (change)="onChageAcademicYear($event)" id="select-option" class="form-select" aria-label="Default select example">
-            <option *ngFor="let a of lstAcademicYear" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
-        </select>
-        <!-- <button class="button-sort">Sort</button> -->
+          <select id="select-option" class="form-select" aria-label="Default select example">
+            <option selected>Admin</option>
+            <option value="1">Manager</option>
+            <option value="1">Guest</option>
+          </select>
             <button class="ui-btn">
                 <span>
                   Sort 
@@ -22,8 +23,8 @@
         <div class="div-left" >
             <!-- <button id="id-table" class="download-button">Table</button> -->
             <!-- <button id="id-chart" class="download-button" routerLink="/Admin-Chart" id="btn-readMore">Chart</button> -->
-            <!-- <div class="btn-conteiner">
-                <a class="btn-content" href="#" routerLink="/Manager-Chart-Before" >
+            <div class="btn-conteiner">
+                <a class="btn-content" href="#" routerLink="/Admin-ChartActiveTime" >
                   <span class="btn-title">Chart</span>
                   <span class="icon-arrow">
                     <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -35,7 +36,7 @@
                     </svg>
                   </span> 
                 </a>
-              </div> -->
+              </div>
     
         </div>
   
@@ -50,28 +51,26 @@
             <table>
                 <thead>
                     <tr>
-                      <th>Image</th>
                       <th>ID</th>
-                      <th>Title</th>
-                      <th>Contributor</th>
-                      <th>Faculty</th>
-                      <th>Coordinator</th>
-                      <th>Submission</th>
-                      <th>Closure Date</th>
-                      <th>Final Closure Date</th>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Daily average time (hours)</th>
+                      <th>Total Active Time (hours)</th>                
                     </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let s of lstStatistic">
-                    <td><img src="{{baseImgUrl + s.contributionImages}}" alt=""></td>
-                    <td>{{s.contributionID}}</td>
-                    <td>{{s.contributionTitle}}</td>
-                    <td>{{s.contributor}}</td>
-                    <td>{{s.faculty}}</td>
-                    <td>{{s.coordinator}}</td>
-                    <td>{{s.contributionSubmit | date: 'yyyy-MM-dd'}}</td>
-                    <td>{{s.startDate | date: 'yyyy-MM-dd'}}</td>
-                    <td>{{s.endDate | date: 'yyyy-MM-dd'}}</td>
+                  <tr >
+                    <td>1</td>
+                    <td>Doan Van Ho</td>
+                    <td>ho@gmail.com</td>
+                    <td>Coordinator</td>
+                    <td>8</td>
+                    <td>240</td>
+                    <!-- <td>
+                        <button routerLink="/Guest-ViewArticleDetail"><i class="fa-solid fa-eye"></i></button>
+                        <button routerLink="/Guest-ViewArticleDetail"><i class="fa-solid fa-download"></i></button>
+                    </td> -->
                 </tr>
                 </tbody>
             </table>
