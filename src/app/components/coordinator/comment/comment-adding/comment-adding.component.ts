@@ -65,7 +65,7 @@ export class CommentAddingComponent implements OnInit{
 
   sendComment(){
     if(this.commentId != 0){
-      this.comment.updateComment(this.commentId, this.commentcontent).subscribe(res =>{
+      this.comment.updateComment(this.contributionID, this.commentId, this.commentcontent).subscribe(res =>{
         this.ngOnInit();
         this.commentId = 0;
         this.commentcontent = "";
@@ -95,7 +95,8 @@ export class CommentAddingComponent implements OnInit{
 
   deleteComment(comment_id:number){
     if(confirm("Are you sure to delete?")){
-      this.comment.deletecomment(comment_id).subscribe(res => {
+      this.comment.deleteComment(this.contributionID, comment_id).subscribe(res => {
+        this.commentId = 0;
         this.ngOnInit();
       },
       error => {
