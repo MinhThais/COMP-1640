@@ -145,7 +145,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
             borderWidth: 1,
           },
           {
-            label: 'Total Contributor',
+            label: 'Total Contributors',
 
             data: [10, 12, 13, 15, 12, 13],
             backgroundColor: ['rgba(75, 192, 192, 0.2)'],
