@@ -19,6 +19,10 @@
   user-select: none;
 }
 
+.div-chart1 {
+  width: 100%;
+}
+
 .div-chart {
   width: 75%;
 }

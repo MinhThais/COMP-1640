@@ -1,5 +1,6 @@
 
 
+
 .div-form{
     text-align: -webkit-center;
     max-width: 50%;
@@ -25,6 +26,10 @@
   
   .div-chart{
     width: 75%;
+  }
+
+  .div-chart1 {
+    width: 100%;
   }
   
   .div-left{
