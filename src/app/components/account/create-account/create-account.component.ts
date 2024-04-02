@@ -105,6 +105,8 @@ export class CreateAccountComponent implements OnInit{
         user_faculty_id: this.selectFaculty
       }
 
+      console.log(userObj);
+
       this.auth.createUser(userObj).subscribe(res => {
         this.toast.success(res.message, 'Success', {
           timeOut: 3000,

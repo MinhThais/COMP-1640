@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart, registerables} from 'node_modules/chart.js';
 import { Router } from '@angular/router';
+import { FacultyService } from 'src/app/services/faculty.service';
 Chart.register(...registerables);
 
 @Component({
@@ -31,26 +32,29 @@ export class AdminChartApprovalRejectComponent implements OnInit {
   displayLineChart: string = 'none';
   displayRadarChart: string = 'none';
 
+  public lstFaculty : any = [];
 
   constructor(
     private router: Router,
+    private facultyAPI:FacultyService
   ) {}
 
   ngOnInit(): void {
 
+
     // Lấy dữ liệu từ backend sau đó truyền vào hàm bên dưới
 
     /*Ví dụ: Lấy dữ liệu id, title, num of article thì chuyền vào hàm bên dưới
-    3 biến trên -> this.BarChart(this.id, this.title, this.numOfArticle, idCanvas, typeChart) 
+    3 biến trên -> this.BarChart(this.id, this.title, this.numOfArticle, idCanvas, typeChart)
 
     idCanvas: là id canvas bên html (đặt bất kì tên gì). Mục đích để xác nhận cái chart này hiển thị ở canvas nào
     typeChart: là loại chart được hiển thị (mặc định: bar, pie, doughnut, polarAre, radar, v.v...). Ví dụ như: chart hình tròn, chart hình cột, chart hình ra đa, vân vân...
 
     Lưu ý: 2 biến idCanvas và typeChart ta có thể gán cứng vào hàm this.BarChart() như sau:
 
-    this.BarChart(this.id, this.title, this.numOfArticle, 'pieChart', 'pie') 
-    this.BarChart(this.id, this.title, this.numOfArticle, 'barChart', 'bar') 
-    this.BarChart(this.id, this.title, this.numOfArticle, 'radarChart', 'radar') 
+    this.BarChart(this.id, this.title, this.numOfArticle, 'pieChart', 'pie')
+    this.BarChart(this.id, this.title, this.numOfArticle, 'barChart', 'bar')
+    this.BarChart(this.id, this.title, this.numOfArticle, 'radarChart', 'radar')
      */
 
 
@@ -60,9 +64,14 @@ export class AdminChartApprovalRejectComponent implements OnInit {
 
   }
 
+  getAllFaculty(){
+    this.facultyAPI.getAllFaculty().subscribe(data => {
+      this.lstFaculty = data;
+    })
+  }
 
 
-  /*Bên dưới hàm này khai báo dữ liệu đã truyền ở hàm bên trên vào hàm bên dưới này 
+  /*Bên dưới hàm này khai báo dữ liệu đã truyền ở hàm bên trên vào hàm bên dưới này
 
   BarChar(id:any, title:any, numOfArticle:any, idCanvas:any, typeChart:any){
      new Chart(idCanvas, {
@@ -71,7 +80,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
       labels: title,
       datasets: [{
         label: '# of Votes',
-  
+
         data: numOfArticle,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -127,7 +136,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
       },
       {
         label: 'Num of Articles',
-  
+
         data: [10, 12, 13, 15, 12, 13],
         fill: true,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -137,7 +146,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(54, 162, 235)',
         borderWidth: 1,
-  
+
       }
 
     ],
@@ -159,7 +168,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
         datasets: [{
           label: 'Num of Contributors',
-  
+
           data: [12, 19, 3, 5, 2, 3],
           fill: true,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -172,7 +181,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         },
         {
           label: 'Num of Articles',
-    
+
           data: [10, 12, 13, 15, 12, 13],
           fill: true,
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -182,9 +191,9 @@ export class AdminChartApprovalRejectComponent implements OnInit {
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: 'rgb(54, 162, 235)',
           borderWidth: 1,
-    
+
         }
-  
+
       ],
       },
       options: {
@@ -204,7 +213,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
         datasets: [{
           label: 'Num of Contributors',
-  
+
           data: [12, 19, 3, 5, 2, 3],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -216,18 +225,18 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         },
         {
           label: 'Num of Articles',
-    
+
           data: [10, 12, 13, 15, 12, 13],
-          backgroundColor: [    
+          backgroundColor: [
             'rgba(54, 162, 235, 0.2)',
           ],
-          borderColor: [   
+          borderColor: [
             'rgb(54, 162, 235)',
           ],
           borderWidth: 1,
-    
+
         }
-  
+
       ],
       },
       options: {
@@ -240,7 +249,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     });
   }
 
-  
+
 
   //Click Events
 

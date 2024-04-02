@@ -78,14 +78,6 @@ export class AddArticlesComponent {
     }
   }
 
-  // uploadImage(event: any){
-  //   const file = event.target.files;
-  //   if(file && file.length > 0){
-  //     this.fileImg = event.target.files[0];
-  //   }
-  // }
-
-
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
