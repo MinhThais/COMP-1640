@@ -50,6 +50,12 @@ import { GuestChartComponent } from './components/charts/guest-chart/guest-chart
 import { WelcomeComponent } from './components/main/welcome/welcome.component';
 import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
 import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
+import { CoordinatorChartComponent } from './components/charts/coordinator-chart/coordinator-chart.component';
+import { AdminChartPageBrowserComponent } from './components/charts/admin-chart-page-browser/admin-chart-page-browser.component';
+import { AdminChartActiveTimeComponent } from './components/charts/admin-chart-active-time/admin-chart-active-time.component';
+import { ManagerChartApprovalRejectComponent } from './components/charts/manager-chart-approval-reject/manager-chart-approval-reject.component';
+import { AdminStatisticAtiveTimeComponent } from './components/admin/admin-statistic-ative-time/admin-statistic-ative-time.component';
+import { AdminStatisticPageBrowserComponent } from './components/admin/admin-statistic-page-browser/admin-statistic-page-browser.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +100,13 @@ import { ManagerChartAfterComponent } from './components/charts/manager-chart-af
     GuestChartComponent,
     WelcomeComponent,
     ManagerChartBeforeComponent,
-    ManagerChartAfterComponent
+    ManagerChartAfterComponent,
+    CoordinatorChartComponent,
+    AdminChartPageBrowserComponent,
+    AdminChartActiveTimeComponent,
+    ManagerChartApprovalRejectComponent,
+    AdminStatisticAtiveTimeComponent,
+    AdminStatisticPageBrowserComponent
   ],
 
   imports: [

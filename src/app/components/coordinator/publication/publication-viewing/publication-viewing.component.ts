@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { UserService } from 'src/app/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-publication-viewing',
@@ -21,6 +22,7 @@ export class PublicationViewingComponent implements OnInit{
     private toast:ToastrService,
     private userStore:UserStoreService,
     private auth:UserService,
+    private location : Location
   ){}
 
   ngOnInit(): void {
@@ -42,7 +44,6 @@ export class PublicationViewingComponent implements OnInit{
       this.pathDoc = this.article.doc;
     }
   }
-
 
   getAllArticles(username:string){
     this.article.getAllArticleOfStudentInFaculty(username).subscribe(data => {
@@ -69,15 +70,10 @@ export class PublicationViewingComponent implements OnInit{
 
   Approve(contribution_id:number){
     this.article.approve(contribution_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar:true,
-        positionClass: 'toast-top-center'
-      });
       this.ngOnInit();
     },
     error => {
-      this.toast.error(error.error.message, 'Error', {
+      this.toast.error(error.error.Message, 'Error', {
         timeOut: 3000,
         progressBar: true,
         positionClass: 'toast-top-center'
@@ -87,15 +83,10 @@ export class PublicationViewingComponent implements OnInit{
 
   Reject(contribution_id:number){
     this.article.reject(contribution_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar:true,
-        positionClass: 'toast-top-center'
-      });
       this.ngOnInit();
     },
     error => {
-      this.toast.error(error.error.message, 'Error', {
+      this.toast.error(error.error.Message, 'Error', {
         timeOut: 3000,
         progressBar: true,
         positionClass: 'toast-top-center'

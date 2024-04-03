@@ -24,7 +24,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
   buttonRadarLetter: string = this.red;
   buttonRadarBackground: string = this.white;
   //Chart
-  labelChart: string = 'Bar';
+  labelChart: string = 'Mix';
   barChart: any;
   lineChart: any;
   radarChart: any;
@@ -59,150 +59,73 @@ export class AdminChartApprovalRejectComponent implements OnInit {
 
 
     this.BarChart();
-    // this.RadarChart();
-    // this.LineChart();
-
   }
 
-  getAllFaculty(){
-    this.facultyAPI.getAllFaculty().subscribe(data => {
-      this.lstFaculty = data;
-    })
-  }
-
-
-  /*Bên dưới hàm này khai báo dữ liệu đã truyền ở hàm bên trên vào hàm bên dưới này
-
-  BarChar(id:any, title:any, numOfArticle:any, idCanvas:any, typeChart:any){
-     new Chart(idCanvas, {
-    type: typeChart,
-    data: {
-      labels: title,
-      datasets: [{
-        label: '# of Votes',
-
-        data: numOfArticle,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-  }
-  }
-  */
-
-  // Chart functions
   RadarChart(){
-  this.radarChart =  new Chart("radarLineChart", {
-    type: 'radar',
-    data: {
+    const data = {
       labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-      datasets: [{
-        label: 'Num of Contributors',
-
-        data: [12, 19, 3, 5, 2, 3],
-        fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgb(255, 99, 132)',
-        pointBackgroundColor: 'rgb(255, 99, 132)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)',
-        borderWidth: 1
-      },
-      {
-        label: 'Num of Articles',
-
-        data: [10, 12, 13, 15, 12, 13],
-        fill: true,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgb(54, 162, 235)',
-        pointBackgroundColor: 'rgb(54, 162, 235)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(54, 162, 235)',
-        borderWidth: 1,
-
-      }
-
-    ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-  }
-
-  LineChart(){
-    this.radarChart =  new Chart("lineChart", {
-      type: 'line',
-      data: {
-        labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-        datasets: [{
-          label: 'Num of Contributors',
-
-          data: [12, 19, 3, 5, 2, 3],
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)',
-          borderWidth: 1
-        },
+      datasets: [
         {
-          label: 'Num of Articles',
-
-          data: [10, 12, 13, 15, 12, 13],
-          fill: true,
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgb(54, 162, 235)',
-          pointBackgroundColor: 'rgb(54, 162, 235)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(54, 162, 235)',
-          borderWidth: 1,
-
-        }
-
+          label: 'Percentage of total articles compared to the entire faculty (%)',
+          data: [300, 50, 100, 50, 50, 70],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            '#71b657',
+            '#e3632d',
+            '#6c757d',
+          ],
+          hoverOffset: 4,
+        },
       ],
-      },
+    };
+
+    this.radarChart = new Chart('radarChart', {
+      type: 'pie',
+      data: data,
+
       options: {
         scales: {
           y: {
-            beginAtZero: true
-          }
-        }
-      }
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  LineChart(){
+    const data = {
+      labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
+      datasets: [
+        {
+          label: 'Percentage of total contributors compared to the entire faculty (%)',
+          data: [300, 50, 100, 50, 50, 70],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            '#71b657',
+            '#e3632d',
+            '#6c757d',
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    };
+
+    this.radarChart = new Chart('lineChart', {
+      type: 'pie',
+      data: data,
+
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
     });
     }
 
@@ -267,7 +190,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.buttonLineBackground = this.white;
     this.buttonRadarLetter = this.red;
     this.buttonRadarBackground = this.white;
-    this.labelChart = 'Bar';
+    this.labelChart = 'Mix';
     this.displayBarChart = 'block';
     this.displayLineChart = 'none';
     this.displayRadarChart = 'none';
@@ -287,7 +210,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.buttonBarBackground = this.white;
     this.buttonRadarLetter = this.red;
     this.buttonRadarBackground = this.white;
-    this.labelChart = 'Line';
+    this.labelChart = 'Contributor';
     this.displayLineChart = 'block';
     this.displayBarChart = 'none';
     this.displayRadarChart = 'none';
@@ -304,7 +227,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.buttonLineBackground = this.white;
     this.buttonBarLetter = this.red;
     this.buttonBarBackground = this.white;
-    this.labelChart = 'Radar';
+    this.labelChart = 'Article';
     this.displayRadarChart = 'block';
     this.displayBarChart = 'none';
     this.displayLineChart = 'none';

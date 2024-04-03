@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
@@ -16,6 +16,7 @@ export class UpdateArticlesComponent {
   isChecked: boolean = true;
   articleID : number = 0;
   public lstArticles : any = [];
+  currentDate: Date = new Date();
 
   pathImg : string = "";
   pathDoc : string = "";
@@ -29,6 +30,7 @@ export class UpdateArticlesComponent {
   constructor(
     private fb: FormBuilder,
     private auth: UserService,
+    private route:Router,
     private activatedRouter : ActivatedRoute,
     private article : ArticleService,
     private toast:ToastrService,
@@ -96,12 +98,11 @@ export class UpdateArticlesComponent {
     }
   }
 
-
   UpdateArticles(){
     if(this.updateArticleForm.valid){
       if(this.filetoUpload == undefined && this.imgUri == undefined){
         const formData:FormData = new FormData();
-        formData.append('submitDate',this.updateArticleForm.get('contribution_submition_date')?.value);
+        formData.append('submitDate',this.currentDate.toDateString());
         formData.append('title',this.updateArticleForm.get('contribution_title')?.value);
         formData.append('contribution_id', this.contribution_id);
         formData.append('username',this.fullname);
@@ -112,6 +113,7 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
+          location.reload();
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
@@ -124,7 +126,7 @@ export class UpdateArticlesComponent {
       else if(this.filetoUpload != null && this.imgUri == null){
         const formData:FormData = new FormData();
         formData.append('uploadFile', this.filetoUpload, this.filetoUpload.name);
-        formData.append('submitDate',this.updateArticleForm.get('contribution_submition_date')?.value);
+        formData.append('submitDate',this.currentDate.toDateString());
         formData.append('title',this.updateArticleForm.get('contribution_title')?.value);
         formData.append('contribution_id', this.contribution_id);
         formData.append('username',this.fullname);
@@ -146,7 +148,7 @@ export class UpdateArticlesComponent {
       }
       else if(this.filetoUpload == null && this.imgUri != null){
         const formData:FormData = new FormData();
-        formData.append('submitDate',this.updateArticleForm.get('contribution_submition_date')?.value);
+        formData.append('submitDate',this.currentDate.toDateString());
         formData.append('title',this.updateArticleForm.get('contribution_title')?.value);
         formData.append('uploadImage', this.imgUri, this.imgUri.name);
         formData.append('contribution_id', this.contribution_id);
@@ -158,6 +160,7 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
+          location.reload();
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
@@ -170,7 +173,7 @@ export class UpdateArticlesComponent {
       else{
         const formData:FormData = new FormData();
         formData.append('uploadFile', this.filetoUpload, this.filetoUpload.name);
-        formData.append('submitDate',this.updateArticleForm.get('contribution_submition_date')?.value);
+        formData.append('submitDate',this.currentDate.toDateString());
         formData.append('title',this.updateArticleForm.get('contribution_title')?.value);
         formData.append('uploadImage', this.imgUri, this.imgUri.name);
         formData.append('contribution_id', this.contribution_id);
@@ -182,6 +185,7 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
+          location.reload();
         },
         error => {
           this.toast.error(error.error.message, 'Error', {

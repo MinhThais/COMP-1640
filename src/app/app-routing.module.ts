@@ -40,6 +40,12 @@ import { GuestChartComponent } from './components/charts/guest-chart/guest-chart
 import { ManagerChartBeforeComponent } from './components/charts/manager-chart-before/manager-chart-before.component';
 import { ManagerChartAfterComponent } from './components/charts/manager-chart-after/manager-chart-after.component';
 import { WelcomeComponent } from './components/main/welcome/welcome.component';
+import { CoordinatorChartComponent } from './components/charts/coordinator-chart/coordinator-chart.component';
+import { AdminStatisticAtiveTimeComponent } from './components/admin/admin-statistic-ative-time/admin-statistic-ative-time.component';
+import { AdminStatisticPageBrowserComponent } from './components/admin/admin-statistic-page-browser/admin-statistic-page-browser.component';
+import { AdminChartPageBrowserComponent } from './components/charts/admin-chart-page-browser/admin-chart-page-browser.component';
+import { AdminChartActiveTimeComponent } from './components/charts/admin-chart-active-time/admin-chart-active-time.component';
+import { ManagerChartApprovalRejectComponent } from './components/charts/manager-chart-approval-reject/manager-chart-approval-reject.component';
 
 
 const routes: Routes = [
@@ -86,6 +92,7 @@ const routes: Routes = [
   {path:'View-Pub', component: PublicationViewingComponent},
   {path:'Detail-Pub/:id', component: PublicationDetailComponent},
   {path:'View-CoordinatorStatistic', component: CoordinatorStatisticComponent},
+  {path:'Coordinator-Chart', component: CoordinatorChartComponent},
 
   //Manager
   {path:'View-ManagerHome', component: ManagerHomeComponent},
@@ -95,13 +102,18 @@ const routes: Routes = [
   {path:'View-StatisticApproveReject', component: ManagerStatisticApproveRejectComponent},
   {path:'Manager-Chart-Before', component: ManagerChartBeforeComponent},
   {path:'Manager-Chart-After', component: ManagerChartAfterComponent},
+  {path:'Manager-Chart-AprrovalReject', component: ManagerChartApprovalRejectComponent},
   
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},
+  {path:'Admin-StatisticActiveTime', component: AdminStatisticAtiveTimeComponent},
+  {path:'Admin-StatisticPageBrowser', component: AdminStatisticPageBrowserComponent},
   {path:'Admin-Account', component: AdminAccountComponent},
-  // {path:'Admin-Chart', component: ManagerChartAprrovalRejectComponent},
   {path:'Admin-Chart', component: AdminChartApprovalRejectComponent},
+  {path:'Admin-ChartPageBrowser', component: AdminChartPageBrowserComponent},
+  {path:'Admin-ChartActiveTime', component: AdminChartActiveTimeComponent},
+  
 ];
 
 @NgModule({

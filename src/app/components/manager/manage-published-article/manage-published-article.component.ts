@@ -27,13 +27,44 @@ export class ManagePublishedArticleComponent implements OnInit {
     private article: ArticleService,
     private toast: ToastrService,
     private facultyAPI: FacultyService,
-    private academicService: AcademicYearService,
+    private academicService: AcademicYearService
   ) { }
 
   ngOnInit(): void {
-    this.getArticle();
-    this.getAllFaculties();
-    this.getAllAcademicYears();
+    if(this.selectedAcademicYear != 0 && this.selectedFaculty != 0){
+      this.search(this.selectedAcademicYear, this.selectedFaculty);
+    }
+    else if(this.selectedAcademicYear == 0 && this.selectedFaculty != 0){
+      this.search(this.selectedAcademicYear, this.selectedFaculty);
+    }
+    else if(this.selectedAcademicYear != 0 && this.selectedFaculty == 0){
+      this.search(this.selectedAcademicYear, this.selectedFaculty);
+    }
+    else{
+      this.getArticle();
+      this.getAllFaculties();
+      this.getAllAcademicYears();
+    }
+
+    console.log(this.selectedAcademicYear);
+    console.log(this.selectedFaculty);
+
+  }
+
+  search(academic_id:number, faculty_id:number){
+    this.article.search(academic_id, faculty_id).subscribe(data => {
+      this.lstArticles = data;
+    });
+  }
+
+  onAcademicChange(newValue: number) {
+    this.selectedAcademicYear = newValue;
+    this.ngOnInit();
+  }
+
+  onFacultyChange(newValue:number){
+    this.selectedFaculty = newValue;
+    this.ngOnInit();
   }
 
   getAllFaculties() {
@@ -105,11 +136,6 @@ export class ManagePublishedArticleComponent implements OnInit {
 
   Public(contribution_id: number) {
     this.article.public(contribution_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
-      });
       this.status = "Public";
       this.ngOnInit();
     },
@@ -124,11 +150,6 @@ export class ManagePublishedArticleComponent implements OnInit {
 
   Private(contribution_id: number) {
     this.article.private(contribution_id).subscribe(res => {
-      this.toast.success(res.message, 'Success', {
-        timeOut: 3000,
-        progressBar: true,
-        positionClass: 'toast-top-center'
-      });
       this.status = "Private";
       this.ngOnInit();
     },

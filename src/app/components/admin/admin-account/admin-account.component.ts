@@ -20,6 +20,7 @@ export class AdminAccountComponent implements OnInit{
   getAllAccount(){
     this.auth.getAllAccount().subscribe(data => {
       this.lstAccount = data;
+      console.table(this.lstAccount);
     });
   }
 

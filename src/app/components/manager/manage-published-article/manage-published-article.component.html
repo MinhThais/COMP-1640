@@ -1,7 +1,7 @@
 <main>
 
     <div class="public">
-        <p class="public-p1">Approved Articles Viewing</p> 
+        <p class="public-p1">Approved Articles Viewing</p>
         <!-- <p class="public-p2"> 14 days</p> -->
 
     </div>
@@ -10,19 +10,19 @@
     <div class="div-button">
         <div class="div-selected">
               <!-- <button class="download-button" (click)="downLoadManyAriticle()" id="btn-readMore">Download All</button> -->
-        <select (change)="onSelectAcademicYear($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
-            <option selected value="0">Choose Academic Year</option>
+        <select [(ngModel)]="selectedAcademicYear" (ngModelChange)="onAcademicChange($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
+            <option selected value="0">All Academic Year</option>
             <option *ngFor="let a of lstAcademicYears" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
             <!-- <option value="1">05/03/2024 - 05/04/2024</option> -->
           </select>
-          <select (change)="onSelectFaculty($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
-            <option selected value="0">Choose Faculty</option>
+          <select [(ngModel)]="selectedFaculty" (ngModelChange)="onFacultyChange($event)" formControllName="" id="select-option" class="form-select" aria-label="Default select example">
+            <option selected value="0">All Faculty</option>
             <option *ngFor="let f of lstFaculties" value="{{f.faculty_id}}">{{f.faculty_name}}</option>
             <!-- <option value="1">ART</option> -->
           </select>
           <!-- <a class="download-button" routerLink="/Detail-Articles" id="btn-readMore">Download All</a> -->
         </div>
-      
+
         <button class="Btn"  (click)="downLoadManyAriticle()">
             Download All
           </button>
@@ -55,14 +55,14 @@
                         <td>{{a.contribution_academic_years_id}}</td>
                         <!-- <td>5/4/2024</td> -->
                         <td>
-                            <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"
+                            <!-- <button (click)="Public(a.contribution_id)"  *ngIf="a.isPublic === ''"
                             class="button-public"></button>
 
-                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === ''"  class="button-private"></button>
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === ''"  class="button-private"></button> -->
 
-                            <button (click)="Public(a.contribution_id)" *ngIf="a.isPublic === 'Public'"  class="button-public1"></button>
+                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Public' && a.isSelected === 'Selected'"  class="button-public1"></button>
 
-                            <button (click)="Private(a.contribution_id)" *ngIf="a.isPublic === 'Private'"  class="button-private1"></button>
+                            <button (click)="Public(a.contribution_id)" *ngIf="a.isPublic === 'Private' && a.isSelected === 'Selected'"  class="button-private1"></button>
 
                         </td>
                         <td>

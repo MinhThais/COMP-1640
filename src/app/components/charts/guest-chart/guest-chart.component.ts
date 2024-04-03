@@ -39,139 +39,40 @@ export class GuestChartComponent implements OnInit{
     this.BarChart();
   }
 
-  // Chart functions
-  RadarChart(){
-    this.radarChart =  new Chart("radarLineChart", {
-      type: 'radar',
+  
+  BarChart() {
+    this.barChart = new Chart('barChart', {
+      type: 'bar',
       data: {
-        labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-        datasets: [{
-          label: 'Num of Contributors',
-  
-          data: [12, 19, 3, 5, 2, 3],
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)',
-          borderWidth: 1
-        },
-        {
-          label: 'Num of Articles',
-    
-          data: [10, 12, 13, 15, 12, 13],
-          fill: true,
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgb(54, 162, 235)',
-          pointBackgroundColor: 'rgb(54, 162, 235)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(54, 162, 235)',
-          borderWidth: 1,
-    
-        }
-  
-      ],
+        labels: ['29/02/2023', '29/03/2023', '29/04/2023', '29/05/2023'],
+        datasets: [
+          {
+            label: 'Total Articles',
+
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)'],
+            borderWidth: 1,
+          },
+          {
+            label: 'Total Contributors',
+
+            data: [10, 12, 13, 15, 12, 13],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgb(54, 162, 235)'],
+            borderWidth: 1,
+          },
+        ],
       },
       options: {
         scales: {
           y: {
-            beginAtZero: true
-          }
-        }
-      }
+            beginAtZero: true,
+          },
+        },
+      },
     });
-    }
-  
-    LineChart(){
-      this.radarChart =  new Chart("lineChart", {
-        type: 'line',
-        data: {
-          labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-          datasets: [{
-            label: 'Num of Contributors',
-    
-            data: [12, 19, 3, 5, 2, 3],
-            fill: true,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgb(255, 99, 132)',
-            pointBackgroundColor: 'rgb(255, 99, 132)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(255, 99, 132)',
-            borderWidth: 1
-          },
-          {
-            label: 'Num of Articles',
-      
-            data: [10, 12, 13, 15, 12, 13],
-            fill: true,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgb(54, 162, 235)',
-            pointBackgroundColor: 'rgb(54, 162, 235)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(54, 162, 235)',
-            borderWidth: 1,
-      
-          }
-    
-        ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-      }
-  
-    BarChart(){
-      this.barChart =  new Chart("barChart", {
-        type: 'bar',
-        data: {
-          labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-          datasets: [{
-            label: 'Num of Contributors',
-    
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-              'rgb(255, 99, 132)',
-            ],
-            borderWidth: 1
-          },
-          {
-            label: 'Num of Articles',
-      
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [    
-              'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [   
-              'rgb(54, 162, 235)',
-            ],
-            borderWidth: 1,
-      
-          }
-    
-        ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    }
+  }
   
     
   
@@ -215,7 +116,7 @@ export class GuestChartComponent implements OnInit{
       this.displayLineChart = 'block';
       this.displayBarChart = 'none';
       this.displayRadarChart = 'none';
-      this.LineChart();
+
     }
   
     onRadar(){
@@ -232,6 +133,5 @@ export class GuestChartComponent implements OnInit{
       this.displayRadarChart = 'block';
       this.displayBarChart = 'none';
       this.displayLineChart = 'none';
-      this.RadarChart();
     }
 }

@@ -19,6 +19,7 @@
                         <!-- <th>Closing Date</th> -->
                         <!-- <th>Rate</th> -->
                         <th>Status</th>
+                        <!-- <th>Approved / Rejected Action</th> -->
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,8 +29,7 @@
                         <td><img [src]="(pathImg + i.contribution_image)" alt=""></td>
                         <td>{{i.contribution_id}}</td>
                         <td>{{i.contribution_title}}</td>
-
-                        <td>{{i.contribution_submition_date | date : 'MM-đd-yyyy'}}</td>
+                        <td>{{i.contribution_submition_date | date : 'MM-dd-yyyy'}}</td>
                         <!-- <td>5/4/2024</td> -->
                         <!-- <td>
                             <button routerLink="/View-Pub" class="button-waiting">
@@ -37,15 +37,18 @@
                             <button routerLink="/View-Pub" class="button-fail"></button>
                             <button routerLink="/View-Pub" class="button-pass"></button>
                         </td> -->
+                        <!-- <td *ngIf="i.isSelected === 'Pending'">Pending</td>
+                        <td *ngIf="i.isSelected === 'Selected'">Approved</td>
+                        <td *ngIf="i.isSelected === 'Unselected'">Rejected</td> -->
                         <td>
                             <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">
                                 Pending</button>
 
-                            <button (click)="Approve(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Unselected'"  class="button-approve">Approve </button>
-                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Unselected'"  class="button-reject">Reject </button>
+                            <button (click)="Approve(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Pending'"  class="button-approve">Approve </button>
+                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Pending'"  class="button-reject">Reject </button>
 
-                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isSelected === 'Selected'" class="button-approve1"></button>
-                            <button (click)="Approve(i.contribution_id)" *ngIf="i.isView === 'Private' && i.isEnabled === 'Unenabled'" class="button-reject1"></button>
+                            <button (click)="Approve(i.contribution_id)" *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected'" class="button-reject1"></button>
+                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isPublic === 'Private' && i.isSelected === 'Selected'" class="button-approve1"></button>
                         </td>
                         <td>
                             <button [routerLink]="['/Detail-Pub', i.contribution_id]" (click)="view(i.contribution_id)"><i class="fa-solid fa-eye"></i></button>
@@ -56,4 +59,3 @@
         </div>
     </div>
   </main>
-

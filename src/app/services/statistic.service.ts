@@ -38,4 +38,12 @@ export class StatisticService {
       params: { academic_year_id },
     });
   }
+
+  statisticalContributionApprovedRejected(academic_id:number, faculty_id:number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}statistical_approve_reject`, {params: {academic_id, faculty_id}});
+  }
+
+  statisticalContributionApprovedRejectedChart(academic_id:number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}statistical_approve_reject_chart`, {params: {academic_id}});
+  }
 }

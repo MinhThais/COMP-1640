@@ -38,10 +38,12 @@ export class UpdateAcademicYearComponent {
         this.addAcademicYear.getAcademicYear(this.academic_id).subscribe(
           (res) => {
             this.academic = res;
+            //log
+            console.log(this.academic);
             this.updateAcademicForm.patchValue({
               academic_year_title:[this.academic.academic_year_title],
-              academic_Year_startClosureDate:[format(this.academic.academic_year_startClosureDate, 'yyyy-MM-dd')],
-              academic_Year_endClosureDate:[format(this.academic.academic_year_endClosureDate, 'yyyy-MM-dd')]
+              academic_Year_startClosureDate:[format(this.academic.academic_year_ClosureDate, 'yyyy-MM-dd')],
+              academic_Year_endClosureDate:[format(this.academic.academic_year_FinalClosureDate, 'yyyy-MM-dd')]
             })
           },
           (err) =>{
@@ -60,8 +62,8 @@ export class UpdateAcademicYearComponent {
       let academicYear = {
         academic_year_id: this.academic_id,
         academic_year_title:this.updateAcademicForm.get('academic_year_title')?.value,
-        academic_year_startClosureDate: startClosureDate,
-        academic_year_endClosureDate: endClosureDate
+        academic_year_ClosureDate: startClosureDate,
+        academic_year_FinalClosureDate: endClosureDate
       }
         this.addAcademicYear.updateAcademicYear(academicYear).subscribe(
         (res)=>{
