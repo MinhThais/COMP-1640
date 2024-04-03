@@ -38,6 +38,13 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
   public lstAcademic : any = [];
   public lstStatistic : any = [];
 
+
+  public labels : any = [];
+  public rejectData : any = [];
+  public approveData : any = [];
+  public contributionData : any = [];
+  public contributorData : any = [];
+
   public selectAcademic : number = 0;
 
   constructor(
@@ -48,102 +55,110 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllAcademic();
-    this.BarChart();
+    this.sort();
+    // this.BarChart();
   }
 
   sort(){
     this.statisticAPI.statisticalContributionApprovedRejectedChart(this.selectAcademic).subscribe(data => {
       this.lstStatistic = data;
-    })
+      this.lstStatistic.forEach((item: { faculty_name: any; numberContributionRejected: any; numberContributionApproved: any; numberContribution: any; numberContributor: any; }) => {
+        this.labels.push(item.faculty_name);
+        this.rejectData.push(item.numberContributionRejected);
+        this.approveData.push(item.numberContributionApproved);
+        this.contributionData.push(item.numberContribution);
+        this.contributorData.push(item.numberContributor);
+     });
+     this.BarChart();
+    });
   }
 
   getAllAcademic(){
     this.academicAPI.getAllAcademicYear().subscribe(data => {
       this.lstAcademic = data;
-      this.lineChart(data);
     });
   }
 
-  RadarChart() {
-    const data = {
-      labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-      datasets: [
-        {
-          label:
-            'Approval Rate (%)',
-          data: [300, 50, 100, 50, 50, 70],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)',
-            '#71b657',
-            '#e3632d',
-            '#6c757d',
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    };
+  // RadarChart() {
+  //   const data = {
+  //     labels: this.labels,
+  //     datasets: [
+  //       {
+  //         label:
+  //           'Approval Rate (%)',
+  //         data: this.approveData,
+  //         backgroundColor: [
+  //           'rgb(255, 99, 132)',
+  //           'rgb(54, 162, 235)',
+  //           'rgb(255, 205, 86)',
+  //           '#71b657',
+  //           '#e3632d',
+  //           '#6c757d',
+  //         ],
+  //         hoverOffset: 4,
+  //       },
+  //     ],
+  //   };
 
-    this.radarChart = new Chart('radarChart', {
-      type: 'pie',
-      data: data,
+  //   this.radarChart = new Chart('radarChart', {
+  //     type: 'pie',
+  //     data: data,
 
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-  }
+  //     options: {
+  //       scales: {
+  //         y: {
+  //           beginAtZero: true,
+  //         },
+  //       },
+  //     },
+  //   });
+  // }
 
-  LineChart() {
-    const data = {
-      labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-      datasets: [
-        {
-          label:
-            'Reject Rate (%)',
-          data: [300, 50, 100, 50, 50, 70],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)',
-            '#71b657',
-            '#e3632d',
-            '#6c757d',
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    };
+  // LineChart() {
+  //   const data = {
+  //     labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
+  //     datasets: [
+  //       {
+  //         label:
+  //           'Reject Rate (%)',
+  //         data: [300, 50, 100, 50, 50, 70],
+  //         backgroundColor: [
+  //           'rgb(255, 99, 132)',
+  //           'rgb(54, 162, 235)',
+  //           'rgb(255, 205, 86)',
+  //           '#71b657',
+  //           '#e3632d',
+  //           '#6c757d',
+  //         ],
+  //         hoverOffset: 4,
+  //       },
+  //     ],
+  //   };
 
-    this.radarChart = new Chart('lineChart', {
-      type: 'pie',
-      data: data,
+  //   this.radarChart = new Chart('lineChart', {
+  //     type: 'pie',
+  //     data: data,
 
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-  }
+  //     options: {
+  //       scales: {
+  //         y: {
+  //           beginAtZero: true,
+  //         },
+  //       },
+  //     },
+  //   });
+  // }
 
   BarChart() {
     this.barChart = new Chart('barChart', {
       type: 'bar',
       data: {
-        labels: [this.lstStatistic.faculty_name],
+        labels: this.labels,
         datasets: [
           {
             label: 'Num of Reject',
 
-            data: [this.lstStatistic.numberContributionRejected],
+            data: this.rejectData,
             backgroundColor: ['rgba(255, 99, 132, 0.2)'],
             borderColor: ['rgb(255, 99, 132)'],
             borderWidth: 1,
@@ -151,7 +166,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
           {
             label: 'Num of Approval',
 
-            data: [this.lstStatistic.numberContributionApproved],
+            data: this.approveData,
             backgroundColor: ['rgba(54, 162, 235, 0.2)'],
             borderColor: ['rgb(54, 162, 235)'],
             borderWidth: 1,
@@ -159,15 +174,15 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
           {
             label: 'Total Article',
 
-            data: [this.lstStatistic.numberContribution],
+            data: this.contributionData,
             backgroundColor: ['rgba(255, 159, 64, 0.2)'],
             borderColor: ['rgb(255, 159, 64)'],
             borderWidth: 1,
           },
           {
-            label: 'Total Contributor',
+            label: 'Total Contributors',
 
-            data: [this.lstStatistic.numberContributor],
+            data: this.contributorData,
             backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgb(75, 192, 192)'],
             borderWidth: 1,
@@ -224,7 +239,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     this.displayLineChart = 'block';
     this.displayBarChart = 'none';
     this.displayRadarChart = 'none';
-    this.LineChart();
+    // this.LineChart();
   }
 
   onRadar() {
@@ -241,6 +256,6 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     this.displayRadarChart = 'block';
     this.displayBarChart = 'none';
     this.displayLineChart = 'none';
-    this.RadarChart();
+    // this.RadarChart();
   }
 }

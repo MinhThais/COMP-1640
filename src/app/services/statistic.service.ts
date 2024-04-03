@@ -9,9 +9,15 @@ export class StatisticService {
   private baseUrl: string = 'https://localhost:7195/statisticals/';
   constructor(private http: HttpClient) {}
 
-  guestStatistic(academic_year_id: number) {
+  guestStatistic(academic_year_id: number, username: string) {
     return this.http.get<any>(this.baseUrl + 'guest-statistic', {
-      params: { academic_year_id },
+      params: { academic_year_id, username },
+    });
+  }
+
+  chartGuest(username: string) {
+    return this.http.get<any>(this.baseUrl + 'chart-guest', {
+      params: { username },
     });
   }
 
