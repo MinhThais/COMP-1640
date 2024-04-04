@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { FacultyService } from 'src/app/services/faculty.service';
-=======
 import { StatisticService } from 'src/app/services/statistic.service';
->>>>>>> c54fb10e (add page, role, browser chart)
 Chart.register(...registerables);
 
 @Component({
@@ -42,35 +38,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
   displayLineChart: string = 'none';
   displayRadarChart: string = 'none';
 
-<<<<<<< HEAD
-  public lstFaculty : any = [];
-
-  constructor(
-    private router: Router,
-    private facultyAPI:FacultyService
-  ) {}
-
-  ngOnInit(): void {
-
-
-    // Lấy dữ liệu từ backend sau đó truyền vào hàm bên dưới
-
-    /*Ví dụ: Lấy dữ liệu id, title, num of article thì chuyền vào hàm bên dưới
-    3 biến trên -> this.BarChart(this.id, this.title, this.numOfArticle, idCanvas, typeChart)
-
-    idCanvas: là id canvas bên html (đặt bất kì tên gì). Mục đích để xác nhận cái chart này hiển thị ở canvas nào
-    typeChart: là loại chart được hiển thị (mặc định: bar, pie, doughnut, polarAre, radar, v.v...). Ví dụ như: chart hình tròn, chart hình cột, chart hình ra đa, vân vân...
-
-    Lưu ý: 2 biến idCanvas và typeChart ta có thể gán cứng vào hàm this.BarChart() như sau:
-
-    this.BarChart(this.id, this.title, this.numOfArticle, 'pieChart', 'pie')
-    this.BarChart(this.id, this.title, this.numOfArticle, 'barChart', 'bar')
-    this.BarChart(this.id, this.title, this.numOfArticle, 'radarChart', 'radar')
-     */
-
-
-    this.BarChart();
-=======
   constructor(
     private router: Router,
     private statisticService: StatisticService
@@ -78,7 +45,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartAdmin();
->>>>>>> c54fb10e (add page, role, browser chart)
   }
 
   chartAdmin() {
@@ -177,7 +143,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.barChart = new Chart('barChart', {
       type: 'bar',
       data: {
-<<<<<<< HEAD
         labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
         datasets: [{
           label: 'Num of Contributors',
@@ -206,27 +171,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         }
 
       ],
-=======
-        labels: this.lstLabel,
-        datasets: [
-          {
-            label: 'Num of Contributors',
-
-            data: this.lstContributor,
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgb(255, 99, 132)'],
-            borderWidth: 1,
-          },
-          {
-            label: 'Num of Articles',
-
-            data: this.lstArticle,
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgb(54, 162, 235)'],
-            borderWidth: 1,
-          },
-        ],
->>>>>>> c54fb10e (add page, role, browser chart)
       },
       options: {
         scales: {
@@ -238,11 +182,8 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> c54fb10e (add page, role, browser chart)
   //Click Events
 
   onPage() {
@@ -264,9 +205,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.displayLineChart = 'none';
     this.displayRadarChart = 'none';
     this.BarChart();
-    // const type = 'bar';
-    // this.barChart.config.type = type;
-    // this.barChart.update();
   }
 
   onLine() {

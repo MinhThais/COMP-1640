@@ -49,14 +49,14 @@ export class StatisticService {
     });
   }
 
-<<<<<<< HEAD
   statisticalContributionApprovedRejected(academic_id:number, faculty_id:number) : Observable<any>{
     return this.http.get<any>(`${this.baseUrl}statistical_approve_reject`, {params: {academic_id, faculty_id}});
   }
 
   statisticalContributionApprovedRejectedChart(academic_id:number) : Observable<any>{
     return this.http.get<any>(`${this.baseUrl}statistical_approve_reject_chart`, {params: {academic_id}});
-=======
+  }
+
   pageBrowserRoleStatistic(
     page_name: string,
     browser_name: string,
@@ -77,6 +77,5 @@ export class StatisticService {
 
   roleChart() {
     return this.http.get<any>(this.baseUrl + 'role-chart');
->>>>>>> c54fb10e (add page, role, browser chart)
   }
 }
