@@ -16,6 +16,8 @@ export class ManagementArticlesComponent implements OnInit{
   public fullname : string = "";
   public pathImg : string = "";
   public pathDoc : string = "";
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article : ArticleService,

@@ -14,6 +14,8 @@ export class CoordinatorStatisticComponent implements OnInit {
   lstStatistic: any = [];
   lstAcademicYear: any = [];
   public fullname: any = '';
+  pageSize = 10;
+  currentPage = 1;
 
   constructor(
     private academicYearService: AcademicYearService,

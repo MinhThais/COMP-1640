@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
                     } else if (this.role === 'Student') {
                       this.router.navigate(['/View-Student']);
                     } else if (this.role === 'Manager') {
-                      this.router.navigate(['/View-Articles']);
+                      this.router.navigate(['/View-ManagerHome']);
                     } else {
                       this.router.navigate(['/View-Articles']);
                     }

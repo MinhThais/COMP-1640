@@ -5,6 +5,7 @@ import { UserStoreService } from 'src/app/services/user-store.service';
 import { UserService } from 'src/app/services/user.service';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-publication-viewing',
   templateUrl: './publication-viewing.component.html',
@@ -16,6 +17,8 @@ export class PublicationViewingComponent implements OnInit{
   role : string = "";
   pathImg : string = "";
   pathDoc : string = "";
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article:ArticleService,

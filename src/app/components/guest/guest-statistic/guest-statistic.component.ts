@@ -15,6 +15,8 @@ export class GuestStatisticComponent implements OnInit {
   lstStatistic: any = [];
   lstAcademicYear: any = [];
   public fullname: any = '';
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private academicYearService: AcademicYearService,
