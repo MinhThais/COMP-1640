@@ -21,9 +21,9 @@ export class StatisticService {
     });
   }
 
-  coordinatorStatistic(academic_year_id: number) {
+  coordinatorStatistic(academic_year_id: number, username: string) {
     return this.http.get<any>(this.baseUrl + 'coordinator-statistic', {
-      params: { academic_year_id },
+      params: { academic_year_id, username },
     });
   }
 
@@ -31,6 +31,10 @@ export class StatisticService {
     return this.http.get<any>(this.baseUrl + 'admin-statistic', {
       params: { academic_year_id },
     });
+  }
+
+  adminChart() {
+    return this.http.get<any>(this.baseUrl + 'chart-admin');
   }
 
   beforeStatistic(academic_year_id: number) {
@@ -43,5 +47,27 @@ export class StatisticService {
     return this.http.get<any>(this.baseUrl + 'after-statistic', {
       params: { academic_year_id },
     });
+  }
+
+  pageBrowserRoleStatistic(
+    page_name: string,
+    browser_name: string,
+    role: string
+  ) {
+    return this.http.get<any>(this.baseUrl + 'page-browser-role-statistic', {
+      params: { page_name, browser_name, role },
+    });
+  }
+
+  pageChart() {
+    return this.http.get<any>(this.baseUrl + 'page-chart');
+  }
+
+  browserChart() {
+    return this.http.get<any>(this.baseUrl + 'browser-chart');
+  }
+
+  roleChart() {
+    return this.http.get<any>(this.baseUrl + 'role-chart');
   }
 }

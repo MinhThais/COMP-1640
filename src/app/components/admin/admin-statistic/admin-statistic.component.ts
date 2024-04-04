@@ -37,7 +37,6 @@ export class AdminStatisticComponent implements OnInit {
       .adminStatistic(this.academic_year_id)
       .subscribe((res) => {
         this.lstStatistic = res;
-        console.log(this.lstStatistic)
       });
   }
 }
