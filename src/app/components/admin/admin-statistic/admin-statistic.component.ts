@@ -13,6 +13,9 @@ export class AdminStatisticComponent implements OnInit {
   lstStatistic: any = [];
   lstAcademicYear: any = [];
 
+  pageSize = 5;
+  currentPage = 1;
+
   constructor(
     private academicYearService: AcademicYearService,
     private statisticService: StatisticService

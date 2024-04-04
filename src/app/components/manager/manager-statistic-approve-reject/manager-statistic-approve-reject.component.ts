@@ -16,6 +16,8 @@ export class ManagerStatisticApproveRejectComponent implements OnInit{
 
   selectedFaculty : number = 0;
   selectAcademic : number = 0;
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private facultyAPI : FacultyService,

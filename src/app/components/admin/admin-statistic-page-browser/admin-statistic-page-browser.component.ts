@@ -17,6 +17,9 @@ export class AdminStatisticPageBrowserComponent implements OnInit {
   browserName: string = '';
   role: string = '';
 
+  pageSize = 5;
+  currentPage = 1;
+
   constructor(
     private pageViewService: PageViewService,
     private statisticService: StatisticService

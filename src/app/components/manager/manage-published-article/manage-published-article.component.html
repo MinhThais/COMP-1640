@@ -47,7 +47,7 @@
                 </thead>
                 <tbody>
 
-                    <tr *ngFor="let a of lstArticles">
+                    <tr *ngFor="let a of lstArticles | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
                         <td><img [src]="(pathImg + a.contribution_image)"></td>
                         <td>{{a.contribution_id}}</td>
                         <td>{{a.contribution_title}}</td>
@@ -73,6 +73,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+            </div>
         </div>
     </div>
   </main>

@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let academic of academicYears">
+                    <tr *ngFor="let academic of academicYears | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
                         <td>{{academic.academic_year_id}}</td>
                         <td>{{academic.academic_year_title}}</td>
                         <td>{{academic.academic_year_ClosureDate | date:'yyyy-MM-dd'}}</td>
@@ -32,6 +32,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+            </div>
         </div>
     </div>
   </main>

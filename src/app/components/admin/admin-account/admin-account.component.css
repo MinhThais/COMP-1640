@@ -1,3 +1,6 @@
+.pagination{
+    float: right; 
+  }
 main{
     overflow: hidden;
     /* margin-top: 60px; */

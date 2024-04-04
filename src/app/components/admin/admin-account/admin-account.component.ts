@@ -8,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminAccountComponent implements OnInit{
   public lstAccount : any =[];
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private auth:UserService

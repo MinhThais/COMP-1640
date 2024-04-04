@@ -9,6 +9,8 @@ import { FacultyService } from 'src/app/services/faculty.service';
 })
 export class ManagementFacultyComponent implements OnInit{
   public lstFaculty : any = [];
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private facultyAPI:FacultyService,

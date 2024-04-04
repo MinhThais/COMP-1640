@@ -12,6 +12,8 @@ export class StatisticAfterClosingComponent implements OnInit {
   academic_year_id: number = 0;
   lstStatistic: any = [];
   lstAcademicYear: any = [];
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private academicYearService: AcademicYearService,

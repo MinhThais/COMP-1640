@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-statistic-ative-time.component.css']
 })
 export class AdminStatisticAtiveTimeComponent {
-
+  pageSize = 5;
+  currentPage = 1;
 }

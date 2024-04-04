@@ -22,6 +22,8 @@ export class ManagePublishedArticleComponent implements OnInit {
   public selectedAcademicYear: number = 0;
   zipFile: any;
   contribution_id: number = 0;
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article: ArticleService,

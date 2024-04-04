@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let s of lstStatistic">
+                  <tr *ngFor="let s of lstStatistic | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
                     <td><img src="{{baseImgUrl + s.contributionImages}}" alt=""></td>
                     <td>{{s.contributionID}}</td>
                     <td>{{s.contributionTitle}}</td>
@@ -75,6 +75,9 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="pagination">
+              <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+          </div>
         </div>
     </div>
   </main>
