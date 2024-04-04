@@ -114,7 +114,7 @@ export class UserService {
     });
   }
   getUserProfile(user_username: string) {
-return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {
+    return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {
       params: { user_username },
     });
   }
@@ -129,6 +129,10 @@ return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {
   }
 
   addLastLogin(username: string) {
-    return this.http.post<any>(this.baseUrl + 'add-last-login',{}, {params: {username}});
+    return this.http.post<any>(
+      this.baseUrl + 'add-last-login',
+      {},
+      { params: { username } }
+    );
   }
 }

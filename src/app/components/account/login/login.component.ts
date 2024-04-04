@@ -83,19 +83,17 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['/Welcome']);
                   });
               } else {
-                const lastLogin = moment(
-                  new Date(
-                    respone
-                  )
-                ).format('HH:mm yyyy-MM-DD');
+                const lastLogin = moment(new Date(respone)).format(
+                  'HH:mm yyyy-MM-DD'
+                );
                 this.auth
-.addLastLogin(tokenPayload.unique_name)
+                  .addLastLogin(tokenPayload.unique_name)
                   .subscribe((responeAdds) => {
                     this.toast.success(`Last login: ${lastLogin}`, 'Success', {
                       timeOut: 3000,
                       progressBar: true,
                       enableHtml: true,
-                      positionClass: 'toast-top-center'
+                      positionClass: 'toast-top-center',
                     });
                     if (this.role === 'Admin') {
                       this.router.navigate(['/View-Articles']);
