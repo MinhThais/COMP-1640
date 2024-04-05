@@ -37,13 +37,12 @@
                             <button routerLink="/View-Pub" class="button-pass"></button>
                         </td> -->
                         <td>
-                            <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">
-                                Pending</button>
+                            <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">Pending</button>
 
                             <button (click)="Approve(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Unselected'"  class="button-approve">Approve </button>
                             <button (click)="Reject(i.contribution_id)" *ngIf="i.isView === 'View' && i.isSelected === 'Unselected'"  class="button-reject">Reject </button>
 
-                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isSelected === 'Selected'" class="button-approve1"></button>
+                            <button (click)="Reject(i.contribution_id)" *ngIf="i.isSelected === 'Selected' && i.isEnabled === 'Unenabled'" class="button-approve1"></button>
                             <button (click)="Approve(i.contribution_id)" *ngIf="i.isView === 'Private' && i.isEnabled === 'Unenabled'" class="button-reject1"></button>
                         </td>
                         <td>

@@ -13,7 +13,7 @@ main {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
 }
 
 .heading-1 {
@@ -65,7 +65,7 @@ main {
 /* HOME */
 .home {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 6fr 4fr;
   gap: 40px;
 }
 
@@ -75,15 +75,85 @@ main {
 
 .lists{
   overflow: auto;
-  height: 380px;
+  height: 300px;
   margin-bottom: 20px;
 }
 
+.comment-left{
+  text-align: center;
+}
+
+.comment-right{
+  /* float: right; */
+}
+
+.comment-name{
+    user-select: none;
+    text-transform: capitalize;
+    color: rgb(6, 6, 6);
+    text-align: center;
+    /* background-color: #29d8d8; */
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 2px;
+    padding: 2px;
+}
+
+
+/* @keyframes blink {
+  0% {
+    border-color: #000;
+  }
+  50% {
+    border-color: #fff;
+  }
+  100% {
+    border-color: #000;
+  }
+}
+
+.comment-name {
+  border: 2px solid #000;
+  animation: blink 1s linear infinite;
+} */
+
+
+.comment-date{
+  user-select: none;
+  display: inline-block;
+  padding: 5px;
+  font-size: 10px;
+  text-transform: capitalize;
+  color: black;
+  text-align: center;
+  /* background-color: #29d8d8; */
+  border-radius: none;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+  padding: 2px;
+}
 
 .list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 5fr 6fr 1fr;
   gap: 10px;
   margin-bottom: 10px;
+}
+
+
+.comment-isMine {
+  word-break: break-word;
+  color: rgb(255, 255, 255);
+  text-align: justify;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  padding: 10px 10px 10px 15px;
+}
+
+
+.div-button{
+  display: flex;
 }
 
 .list .button-button{
@@ -119,8 +189,6 @@ article p:first-child::first-line {
 
 /*Textarea*/
 .area .area-textarea{
-  pointer-events: none;
-  opacity: 1;
     width: 100%;
     height: 150px;
     padding: 15px;
@@ -184,7 +252,7 @@ blockquote::before {
   letter-spacing: 0.1em;
   font-weight: 400;
   padding: 10px 20px;
-  transition: 0.5s;
+transition: 0.5s;
   border-radius: 5px;
 }
 
@@ -200,7 +268,7 @@ blockquote::before {
   content: '';
   position: absolute;
   inset: 2px;
-  background: rgb(39, 249, 123);
+  background: #29d8d8;
   border-radius: 5px;
 }
 
@@ -208,7 +276,6 @@ blockquote::before {
   position: relative;
   z-index: 1;
 }
-
 
 .button i{
   position: absolute;
@@ -251,86 +318,6 @@ blockquote::before {
   left: 80%;
 }
 
-/*Button-1*/
-.button-1{
-  pointer-events: none;
-  float: right;
-  position: relative;
-  background-color: #ffffff;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  font-weight: 400;
-  padding: 10px 20px;
-  transition: 0.5s;
-  border-radius: 5px;
-}
-
-/* .button-1:hover{
-  background: var(--clr);
-  color: white;
-  letter-spacing: 0.25em;
-  box-shadow: 0 0 35px var(--clr);
-  border-radius: 5px;
-} */
-
-.button-1::before{
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: #dc3545;
-  border-radius: 5px;
-}
-
-.button-1 span{
-  position: relative;
-  z-index: 1;
-}
-
-.button-1 i{
-  position: absolute;
-  inset: 0;
-  display: block;
-
-}
-
-/* .button-1 i::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 80%;
-  width: 10px;
-  height: 4px;
-  background: #ffffff;
-  transform: translateX(-50%) skewX(325deg);
-  transition: 0.5s;
-} */
-
-.button-1:hover i::before{
-  width: 20px;
-  left: 20%;
-}
-
-/* .button-1 i::after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 20%;
-  width: 10px;
-  height: 4px;
-  background: #ffffff;
-  transform: translateX(-50%) skewX(325deg);
-  transition: 0.5s;
-} */
-
-.button-1:hover i::after{
-  width: 20px;
-  left: 80%;
-}
-
-
 @media (max-width: 950px) {
   .home {
     grid-template-columns: 1fr;
@@ -338,12 +325,12 @@ blockquote::before {
 
   .lists {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .list {
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 3fr 6fr 1fr;
   }
 
   .card {
@@ -354,5 +341,11 @@ blockquote::before {
 @media (max-width: 650px) {
   .lists {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .list {
+    grid-template-columns: 5fr 6fr 1fr;
   }
 }

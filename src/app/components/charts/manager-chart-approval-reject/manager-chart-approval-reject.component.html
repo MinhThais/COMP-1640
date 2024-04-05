@@ -1,5 +1,5 @@
 <div class="public">
-  <p class="public-p1">Faculty-wide Statistics Chart</p>
+  <p class="public-p1">Approval and Rejection Rate Statistics Chart</p>
 
 </div>
 
@@ -20,7 +20,7 @@
 
   <div class="div-left">
     <div class="btn-conteiner">
-      <a class="btn-contentChart" href="#" routerLink="/Admin-Statistic">
+      <a class="btn-contentChart" href="#" routerLink="/View-StatisticApproveReject">
         <span class="btn-titleChart">Table</span>
         <span class="icon-arrow">
           <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -48,13 +48,12 @@
 
 <div class="div-form mx-auto">
   <div class="div-chart1">
-    <h2 class="title-chart">{{labelChart}} Statistic Chart</h2>
+    <h2 class="title-chart">{{labelChart}} Statistics </h2>
     <canvas id="barChart" style="display: {{displayBarChart}}"></canvas>
   </div>
+
+
   <div class="div-chart">
-
-
-
     <canvas id="lineChart" style="display: {{displayLineChart}}"></canvas>
     <canvas id="radarChart" style="display: {{displayRadarChart}}"></canvas>
 
@@ -62,13 +61,13 @@
     <div class="div-left" id="div-barLineRadar">
       <button id="{{idButtonBar}}" class="download-button"
         style="color: {{buttonBarLetter}}; background: {{buttonBarBackground}}; width: 105px;"
-        (click)="onBar()">Mix</button>
+        (click)="onBar()">Article</button>
       <button id="{{idButtonLine}}" class="download-button"
         style="color: {{buttonLineLetter}}; background: {{buttonLineBackground}}; width: 105px;"
-        (click)="onLine()">Contributor</button>
+        (click)="onLine()">Reject</button>
       <button id="{{idButtonRadar}}" class="download-button"
         style="color: {{buttonRadarLetter}}; background: {{buttonRadarBackground}}; width: 105px;"
-        (click)="onRadar()">Article</button>
+        (click)="onRadar()">Approval</button>
     </div>
   </div>
 </div>

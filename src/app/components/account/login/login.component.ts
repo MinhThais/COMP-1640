@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit{
           this.userStore.setFullNameForStore(tokenPayload.unique_name);
           this.userStore.setRoleForStore(tokenPayload.role);
 
-          this.toast.success(res.message, 'Success', {
+          this.toast.success('Last login: 11:18 - 2/4/2024', 'Success', {
             timeOut: 3000,
             progressBar: true,
             positionClass: 'toast-top-center',
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit{
           // }
           // else if(this.role === "Coordinator"){
           //   this.router.navigate(['/View-Comment']);
-            
+
           // }
           // else if(this.role === "Student"){
           //   this.router.navigate(['/View-Student']);

@@ -26,6 +26,7 @@
         <div class="right">
           <h3 class="heading-3">Comments</h3>
           <div class="lists">
+            <!--  -->
             <div class="list" *ngFor="let c of lstcomment">
 
               <div class="comment-left">
@@ -58,6 +59,7 @@
                   (click)="deleteComment(c.comment_id)"><i class="fa-solid fa-trash"></i></button>
               </div>
             </div>
+            <!--  -->
           </div>
           <div class="area" *ngIf="deadline">
             <textarea class="area-textarea" [(ngModel)]="commentcontent" placeholder="Text something here..."

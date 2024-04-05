@@ -1,27 +1,36 @@
 <div class="public">
-    <p class="public-p1">Articles Statistics</p>
+    <p class="public-p1">Page, Browser, and Role Statistics Chart</p>
 
 </div>
 
 <div class="div-combo">
     <div class="combo-combo">
-        <!-- <select id="select-option" class="form-select" aria-label="Default select example">
-            <option selected>Choose Academic Year</option>
-            <option value="1">05/03/2024 - 05/04/2024</option>
-            <option value="1">05/03/2024 - 05/04/2024</option>
+      <select id="select-option" class="form-select" aria-label="Default select example" style="display: {{selectedPage}};">
+        <option selected>View-Student</option>
+        <option value="1">View-Comment</option>
+        <option value="1">View-Pub</option>
+    </select>
+        <select id="select-option" class="form-select" aria-label="Default select example" style="display: {{selectedBrowser}};">
+            <option selected>Google Chrome</option>
+            <option value="1">Mozilla Firefox</option>
+            <option value="1">Microsoft Edge</option>
         </select>
+        <select id="select-option" class="form-select" aria-label="Default select example" style="display: {{selectedRole}};">
+          <option selected>Admin</option>
+          <option value="1">Manager</option>
+          <option value="1">Coordinator</option>
+      </select>
+        <!-- <button  class="button-sort" routerLink="/Admin-Chart">Sort</button> -->
         <button class="ui-btn">
             <span>
               Sort 
             </span>
-          </button> -->
+          </button>
     </div>
 
     <div class="div-left" >
-        <!-- <button id="btn-readMore" class="download-button" (click)="onPage()">Table</button>
-        <button  class="download-button" routerLink="/Guest-Chart" id="id-table">Chart</button> -->
         <div class="btn-conteiner">
-            <a class="btn-contentChart" href="#" routerLink="/Guest-Statistic" >
+            <a class="btn-contentChart" href="#" routerLink="/Admin-StatisticPageBrowser" >
               <span class="btn-titleChart">Table</span>
               <span class="icon-arrow">
                 <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -34,6 +43,8 @@
               </span> 
             </a>
           </div>
+        <!-- <button id="btn-readMore" class="download-button" (click)="onPage()">Table</button>
+        <button  class="download-button" routerLink="/Admin-Chart" id="id-table">Chart</button> -->
     </div>
 </div>
 
@@ -41,19 +52,19 @@
 <div class="div-form mx-auto">
     <div class="div-chart" >
         
-        <h2 class="title-chart">Articles Statistic Chart</h2>
+        <h2 class="title-chart">{{labelChart}} Statistic Chart</h2>
         <canvas id="barChart" style="display: {{displayBarChart}}"></canvas >
         <canvas id="lineChart" style="display: {{displayLineChart}}"></canvas > 
-        <canvas id="radarLineChart" style="display: {{displayRadarChart}}"></canvas > 
+        <canvas id="radarChart" style="display: {{displayRadarChart}}"></canvas > 
        
 
         <div class="div-left" id="div-barLineRadar">
-            <!-- <button id="{{idButtonBar}}"  class="download-button" style="color: {{buttonBarLetter}}; background: {{buttonBarBackground}}"
-             (click)="onBar()">Bar</button>
+            <button id="{{idButtonBar}}"  class="download-button" style="color: {{buttonBarLetter}}; background: {{buttonBarBackground}}"
+             (click)="onBar()">Page</button>
             <button id="{{idButtonLine}}" class="download-button"  style="color: {{buttonLineLetter}}; background: {{buttonLineBackground}}" 
-            (click)="onLine()">Line</button>
-            <button id="{{idButtonRadar}}"  class="download-button"  style="color: {{buttonRadarLetter}}; background: {{buttonRadarBackground}}" 
-            (click)="onRadar()">Radar</button> -->
+            (click)="onLine()">Browser</button>
+            <button id="{{idButtonRadar}}"  class="download-button" style="color: {{buttonRadarLetter}}; background: {{buttonRadarBackground}}" 
+            (click)="onRadar()">Role</button>
         </div>  
     </div>
 </div>

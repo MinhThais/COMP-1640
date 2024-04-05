@@ -53,7 +53,7 @@ export class CommentAddingComponent implements OnInit{
     this.articleService.getArticleContent(contribution_id).subscribe((data: any) => {
       this.contribution = data.result;
       this.htmlContent = this.contribution.contribution_content;
-      console.table(this.contribution);
+      // console.table(this.contribution);
     });
   }
 

@@ -42,7 +42,7 @@ export class PublicationViewingComponent implements OnInit{
       this.pathDoc = this.article.doc;
     }
   }
-  
+
   getAllArticles(username:string){
     this.article.getAllArticleOfStudentInFaculty(username).subscribe(data => {
       this.lstArticle = data;
