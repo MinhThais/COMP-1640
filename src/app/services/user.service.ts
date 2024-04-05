@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from "@angular/router";
 import { TokenApiModel } from "../Models/token-api.model";
-import { Observable } from "rxjs";
+import { Observable, interval } from "rxjs";
 import { JwtHelperService } from '@auth0/angular-jwt'
 
 @Injectable({
@@ -13,6 +13,8 @@ import { JwtHelperService } from '@auth0/angular-jwt'
 export class UserService {
   private baseUrl: string = 'https://localhost:7195/api/Users/';
   private userPayLoad: any;
+
+  public timerActive: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {
     this.userPayLoad = this.decodedToken();
@@ -32,8 +34,17 @@ export class UserService {
     return this.http.post<any>(`${this.baseUrl}Login`, {}, { params });
   }
 
+  totalWorkDuration(time:number, username:string){
+    const params = new HttpParams()
+    .set('time', time)
+    .set('username', username);
+
+    return this.http.post<any>(`${this.baseUrl}add-total-work-duration`, {}, {params});
+  }
+
   signOut() {
     localStorage.clear();
+    this.timerActive = false;
     this.router.navigate(['login']);
   }
 

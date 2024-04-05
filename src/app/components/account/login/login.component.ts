@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DateTime } from '@syncfusion/ej2-angular-charts';
 import * as moment from 'moment';
 import { Toast, ToastrService } from 'ngx-toastr';
 import ValidateForm from 'src/app/Helper/ValidateForm';
@@ -51,9 +52,12 @@ export class LoginComponent implements OnInit {
   onLogin() {
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
+    const time = Date.now();
     if (this.loginForm.valid) {
       this.auth.login(username, password).subscribe(
         (res) => {
+          this.auth.timerActive = true;
+
           this.loginForm.reset();
           this.auth.storeToken(res.accessToken);
 
