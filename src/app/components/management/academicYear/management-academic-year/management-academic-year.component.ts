@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManagementAcademicYearComponent implements OnInit {
   public academicYears: any = []
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(private academicService: AcademicYearService, private toast:ToastrService){}
 

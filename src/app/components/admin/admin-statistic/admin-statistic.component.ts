@@ -13,6 +13,9 @@ export class AdminStatisticComponent implements OnInit {
   lstStatistic: any = [];
   lstAcademicYear: any = [];
 
+  pageSize = 5;
+  currentPage = 1;
+
   constructor(
     private academicYearService: AcademicYearService,
     private statisticService: StatisticService
@@ -37,7 +40,6 @@ export class AdminStatisticComponent implements OnInit {
       .adminStatistic(this.academic_year_id)
       .subscribe((res) => {
         this.lstStatistic = res;
-        console.log(this.lstStatistic)
       });
   }
 }

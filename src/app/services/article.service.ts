@@ -92,4 +92,8 @@ export class ArticleService {
   downloadManyArticle(faculty_id: number, academic_year_id:number): Observable<Blob> {
     return this.http.get(`${this.baseUrl}Download-Many-Article?faculty_id=${faculty_id}&acdemic_year_id=${academic_year_id}`, { responseType: 'blob' });
   }
+
+  search(academic_id:number, faculty_id:number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}search`, {params: {academic_id, faculty_id}});
+  }
 }

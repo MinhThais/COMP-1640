@@ -56,6 +56,8 @@ import { AdminChartActiveTimeComponent } from './components/charts/admin-chart-a
 import { ManagerChartApprovalRejectComponent } from './components/charts/manager-chart-approval-reject/manager-chart-approval-reject.component';
 import { AdminStatisticAtiveTimeComponent } from './components/admin/admin-statistic-ative-time/admin-statistic-ative-time.component';
 import { AdminStatisticPageBrowserComponent } from './components/admin/admin-statistic-page-browser/admin-statistic-page-browser.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ManagerViewArticleComponent } from './components/manager/manager-view-article/manager-view-article.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +108,8 @@ import { AdminStatisticPageBrowserComponent } from './components/admin/admin-sta
     AdminChartActiveTimeComponent,
     ManagerChartApprovalRejectComponent,
     AdminStatisticAtiveTimeComponent,
-    AdminStatisticPageBrowserComponent
+    AdminStatisticPageBrowserComponent,
+    ManagerViewArticleComponent
   ],
 
   imports: [
@@ -123,7 +126,8 @@ import { AdminStatisticPageBrowserComponent } from './components/admin/admin-sta
       preventDuplicates: true,
       progressBar: true,
     }),
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

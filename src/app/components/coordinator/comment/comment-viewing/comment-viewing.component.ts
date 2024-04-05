@@ -15,6 +15,8 @@ export class CommentViewingComponent implements OnInit{
   role : string = "";
   pathImg : string = "";
   pathDoc : string = "";
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article:ArticleService,
@@ -52,4 +54,6 @@ export class CommentViewingComponent implements OnInit{
       this.lstArticle = data;
     });
   }
+
+
 }

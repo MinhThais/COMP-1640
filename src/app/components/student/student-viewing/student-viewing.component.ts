@@ -18,6 +18,9 @@ export class StudentViewingComponent implements OnInit{
   pathImg : string = "";
   pathDoc : string = "";
 
+  pageSize = 6;
+  currentPage = 1;
+
   constructor(
     private userStore:UserStoreService,
     private auth:UserService,

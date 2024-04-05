@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ArticleService } from 'src/app/services/article.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { UserService } from 'src/app/services/user.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-publication-viewing',
@@ -15,12 +17,15 @@ export class PublicationViewingComponent implements OnInit{
   role : string = "";
   pathImg : string = "";
   pathDoc : string = "";
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article:ArticleService,
     private toast:ToastrService,
     private userStore:UserStoreService,
     private auth:UserService,
+    private location : Location
   ){}
 
   ngOnInit(): void {
@@ -68,11 +73,6 @@ export class PublicationViewingComponent implements OnInit{
 
   Approve(contribution_id:number){
     this.article.approve(contribution_id).subscribe(res => {
-      this.toast.success(res.Message, 'Success', {
-        timeOut: 3000,
-        progressBar:true,
-        positionClass: 'toast-top-center'
-      });
       this.ngOnInit();
     },
     error => {
@@ -86,11 +86,6 @@ export class PublicationViewingComponent implements OnInit{
 
   Reject(contribution_id:number){
     this.article.reject(contribution_id).subscribe(res => {
-      this.toast.success(res.Message, 'Success', {
-        timeOut: 3000,
-        progressBar:true,
-        positionClass: 'toast-top-center'
-      });
       this.ngOnInit();
     },
     error => {

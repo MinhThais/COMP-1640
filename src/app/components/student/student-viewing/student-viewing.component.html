@@ -6,7 +6,7 @@
       </div>
 
       <div class="row" >
-        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of lstContribution" >
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of lstContribution | paginate:{itemsPerPage: pageSize, currentPage: currentPage}" >
           <div class="card mb-5 shadow-sm" >
             <img [src]="(pathImg + item.contribution_image)" class="img-fluid" id="img"/>
 
@@ -24,7 +24,12 @@
               >
             </div>
           </div>
+          
         </div>
+        <div class="pagination">
+          <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
       </div>
+      </div>
+      
     </div>
   </main>

@@ -46,6 +46,7 @@ import { AdminStatisticPageBrowserComponent } from './components/admin/admin-sta
 import { AdminChartPageBrowserComponent } from './components/charts/admin-chart-page-browser/admin-chart-page-browser.component';
 import { AdminChartActiveTimeComponent } from './components/charts/admin-chart-active-time/admin-chart-active-time.component';
 import { ManagerChartApprovalRejectComponent } from './components/charts/manager-chart-approval-reject/manager-chart-approval-reject.component';
+import { ManagerViewArticleComponent } from './components/manager/manager-view-article/manager-view-article.component';
 
 
 const routes: Routes = [
@@ -103,6 +104,7 @@ const routes: Routes = [
   {path:'Manager-Chart-Before', component: ManagerChartBeforeComponent},
   {path:'Manager-Chart-After', component: ManagerChartAfterComponent},
   {path:'Manager-Chart-AprrovalReject', component: ManagerChartApprovalRejectComponent},
+  {path:'Manager-ViewArticle', component: ManagerViewArticleComponent },
   
 
   //Admin

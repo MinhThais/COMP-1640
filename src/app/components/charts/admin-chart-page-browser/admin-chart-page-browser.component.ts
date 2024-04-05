@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 import { Router } from '@angular/router';
+import { StatisticService } from 'src/app/services/statistic.service';
 Chart.register(...registerables);
 
 @Component({
@@ -9,6 +10,27 @@ Chart.register(...registerables);
   styleUrls: ['./admin-chart-page-browser.component.css'],
 })
 export class AdminChartPageBrowserComponent implements OnInit {
+  lstPageData: any = [];
+  lstNamePage: string[] = [];
+  lstTotalVisitPage: number[] = [];
+  lstAverageTimePage: number[] = [];
+  lstDailyAverageTimePage: number[] = [];
+  lstTotalTimePage: number[] = [];
+
+  lstBrowserData: any = [];
+  lstNameBrowser: string[] = [];
+  lstTotalVisitBrowser: number[] = [];
+  lstAverageTimeBrowser: number[] = [];
+  lstDailyAverageTimeBrowser: number[] = [];
+  lstTotalTimeBrowser: number[] = [];
+
+  lstRoleData: any = [];
+  lstNameRole: string[] = [];
+  lstTotalVisitRole: number[] = [];
+  lstAverageTimeRole: number[] = [];
+  lstDailyAverageTimeRole: number[] = [];
+  lstTotalTimeRole: number[] = [];
+
   //Color
   red: string = '#ff014fff';
   white: string = 'white';
@@ -36,10 +58,72 @@ export class AdminChartPageBrowserComponent implements OnInit {
   selectedBrowser: string = 'none';
   selectedRole: string = 'none';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private statisticService: StatisticService
+  ) {}
 
   ngOnInit(): void {
-    this.BarChart();
+    this.chartStatistic();
+  }
+
+  chartStatistic() {
+    this.statisticService.pageChart().subscribe((res) => {
+      this.lstPageData = res;
+      this.lstPageData.forEach(
+        (item: {
+          pageName: string;
+          totalVisit: number;
+          averageTime: number;
+          dailyAverageTime: number;
+          totalTime: number;
+        }) => {
+          this.lstNamePage.push(item.pageName);
+          this.lstTotalVisitPage.push(item.totalVisit);
+          this.lstAverageTimePage.push(item.averageTime);
+          this.lstDailyAverageTimePage.push(item.dailyAverageTime);
+          this.lstTotalTimePage.push(item.totalTime);
+        }
+      );
+          this.statisticService.browserChart().subscribe((res) => {
+            this.lstBrowserData = res;
+            this.lstBrowserData.forEach(
+              (item: {
+                browserName: string;
+                totalVisit: number;
+                averageTime: number;
+                dailyAverageTime: number;
+                totalTime: number;
+              }) => {
+                this.lstNameBrowser.push(item.browserName);
+                this.lstTotalVisitBrowser.push(item.totalVisit);
+                this.lstAverageTimeBrowser.push(item.averageTime);
+                this.lstDailyAverageTimeBrowser.push(item.dailyAverageTime);
+                this.lstTotalTimeBrowser.push(item.totalTime);
+              }
+            );
+                this.statisticService.roleChart().subscribe((res) => {
+                  this.lstRoleData = res;
+                  this.lstRoleData.forEach(
+                    (item: {
+                      roleName: string;
+                      totalVisit: number;
+                      averageTime: number;
+                      dailyAverageTime: number;
+                      totalTime: number;
+                    }) => {
+                      this.lstNameRole.push(item.roleName);
+                      this.lstTotalVisitRole.push(item.totalVisit);
+                      this.lstAverageTimeRole.push(item.averageTime);
+                      this.lstDailyAverageTimeRole.push(item.dailyAverageTime);
+                      this.lstTotalTimeRole.push(item.totalTime);
+                    }
+                  );
+                  this.BarChart();
+                });
+          });
+    });
+
   }
 
   //Role
@@ -47,43 +131,37 @@ export class AdminChartPageBrowserComponent implements OnInit {
     this.barChart = new Chart('radarChart', {
       type: 'bar',
       data: {
-        labels: [
-          'Admin',
-          'Manager',
-          'Coordinator',
-          'Student',
-          'Guest'
-        ],
+        labels: this.lstNameRole,
         datasets: [
           {
             label: 'Total Visits',
 
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [  'rgba(255, 99, 132, 0.2)'],
-            borderColor: [ 'rgb(255, 99, 132)'],
+            data: this.lstTotalVisitRole,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)'],
             borderWidth: 1,
           },
           {
             label: 'Average Time per Visit (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
+            data: this.lstAverageTimeRole,
             backgroundColor: ['rgba(255, 159, 64, 0.2)'],
             borderColor: ['rgb(255, 159, 64)'],
             borderWidth: 1,
-          }, 
+          },
           {
             label: 'Daily average time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(75, 192, 192, 0.2)'],
+            data: this.lstDailyAverageTimeRole,
+            backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgb(75, 192, 192)'],
             borderWidth: 1,
           },
           {
             label: 'Total Active Time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(54, 162, 235, 0.2)'],
+            data: this.lstTotalTimeRole,
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
             borderColor: ['rgb(54, 162, 235)'],
             borderWidth: 1,
           },
@@ -104,41 +182,37 @@ export class AdminChartPageBrowserComponent implements OnInit {
     this.barChart = new Chart('lineChart', {
       type: 'bar',
       data: {
-        labels: [
-          'Google Chrome',
-          'Mozilla Firefox',
-          'Microsoft Edge',
-        ],
+        labels: this.lstNameBrowser,
         datasets: [
           {
             label: 'Total Visits',
 
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [  'rgba(255, 99, 132, 0.2)'],
-            borderColor: [ 'rgb(255, 99, 132)'],
+            data: this.lstTotalVisitBrowser,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)'],
             borderWidth: 1,
           },
           {
             label: 'Average Time per Visit (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
+            data: this.lstAverageTimeBrowser,
             backgroundColor: ['rgba(255, 159, 64, 0.2)'],
             borderColor: ['rgb(255, 159, 64)'],
             borderWidth: 1,
-          }, 
+          },
           {
             label: 'Daily average time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(75, 192, 192, 0.2)'],
+            data: this.lstDailyAverageTimeBrowser,
+            backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgb(75, 192, 192)'],
             borderWidth: 1,
           },
           {
             label: 'Total Active Time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(54, 162, 235, 0.2)'],
+            data: this.lstTotalTimeBrowser,
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
             borderColor: ['rgb(54, 162, 235)'],
             borderWidth: 1,
           },
@@ -159,44 +233,37 @@ export class AdminChartPageBrowserComponent implements OnInit {
     this.barChart = new Chart('barChart', {
       type: 'bar',
       data: {
-        labels: [
-          'View-Student',
-          'View-Comment',
-          'View-Pub',
-          'Manager-Chart-After',
-          'Admin-Statistic',
-          'Admin-Chart',
-        ],
+        labels: this.lstNamePage,
         datasets: [
           {
             label: 'Total Visits',
 
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [  'rgba(255, 99, 132, 0.2)'],
-            borderColor: [ 'rgb(255, 99, 132)'],
+            data: this.lstTotalVisitPage,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)'],
             borderWidth: 1,
           },
           {
             label: 'Average Time per Visit (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
+            data: this.lstAverageTimePage,
             backgroundColor: ['rgba(255, 159, 64, 0.2)'],
             borderColor: ['rgb(255, 159, 64)'],
             borderWidth: 1,
-          }, 
+          },
           {
             label: 'Daily average time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(75, 192, 192, 0.2)'],
+            data: this.lstDailyAverageTimePage,
+            backgroundColor: ['rgba(75, 192, 192, 0.2)'],
             borderColor: ['rgb(75, 192, 192)'],
             borderWidth: 1,
           },
           {
             label: 'Total Active Time (hours)',
 
-            data: [10, 12, 13, 15, 12, 13],
-            backgroundColor: [  'rgba(54, 162, 235, 0.2)'],
+            data: this.lstTotalTimePage,
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
             borderColor: ['rgb(54, 162, 235)'],
             borderWidth: 1,
           },

@@ -12,108 +12,127 @@ import { JwtHelperService } from '@auth0/angular-jwt'
 })
 export class UserService {
   private baseUrl: string = 'https://localhost:7195/api/Users/';
-  private userPayLoad:any;
+  private userPayLoad: any;
 
   constructor(private http: HttpClient, private router: Router) {
     this.userPayLoad = this.decodedToken();
   }
 
-  createUser(user:any) {
+  createUser(user: any) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<any>(`${this.baseUrl}Register`, user, {headers});
+    return this.http.post<any>(`${this.baseUrl}Register`, user, { headers });
   }
 
-  login(username:string, password:string){
+  login(username: string, password: string) {
     const params = new HttpParams()
-    .set('username', username)
-    .set('password', password);
+      .set('username', username)
+      .set('password', password);
 
-    return this.http.post<any>(`${this.baseUrl}Login`, {},{params});
+    return this.http.post<any>(`${this.baseUrl}Login`, {}, { params });
   }
 
-  signOut(){
+  signOut() {
     localStorage.clear();
     this.router.navigate(['login']);
   }
 
-  storeToken(tokenValue:string){
+  storeToken(tokenValue: string) {
     localStorage.setItem('token', tokenValue);
   }
 
-  storeRefreshToken(tokenValue:string){
+  storeRefreshToken(tokenValue: string) {
     localStorage.setItem('refreshToken', tokenValue);
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
   }
 
-  getRefreshToken(){
+  getRefreshToken() {
     return localStorage.getItem('refreshToken');
   }
 
-  isLoggedIn():boolean{
+  isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
 
-  decodedToken(){
+  decodedToken() {
     const jwt = new JwtHelperService();
     const token = this.getToken()!;
-
-    console.log(jwt.decodeToken(token));
 
     return jwt.decodeToken(token);
   }
 
-  getAllAccount(): Observable<any>{
+  getAllAccount(): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get<any>(this.baseUrl, {headers});
+    return this.http.get<any>(this.baseUrl, { headers });
   }
 
-  getFullNameFormToken(){
-    if(this.userPayLoad){
+  getFullNameFormToken() {
+    if (this.userPayLoad) {
       return this.userPayLoad.unique_name;
     }
   }
 
-  getRoleFromToken(){
-    if(this.userPayLoad){
+  getRoleFromToken() {
+    if (this.userPayLoad) {
       return this.userPayLoad.role;
     }
   }
 
-  renewToken(tokenApi:TokenApiModel){
+  renewToken(tokenApi: TokenApiModel) {
     return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi);
   }
 
-  CheckOldPass(username:string, password:string){
+  CheckOldPass(username: string, password: string) {
     const params = new HttpParams()
-    .set('username', username)
-    .set('password', password);
+      .set('username', username)
+      .set('password', password);
 
-    return this.http.put<any>(`${this.baseUrl}check-old-password`, {}, {params});
+    return this.http.put<any>(
+      `${this.baseUrl}check-old-password`,
+      {},
+      { params }
+    );
   }
 
-  ChangePass(password:string, confirmpassword:string, username:string){
+  ChangePass(password: string, confirmpassword: string, username: string) {
     const params = new HttpParams()
-    .set('newPass', password)
-    .set('conPass', confirmpassword)
-    .set('username', username);
+      .set('newPass', password)
+      .set('conPass', confirmpassword)
+      .set('username', username);
 
-    return this.http.put<any>(`${this.baseUrl}ChangePassword`, {}, {params});
+    return this.http.put<any>(`${this.baseUrl}ChangePassword`, {}, { params });
   }
 
-  getUserID(user_username:string){
-    return this.http.get(`${this.baseUrl}get-user-id`, {params:{user_username}})
+  getUserID(user_username: string) {
+    return this.http.get(`${this.baseUrl}get-user-id`, {
+      params: { user_username },
+    });
   }
-  getUserProfile(user_username:string){
-    return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {params:{user_username}})
+  getUserProfile(user_username: string) {
+    return this.http.get(`${this.baseUrl}Get-User-By-UserName`, {
+      params: { user_username },
+    });
   }
-  updateProfile(formdata : any){
-    return this.http.post<any>(this.baseUrl+"Update-User-Profile", formdata);
+  updateProfile(formdata: any) {
+    return this.http.post<any>(this.baseUrl + 'Update-User-Profile', formdata);
+  }
+
+  getLastLogin(username: string) {
+    return this.http.get<any>(this.baseUrl + 'last-login', {
+      params: { username },
+    });
+  }
+
+  addLastLogin(username: string) {
+    return this.http.post<any>(
+      this.baseUrl + 'add-last-login',
+      {},
+      { params: { username } }
+    );
   }
 }
-
