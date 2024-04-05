@@ -41,11 +41,18 @@ export class AdminChartApprovalRejectComponent implements OnInit {
   constructor(
     private router: Router,
     private statisticService: StatisticService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.chartAdmin();
+    // this.getData(1);
   }
+
+  // getData(academicYearId: number){
+  //   this.statisticService.adminStatistic(academicYearId).subscribe(data => {
+  //     console.table(data);
+  //   })
+  // }
 
   chartAdmin() {
     this.statisticService.adminChart().subscribe((res) => {
@@ -58,11 +65,13 @@ export class AdminChartApprovalRejectComponent implements OnInit {
           percenContributor: any;
           percenArticles: any;
         }) => {
-          this.lstLabel.push(item.facultyName);
-          this.lstArticle.push(item.contributors);
-          this.lstContributor.push(item.articles);
-          this.lstPercenContributor.push(item.percenContributor);
-          this.lstPercenArticle.push(item.percenArticles);
+          if(item.facultyName != 'None'){
+            this.lstLabel.push(item.facultyName);
+            this.lstArticle.push(item.articles);
+            this.lstContributor.push(item.contributors);
+            this.lstPercenContributor.push(item.percenContributor);
+            this.lstPercenArticle.push(item.percenArticles);
+          }
         }
       );
       this.BarChart();
@@ -143,11 +152,11 @@ export class AdminChartApprovalRejectComponent implements OnInit {
     this.barChart = new Chart('barChart', {
       type: 'bar',
       data: {
-        labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
+        labels: this.lstLabel,
         datasets: [{
           label: 'Num of Contributors',
 
-          data: [12, 19, 3, 5, 2, 3],
+          data: this.lstContributor,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
           ],
@@ -159,7 +168,7 @@ export class AdminChartApprovalRejectComponent implements OnInit {
         {
           label: 'Num of Articles',
 
-          data: [10, 12, 13, 15, 12, 13],
+          data: this.lstArticle,
           backgroundColor: [
             'rgba(54, 162, 235, 0.2)',
           ],
@@ -167,10 +176,8 @@ export class AdminChartApprovalRejectComponent implements OnInit {
             'rgb(54, 162, 235)',
           ],
           borderWidth: 1,
-
         }
-
-      ],
+        ],
       },
       options: {
         scales: {
@@ -181,8 +188,6 @@ export class AdminChartApprovalRejectComponent implements OnInit {
       },
     });
   }
-
-
 
   //Click Events
 

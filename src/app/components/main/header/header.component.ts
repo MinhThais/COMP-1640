@@ -38,8 +38,6 @@ export class HeaderComponent implements OnInit{
     this.userStore.setRoleForStore(this.role);
   }
 
-  
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
