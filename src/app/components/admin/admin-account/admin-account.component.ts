@@ -25,5 +25,4 @@ export class AdminAccountComponent implements OnInit{
       console.table(this.lstAccount);
     });
   }
-
 }
