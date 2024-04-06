@@ -61,7 +61,6 @@ export class HeaderComponent implements OnInit{
   }
 
   signOut(){
-    alert(this.timeInSeconds);
     this.auth.totalWorkDuration(this.timeInSeconds, this.fullname).subscribe(res => {
       this.toast.success(res.message, 'Success', {
         timeOut: 3000,
@@ -78,5 +77,4 @@ export class HeaderComponent implements OnInit{
       this.callTest();
     });
   }
-
 }
