@@ -56,7 +56,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
   ngOnInit(): void {
     this.getAllAcademic();
     this.sort();
-    // this.BarChart();
+    this.BarChart();
   }
 
   sort(){
@@ -79,75 +79,75 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     });
   }
 
-  // RadarChart() {
-  //   const data = {
-  //     labels: this.labels,
-  //     datasets: [
-  //       {
-  //         label:
-  //           'Approval Rate (%)',
-  //         data: this.approveData,
-  //         backgroundColor: [
-  //           'rgb(255, 99, 132)',
-  //           'rgb(54, 162, 235)',
-  //           'rgb(255, 205, 86)',
-  //           '#71b657',
-  //           '#e3632d',
-  //           '#6c757d',
-  //         ],
-  //         hoverOffset: 4,
-  //       },
-  //     ],
-  //   };
+  RadarChart() {
+    const data = {
+      labels: this.labels,
+      datasets: [
+        {
+          label:
+            'Approval Rate (%)',
+          data: this.approveData,
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            '#71b657',
+            '#e3632d',
+            '#6c757d',
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    };
 
-  //   this.radarChart = new Chart('radarChart', {
-  //     type: 'pie',
-  //     data: data,
+    this.radarChart = new Chart('radarChart', {
+      type: 'pie',
+      data: data,
 
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //     },
-  //   });
-  // }
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
 
-  // LineChart() {
-  //   const data = {
-  //     labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
-  //     datasets: [
-  //       {
-  //         label:
-  //           'Reject Rate (%)',
-  //         data: [300, 50, 100, 50, 50, 70],
-  //         backgroundColor: [
-  //           'rgb(255, 99, 132)',
-  //           'rgb(54, 162, 235)',
-  //           'rgb(255, 205, 86)',
-  //           '#71b657',
-  //           '#e3632d',
-  //           '#6c757d',
-  //         ],
-  //         hoverOffset: 4,
-  //       },
-  //     ],
-  //   };
+  LineChart() {
+    const data = {
+      labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
+      datasets: [
+        {
+          label:
+            'Reject Rate (%)',
+          data: [300, 50, 100, 50, 50, 70],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            '#71b657',
+            '#e3632d',
+            '#6c757d',
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    };
 
-  //   this.radarChart = new Chart('lineChart', {
-  //     type: 'pie',
-  //     data: data,
+    this.lineChart = new Chart('lineChart', {
+      type: 'pie',
+      data: data,
 
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //     },
-  //   });
-  // }
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
 
   BarChart() {
     this.barChart = new Chart('barChart', {
@@ -239,7 +239,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     this.displayLineChart = 'block';
     this.displayBarChart = 'none';
     this.displayRadarChart = 'none';
-    // this.LineChart();
+    this.LineChart();
   }
 
   onRadar() {
@@ -256,6 +256,6 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     this.displayRadarChart = 'block';
     this.displayBarChart = 'none';
     this.displayLineChart = 'none';
-    // this.RadarChart();
+    this.RadarChart();
   }
 }
