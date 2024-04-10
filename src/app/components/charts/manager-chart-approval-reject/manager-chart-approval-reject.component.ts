@@ -220,9 +220,6 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     this.displayLineChart = 'none';
     this.displayRadarChart = 'none';
     this.BarChart();
-    // const type = 'bar';
-    // this.barChart.config.type = type;
-    // this.barChart.update();
   }
 
   onLine() {

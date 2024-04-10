@@ -45,18 +45,26 @@
                             <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">Pending</button>
 
                             <button (click)="Approve(i.contribution_id)"
-                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending'" class="button-approve">Approve
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-approve">Approve-a
                             </button>
                             <button (click)="Reject(i.contribution_id)"
-                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending'" class="button-reject">Reject
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-reject">Reject-a
                             </button>
 
+                            <!-- reject -->
                             <button (click)="Approve(i.contribution_id)"
                                 *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected'"
                                 class="button-reject1"></button>
+
+                            <!-- //approve -->
                             <button (click)="Reject(i.contribution_id)"
                                 *ngIf="i.isPublic === 'Private' && i.isSelected === 'Selected'"
-                                class="button-approve1"></button>
+                                class="button-approve1"
+                                ></button>
+
+                            <button
+                              *ngIf="i.isPublic === 'Public' && i.isSelected === 'Selected'"
+                              class="button-reject2" aria-readonly="true"></button>
                         </td>
                         <td>
                             <button [routerLink]="['/Detail-Pub', i.contribution_id]"
