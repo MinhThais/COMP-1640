@@ -11,6 +11,8 @@ export class ManagerViewArticleComponent implements OnInit{
   facultyId: number = 0;
   lstContribution: any[] = [];
   baseImgUrl: string = 'https://localhost:7195/Imgs/';
+  pageSize = 5;
+  currentPage = 1;
   constructor(
     private activatedRoute: ActivatedRoute,
     private articleService: ArticleService

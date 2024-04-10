@@ -12,6 +12,8 @@ export class ManagerHomeComponent implements OnInit{
   baseImgUrl: string = 'https://localhost:7195/Imgs/';
   public lstArticle : any = [];
   public lstFaculty: any = [];
+  pageSize = 5;
+  currentPage = 1;
 
   constructor(
     private article:ArticleService,
