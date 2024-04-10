@@ -77,5 +77,4 @@ export class HeaderComponent implements OnInit{
       this.callTest();
     });
   }
-
 }

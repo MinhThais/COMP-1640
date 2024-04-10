@@ -80,8 +80,8 @@ const routes: Routes = [
   {path:'Guest-Statistic', component: GuestStatisticComponent},
   {path:'Guest-ViewArticleDetail/:id', component: GuestViewArticleDetailComponent},
   {path:'Guest-Chart', component: GuestChartComponent},
-  
-  
+
+
 
   //Student
   {path:'View-Student', component: StudentViewingComponent},
@@ -104,8 +104,8 @@ const routes: Routes = [
   {path:'Manager-Chart-Before', component: ManagerChartBeforeComponent},
   {path:'Manager-Chart-After', component: ManagerChartAfterComponent},
   {path:'Manager-Chart-AprrovalReject', component: ManagerChartApprovalRejectComponent},
-  {path:'Manager-ViewArticle', component: ManagerViewArticleComponent },
-  
+  {path:'Manager-ViewArticle/:id', component: ManagerViewArticleComponent },
+
 
   //Admin
   {path:'Admin-Statistic', component: AdminStatisticComponent},
@@ -115,7 +115,7 @@ const routes: Routes = [
   {path:'Admin-Chart', component: AdminChartApprovalRejectComponent},
   {path:'Admin-ChartPageBrowser', component: AdminChartPageBrowserComponent},
   {path:'Admin-ChartActiveTime', component: AdminChartActiveTimeComponent},
-  
+
 ];
 
 @NgModule({

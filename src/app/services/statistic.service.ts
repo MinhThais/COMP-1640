@@ -78,4 +78,7 @@ export class StatisticService {
   roleChart() {
     return this.http.get<any>(this.baseUrl + 'role-chart');
   }
+  workDuration(role_id: number) {
+    return this.http.get<any>(this.baseUrl + 'work-duration', { params: { user_role_id: role_id.toString() } });
+  }
 }

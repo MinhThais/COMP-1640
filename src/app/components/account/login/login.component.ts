@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
                       positionClass: 'toast-top-center',
                     });
                     if (this.role === 'Admin') {
-                      this.router.navigate(['/View-Articles']);
+                      this.router.navigate(['/Admin-Statistic']);
                     } else if (this.role === 'Coordinator') {
                       this.router.navigate(['/View-Comment']);
                     } else if (this.role === 'Student') {

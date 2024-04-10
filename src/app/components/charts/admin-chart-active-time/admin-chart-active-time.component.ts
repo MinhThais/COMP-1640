@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
+import { RoleService } from 'src/app/services/role.service';
+import { StatisticService } from 'src/app/services/statistic.service';
 
 @Component({
   selector: 'app-admin-chart-active-time',
@@ -8,6 +10,12 @@ import { Chart } from 'chart.js';
   styleUrls: ['./admin-chart-active-time.component.css'],
 })
 export class AdminChartActiveTimeComponent implements OnInit {
+  public role_id: number = 0;
+  public lstWorkDuration: any = [];
+  lstRoles: any = [];
+  lstRoleNames: string[] = [];
+  lstDailyAverageTime : number[] = [];
+
   //Color
   red: string = '#ff014fff';
   white: string = 'white';
@@ -30,10 +38,30 @@ export class AdminChartActiveTimeComponent implements OnInit {
   displayLineChart: string = 'none';
   displayRadarChart: string = 'none';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private statisticService: StatisticService,
+    private roleService :RoleService
+  ) {}
 
   ngOnInit(): void {
-    this.BarChart();
+    this.chartStatistic();
+  }
+
+  chartStatistic() {
+    this.statisticService.workDuration(this.role_id).subscribe((res) =>{
+      this.lstWorkDuration = res;
+    })
+    this.roleService.getAllRole().subscribe((res) =>{
+      this.lstRoles = res;
+      this.lstRoles.forEach((element:{
+        role_id: number;
+        role_name: string;
+      }) => {
+        this.lstRoleNames.push(element.role_name);
+      });
+      this.onBar();
+    })
   }
 
   // Chart functions
@@ -105,7 +133,7 @@ export class AdminChartActiveTimeComponent implements OnInit {
     this.barChart = new Chart('barChart', {
       type: 'bar',
       data: {
-        labels: ['Admin', 'Manager', 'Coordinator', 'Student', 'Guest'],
+        labels: this.lstRoleNames,
         datasets: [
           {
             label: 'Daily average time (hours)',
