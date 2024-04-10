@@ -1,95 +1,32 @@
 <main class="bg-light">
-    <div class="container">
-      <div class="text-center my-5">
-        <h1 style="color: rgb(67 0 86);">Published Article</h1>
-        <hr />
-  
-  
-      </div>
-  
-      
-  
-      <div class="row">
-  
-  
-  
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/a.jpg" class="img-fluid" id="img" />
-  
-            <div class="card-body" id="card-article">
-              <div class="card-title">
-                <h2 class="title">Article 1</h2>
-              </div>
-              <div class="card-text">
-                <p class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-              <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end"
-                id="btn-readMore">Read More</a>
-              <!-- <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
+  <div class="container">
+    <div class="text-center my-5">
+      <h1 style="color: rgb(67 0 86);">Published Article</h1>
+      <hr />
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let a of lstContribution">
+        <div class="card mb-5 shadow-sm">
+          <img [src]="(baseImgUrl + a.contribution_image)" class="img-fluid" id="img" />
+          <div class="card-body" id="card-article">
+            <div class="card-title">
+              <h2 class="title">{{a.contribution_title}}</h2>
+            </div>
+            <div class="card-text">
+              <p class="content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti corporis quis ab. Exercitationem et quibusdam
+                impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                maxime facere, quod harum aliquid in...
+              </p>
+            </div>
+            <a [routerLink]="['/Guest-ViewArticleDetail', a.contribution_id]" class="btn btn-outline-primary rounded-0 float-end"
+              id="btn-readMore">Read More</a>
+            <!-- <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
                   >Download</a> -->
-  
-            </div>
           </div>
         </div>
-  
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/b.jpg" class="img-fluid" id="img" />
-  
-            <div class="card-body">
-              <div class="card-title">
-                <h2>Article 2</h2>
-              </div>
-              <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-              <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end"
-                id="btn-readMore">Read More</a>
-              <!-- <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
-                >Download</a> -->
-  
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="card mb-5 shadow-sm">
-            <img src="/assets/img/c.jpg" class="img-fluid" id="img" />
-  
-            <div class="card-body">
-              <div class="card-title">
-                <h2>Article 3</h2>
-              </div>
-              <div class="card-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Deleniti corporis quis ab. Exercitationem et quibusdam
-                  impedit? Sint vitae labore nulla sit, dignissimos non tempore,
-                  maxime facere, quod harum aliquid in...
-                </p>
-              </div>
-              <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end"
-                id="btn-readMore">Read More</a>
-              <!-- <a routerLink="/Guest-ViewArticleDetail" class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore"
-                  >Download</a> -->
-            </div>
-          </div>
-        </div>
-  
-  
-  
-  
       </div>
     </div>
-  </main>
+  </div>
+</main>

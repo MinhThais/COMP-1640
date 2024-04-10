@@ -5,13 +5,12 @@
       <hr />
     </div>
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let a of lstArticlePublic">
+      <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let a of lstFaculty">
         <div class="card mb-5 shadow-sm">
-          <img [src]="(pathImg + a.contribution_image)" class="img-fluid" id="img" />
-
+          <img [src]="(baseImgUrl + a.img)" class="img-fluid" id="img" />
           <div class="card-body" id="card-article">
             <div class="card-title">
-              <h2 class="title">{{a.contribution_title}}</h2>
+              <h2 class="title">{{a.name}}</h2>
             </div>
             <div class="card-text">
               <p class="content">
@@ -23,7 +22,7 @@
             </div>
             <!-- <a [routerLink]="['/Guest-ViewArticleDetail', a.contribution_id]"
               class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore">View</a> -->
-              <a [routerLink]="'/Manager-ViewArticle'"
+              <a [routerLink]="['/Manager-ViewArticle', a.id]"
               class="btn btn-outline-primary rounded-0 float-end" id="btn-readMore">View</a>
           </div>
         </div>

@@ -30,6 +30,13 @@ export class ArticleService {
   getAllArticleOfStudentInFaculty(username:string) : Observable<any>{
     return this.http.get<any>(`${this.baseUrl}GetContributionByFaculty?username=${username}`);
   }
+  GetContributionByFaculty() : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}GetContributionOfFaculty`)
+  }
+
+  getContributionByFacltyId(facultyId : number) : Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}GetContributionByFacultyId?facultyId=${facultyId}`);
+  }
 
   getArticleById(contribution_id:number) : Observable<any>{
     return this.http.get<any>(this.baseUrl + "contribution_id", {params : {contribution_id}});
