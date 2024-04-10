@@ -52,14 +52,14 @@
                             </button>
 
                             <button (click)="Approve(i.contribution_id)"
-                                *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected'"
+                                *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected' && i.isView === 'View'"
                                 class="button-reject1"></button>
                             <button (click)="Reject(i.contribution_id)"
                                 *ngIf="i.isPublic === 'Private' && i.isSelected === 'Selected'"
                                 class="button-approve1"></button>
                         </td>
                         <td>
-                            <button [routerLink]="['/Detail-Pub', i.contribution_id]"
+                            <button [routerLink]="['/Add-Comment', i.contribution_id]"
                                 (click)="view(i.contribution_id)"><i class="fa-solid fa-eye"></i></button>
                         </td>
                     </tr>
@@ -68,10 +68,6 @@
             <div class="pagination">
                 <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
             </div>
-
-
-
-
         </div>
     </div>
 </main>
