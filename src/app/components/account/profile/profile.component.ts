@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { APIService } from 'src/app/services/api.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
@@ -20,7 +19,6 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     private fb: FormBuilder,
-    private api: APIService,
     private router: Router,
     private userStoreService:UserStoreService,
     private auth: UserService,
@@ -43,12 +41,8 @@ export class ProfileComponent implements OnInit{
           Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}'),
         ],
       ],
-      // user_password: ['', Validators.required],
-      // user_confirmPassword: ['', Validators.required],
-      // user_birthday: ['', Validators.required],
       user_faculty: ['', Validators.required],
       user_role: ['', Validators.required],
-      // user_role: [''],
     });
   }
 
@@ -72,6 +66,10 @@ export class ProfileComponent implements OnInit{
       formData.append('userId',this.userProfile.user_id);
       formData.append('userName',this.profileForm.get('user_username')?.value);
       formData.append('userEmail',this.profileForm.get('user_email')?.value);
+      formData.append('userFaculty', this.userProfile.user_faculty_id.toString());
+      formData.append('userRole', this.userProfile.user_role_id.toString());
+      formData.append('userStatus', this.userProfile.user_status.toString());
+
       if(this.fileImg != null){
         formData.append('uploadImage', this.fileImg, this.fileImg.name);
       }
@@ -97,7 +95,7 @@ export class ProfileComponent implements OnInit{
             progressBar: true,
             positionClass: 'toast-top-center'
           });
-          // this.router.navigate(["/Profile"]);
+          this.router.navigate(["/Profile"]);
 
         },
         (err) =>{

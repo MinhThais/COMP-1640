@@ -28,8 +28,10 @@
                         <td>{{a.user_faculty}}</td>
                         <td>{{a.user_status}}</td>
                         <td >
-                            <button routerLink ><i class="fa-solid fa-lock"></i></button>
-                            <button ><i class="fa-solid fa-lock-open"></i></button>
+                            <!-- <button routerLink ><i class="fa-solid fa-lock"></i></button>
+                            <button ><i class="fa-solid fa-lock-open"></i></button> -->
+                            <button [routerLink]="['/Admin-Update-Account/', a.user_username]"><i
+                              class="fa-solid fa-pen-to-square"></i></button>
                         </td>
                     </tr>
                 </tbody>

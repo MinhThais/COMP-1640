@@ -52,16 +52,16 @@
 
               </div>
               <div class="div-button">
-                <button *ngIf="c.comment_user_id == userID" class="button-button"
+                <button *ngIf="c.comment_user_id == userID && contribution.isSelected != 'Selected'" class="button-button"
                   (click)="getCommentToUpdate(c.comment_id, c.comment_content
                   )"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button *ngIf="c.comment_user_id == userID" class="button-button"
+                <button *ngIf="c.comment_user_id == userID && contribution.isSelected != 'Selected'" class="button-button"
                   (click)="deleteComment(c.comment_id)"><i class="fa-solid fa-trash"></i></button>
               </div>
             </div>
             <!--  -->
           </div>
-          <div class="area" *ngIf="deadline">
+          <div class="area" *ngIf="deadline && contribution.isSelected != 'Selected'">
             <textarea class="area-textarea" [(ngModel)]="commentcontent" placeholder="Text something here..."
               required></textarea>
             <a class="button" style="--clr:#29d8d8; cursor: pointer;"

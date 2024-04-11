@@ -1,5 +1,5 @@
 .pagination{
-    float: right; 
+    float: right;
   }
 main{
     overflow: hidden;
@@ -146,11 +146,11 @@ tr:hover td{
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 576px) { 
-    
+@media (max-width: 576px) {
+
     .add_new{
         margin-left: 10px;
         margin-top: 5px;
     }
-    
+
 }

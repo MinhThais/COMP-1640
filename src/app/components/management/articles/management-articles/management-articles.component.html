@@ -20,6 +20,7 @@
             <!-- <th>Content</th> -->
             <th>Submission Date</th>
             <!-- <th>Closing Date</th> -->
+            <th>Rate</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -33,7 +34,10 @@
             <!-- <td><img [src]="(pathDoc + c.contribution_content)"></td> -->
             <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td>
             <!-- <td>{{c.contribution_submition_date | date : 'yyyy-MM-dd'}}</td> -->
-            <td>Submitted</td>
+            <td *ngIf="c.isView == 'Unview'">Pending</td>
+            <td *ngIf="c.isSelected == 'Selected' && c.isView == 'View'">Aproved</td>
+            <td *ngIf="c.isSelected == 'Unselected' && c.isView == 'View'">Rejected</td>
+            <td>{{c.isPublic}}</td>
             <td>
               <button [routerLink]="['/Add-Comment', c.contribution_id]"><i class="fa-solid fa-eye"></i></button>
               <button [routerLink]="['/Update-Articles', c.contribution_id]"><i
