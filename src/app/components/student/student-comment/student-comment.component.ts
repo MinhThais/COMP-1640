@@ -82,6 +82,12 @@ export class StudentCommentComponent implements OnInit{
     }
     else{
       this.commentService.addComment(this.commentContent, this.userName, this.articleID).subscribe(res => {
+        this.toast.success(res.message, 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+          positionClass: 'toast-top-center'
+        });
+
         this.ngOnInit();
         this.commentContent = "";
       },

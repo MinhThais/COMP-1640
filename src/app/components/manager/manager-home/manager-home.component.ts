@@ -30,4 +30,6 @@ export class ManagerHomeComponent implements OnInit{
       console.table(this.lstFaculty);
     })
   }
+
+  
 }

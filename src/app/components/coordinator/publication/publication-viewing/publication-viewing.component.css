@@ -1,6 +1,6 @@
 
 .pagination{
-    float: right; 
+    float: right;
   }
 
 main{
@@ -84,6 +84,21 @@ td button:nth-child(3):hover{
     color: white;
     background-color: #dc3545 !important;
     width: 98.34px;
+}
+
+.button-reject2{
+  color: white;
+  background-color: #5635dc !important;
+  width: 98.34px;
+}
+
+.button-reject2:hover{
+  background-color: rgb(95, 39, 249) !important;
+  box-shadow: 0 0 10px rgb(43, 39, 249);
+}
+
+.button-reject2::before{
+  content: 'Reject';
 }
 .button-approve1{
     background-color: rgb(6, 222, 93) !important;
