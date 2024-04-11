@@ -79,6 +79,8 @@ td button:nth-child(3):hover{
 }
 .button-waiting{
     background-color: rgb(110 132 119) !important;
+    width: 98.34px;
+    cursor: wait;
 }
 .button-reject1{
     color: white;
@@ -88,17 +90,14 @@ td button:nth-child(3):hover{
 
 .button-reject2{
   color: white;
-  background-color: #5635dc !important;
+  background-color: rgb(200, 200, 200) !important;
   width: 98.34px;
+  cursor: not-allowed;
 }
 
-.button-reject2:hover{
-  background-color: rgb(95, 39, 249) !important;
-  box-shadow: 0 0 10px rgb(43, 39, 249);
-}
 
 .button-reject2::before{
-  content: 'Reject';
+  content: 'Published';
 }
 .button-approve1{
     background-color: rgb(6, 222, 93) !important;
