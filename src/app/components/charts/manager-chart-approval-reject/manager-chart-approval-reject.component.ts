@@ -56,7 +56,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
   ngOnInit(): void {
     this.getAllAcademic();
     this.sort();
-    this.BarChart();
+    // this.BarChart();
   }
 
   sort(){
@@ -69,6 +69,9 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
         this.contributionData.push(item.numberContribution);
         this.contributorData.push(item.numberContributor);
      });
+
+     console.log(this.lstStatistic);
+
      this.BarChart();
     });
   }
@@ -116,12 +119,12 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
 
   LineChart() {
     const data = {
-      labels: ['IT', 'Business', 'Graphic Design', 'Engineering', 'Law', 'Art'],
+      labels: this.labels,
       datasets: [
         {
           label:
             'Reject Rate (%)',
-          data: [300, 50, 100, 50, 50, 70],
+          data: this.rejectData,
           backgroundColor: [
             'rgb(255, 99, 132)',
             'rgb(54, 162, 235)',
