@@ -37,7 +37,7 @@ export class ManagementArticlesComponent implements OnInit{
 
   getArticle(username:string) {
     this.article.getAllArticleOfStudent(username).subscribe(data => {
-      this.lstArticles = data;
+      this.lstArticles = data.reverse();
       this.pathImg = this.article.Img;
       this.pathDoc = this.article.doc;
     },

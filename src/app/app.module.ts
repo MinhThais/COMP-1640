@@ -58,6 +58,7 @@ import { AdminStatisticAtiveTimeComponent } from './components/admin/admin-stati
 import { AdminStatisticPageBrowserComponent } from './components/admin/admin-statistic-page-browser/admin-statistic-page-browser.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ManagerViewArticleComponent } from './components/manager/manager-view-article/manager-view-article.component';
+import { AdminUpdateAccountComponent } from './components/admin/admin-update-account/admin-update-account.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { ManagerViewArticleComponent } from './components/manager/manager-view-a
     ManagerChartApprovalRejectComponent,
     AdminStatisticAtiveTimeComponent,
     AdminStatisticPageBrowserComponent,
-    ManagerViewArticleComponent
+    ManagerViewArticleComponent,
+    AdminUpdateAccountComponent
   ],
 
   imports: [

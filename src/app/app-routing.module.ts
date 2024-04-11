@@ -47,7 +47,7 @@ import { AdminChartPageBrowserComponent } from './components/charts/admin-chart-
 import { AdminChartActiveTimeComponent } from './components/charts/admin-chart-active-time/admin-chart-active-time.component';
 import { ManagerChartApprovalRejectComponent } from './components/charts/manager-chart-approval-reject/manager-chart-approval-reject.component';
 import { ManagerViewArticleComponent } from './components/manager/manager-view-article/manager-view-article.component';
-
+import { AdminUpdateAccountComponent } from './components/admin/admin-update-account/admin-update-account.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -115,7 +115,7 @@ const routes: Routes = [
   {path:'Admin-Chart', component: AdminChartApprovalRejectComponent},
   {path:'Admin-ChartPageBrowser', component: AdminChartPageBrowserComponent},
   {path:'Admin-ChartActiveTime', component: AdminChartActiveTimeComponent},
-
+  {path:'Admin-Update-Account/:userName', component: AdminUpdateAccountComponent},
 ];
 
 @NgModule({
