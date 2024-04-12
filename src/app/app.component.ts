@@ -67,9 +67,8 @@ export class AppComponent implements OnInit {
     const currentTime = new Date();
     this.duration = (currentTime.getTime() - this.accessTime.getTime()) / 1000;
   }
-  getCurrentPageName(): string {
-    const currentUrl = this.router.url;
-    const pageName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+  getCurrentPageName(): any {
+    const pageName = this.activatedRoute.firstChild?.snapshot.routeConfig?.path;
     return pageName;
   }
 

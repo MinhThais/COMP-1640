@@ -19,7 +19,7 @@ export class AdminStatisticComponent implements OnInit {
   constructor(
     private academicYearService: AcademicYearService,
     private statisticService: StatisticService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.academicYearService.getAllAcademicYear().subscribe((res) => {
@@ -39,7 +39,7 @@ export class AdminStatisticComponent implements OnInit {
     this.statisticService
       .adminStatistic(this.academic_year_id)
       .subscribe((res) => {
-        this.lstStatistic = res;
+        this.lstStatistic = res.filter((item: { facultyName: string; }) => item.facultyName !== "None");
       });
   }
 }

@@ -39,11 +39,11 @@ export class UpdateAcademicYearComponent {
           (res) => {
             this.academic = res;
             //log
-            console.log(this.academic);
+            // console.log(this.academic);
             this.updateAcademicForm.patchValue({
-              academic_year_title:[this.academic.academic_year_title],
-              academic_Year_startClosureDate:[format(this.academic.academic_year_ClosureDate, 'yyyy-MM-dd')],
-              academic_Year_endClosureDate:[format(this.academic.academic_year_FinalClosureDate, 'yyyy-MM-dd')]
+              academic_year_title:this.academic.academic_year_title,
+              academic_Year_startClosureDate:format(this.academic.academic_year_ClosureDate, 'yyyy-MM-dd'),
+              academic_Year_endClosureDate:format(this.academic.academic_year_FinalClosureDate, 'yyyy-MM-dd')
             })
           },
           (err) =>{
@@ -58,13 +58,16 @@ export class UpdateAcademicYearComponent {
     if(this.updateAcademicForm.valid){
       const startClosureDate = moment(new Date(this.updateAcademicForm.get('academic_Year_startClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
       const endClosureDate = moment(new Date(this.updateAcademicForm.get('academic_Year_endClosureDate')?.value)).format('YYYY-MM-DDTHH:mm:ss');
-
+      const title = this.updateAcademicForm.get('academic_year_title')?.value;
+      // console.log(startClosureDate);
+      // console.log(endClosureDate);
       let academicYear = {
         academic_year_id: this.academic_id,
-        academic_year_title:this.updateAcademicForm.get('academic_year_title')?.value,
+        academic_year_title: title,
         academic_year_ClosureDate: startClosureDate,
         academic_year_FinalClosureDate: endClosureDate
       }
+      // console.table(academicYear);
         this.addAcademicYear.updateAcademicYear(academicYear).subscribe(
         (res)=>{
           this.updateAcademicForm.reset();

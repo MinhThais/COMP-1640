@@ -61,7 +61,7 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
 
   sort(){
     this.statisticAPI.statisticalContributionApprovedRejectedChart(this.selectAcademic).subscribe(data => {
-      this.lstStatistic = data;
+      this.lstStatistic =  data.filter((item: { faculty_name: string; }) => item.faculty_name !== "None");
       this.lstStatistic.forEach((item: { faculty_name: any; numberContributionRejected: any; numberContributionApproved: any; numberContribution: any; numberContributor: any; }) => {
         this.labels.push(item.faculty_name);
         this.rejectData.push(item.numberContributionRejected);

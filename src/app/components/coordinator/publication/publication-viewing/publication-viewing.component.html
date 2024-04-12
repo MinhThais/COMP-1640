@@ -45,10 +45,10 @@
                             <button routerLink="/View-Pub" class="button-waiting" *ngIf="i.isView === 'Unview'">Pending</button>
 
                             <button (click)="Approve(i.contribution_id)"
-                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-approve">Approve-a
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-approve">Approve
                             </button>
                             <button (click)="Reject(i.contribution_id)"
-                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-reject">Reject-a
+                                *ngIf="i.isView === 'View' && i.isSelected === 'Pending' && i.isPublic === 'Private'" class="button-reject">Reject
                             </button>
 
                             <!-- reject -->
@@ -56,7 +56,7 @@
                                 *ngIf="i.isPublic === 'Private' && i.isSelected === 'Unselected' && i.isView === 'View'"
                                 class="button-reject1"></button>
 
-                            <!-- //approve -->
+                            <!-- approve -->
                             <button (click)="Reject(i.contribution_id)"
                                 *ngIf="i.isPublic === 'Private' && i.isSelected === 'Selected'"
                                 class="button-approve1"

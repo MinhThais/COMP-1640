@@ -70,6 +70,7 @@ export class AdminChartPageBrowserComponent implements OnInit {
   chartStatistic() {
     this.statisticService.pageChart().subscribe((res) => {
       this.lstPageData = res;
+      console.log(this.lstPageData);
       this.lstPageData.forEach(
         (item: {
           pageName: string;

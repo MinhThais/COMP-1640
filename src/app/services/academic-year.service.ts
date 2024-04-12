@@ -21,8 +21,8 @@ export class AcademicYearService {
     return this.http.post<any>(this.baseUrl+'add-academic-year', academic_Years)
   }
 
-  updateAcademicYear(academic_Years:any){
-    return this.http.post<any>(this.baseUrl+'update-academic-year', academic_Years)
+  updateAcademicYear(academicYears:any){
+    return this.http.post<any>(this.baseUrl+'update-academic-year', academicYears)
   }
 
   deleteAcademicYear(academic_year_id:number){

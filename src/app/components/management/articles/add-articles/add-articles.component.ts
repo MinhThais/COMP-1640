@@ -38,7 +38,7 @@ export class AddArticlesComponent {
 
     this.addArticleForm = this.fb.group({
       contribution_title:['', Validators.required],
-      currentYear:[this.currentDate.getDate().toString()]
+      currentYear:[this.currentDate.getFullYear().toString()]
     })
   }
 

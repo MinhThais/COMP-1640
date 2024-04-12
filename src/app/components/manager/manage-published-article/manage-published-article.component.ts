@@ -47,10 +47,8 @@ export class ManagePublishedArticleComponent implements OnInit {
       this.getAllFaculties();
       this.getAllAcademicYears();
     }
-
-    console.log(this.selectedAcademicYear);
-    console.log(this.selectedFaculty);
-
+    // console.log(this.selectedAcademicYear);
+    // console.log(this.selectedFaculty);
   }
 
   search(academic_id:number, faculty_id:number){

@@ -38,7 +38,7 @@ export class ManagerStatisticApproveRejectComponent implements OnInit{
 
   getAllFaculty(){
     this.facultyAPI.getAllFaculty().subscribe(data => {
-      this.lstFaculty = data;
+      this.lstFaculty = data.filter((item: { faculty_name: string; }) => item.faculty_name !== "None");
     });
   }
 

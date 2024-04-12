@@ -113,7 +113,8 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
-          location.reload();
+
+          this.route.navigate(['/Management-Articles']);
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
@@ -137,6 +138,8 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
+
+          this.route.navigate(['/Management-Articles']);
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
@@ -160,7 +163,8 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
-          location.reload();
+          // location.reload();
+          this.route.navigate(['/Management-Articles']);
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
@@ -185,7 +189,8 @@ export class UpdateArticlesComponent {
             progressBar: true,
             positionClass: 'toast-top-center'
           });
-          location.reload();
+          // location.reload();
+          this.route.navigate(['/Management-Articles']);
         },
         error => {
           this.toast.error(error.error.message, 'Error', {
