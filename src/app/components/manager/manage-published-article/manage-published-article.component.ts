@@ -69,13 +69,13 @@ export class ManagePublishedArticleComponent implements OnInit {
 
   getAllFaculties() {
     this.facultyAPI.getAllFaculty().subscribe(data => {
-      this.lstFaculties = data;
+      this.lstFaculties = data.filter((faculty: any) => faculty.faculty_name !== 'None');
       // console.table(this.lstArticles);
     });
   }
   onSelectFaculty(event: any): void {
     this.selectedFaculty = event.target.value;
-    console.log(this.selectedFaculty);
+    // console.log(this.selectedFaculty);
   };
 
   getAllAcademicYears() {
@@ -97,11 +97,8 @@ export class ManagePublishedArticleComponent implements OnInit {
     });
   }
 
-
   downLoadOneAriticle(contribution_id:number) {
     this.article.downloadOneArticle(contribution_id).subscribe((data: Blob) => {
-      // console.log(contribution_id);
-      // console.log('Downloaded file:', data);
       const blobUrl = URL.createObjectURL(data);
       const link = document.createElement('a');
       link.href = blobUrl;
@@ -113,6 +110,11 @@ export class ManagePublishedArticleComponent implements OnInit {
       URL.revokeObjectURL(blobUrl);
     }, (error) => {
       console.error('Error downloading article:', error);
+      this.toast.error(error.error.message, 'Error', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
     });
   }
 
@@ -131,6 +133,11 @@ export class ManagePublishedArticleComponent implements OnInit {
       URL.revokeObjectURL(blobUrl);
     }, (error) => {
       console.error('Error downloading article:', error);
+      this.toast.error(error.error.message, 'Error', {
+        timeOut: 3000,
+        progressBar: true,
+        positionClass: 'toast-top-center'
+      });
     });
   }
 

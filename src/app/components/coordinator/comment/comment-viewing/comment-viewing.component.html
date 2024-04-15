@@ -35,10 +35,11 @@
                         <td>14 </td>
                         <td>
                             <button [routerLink]="['/Add-Comment', i.contribution_id]"><i class="fa-solid fa-eye"></i></button>
+                            <button (click)="downLoadOneAriticle(i.contribution_id)"><i class="fa-solid fa-download"></i></button>
                         </td>
                     </tr>
                 </tbody>
-<!-- 
+<!--
                 <tbody >
                     <tr>
                         <td></td>

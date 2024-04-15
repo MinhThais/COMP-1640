@@ -48,12 +48,25 @@ export class CommentViewingComponent implements OnInit{
   getCurrentUser(){
 
   }
-  
+
   getAllArticles(username:string){
     this.article.getAllArticleOfStudentInFaculty(username).subscribe(data => {
       this.lstArticle = data;
     });
   }
-
-
+  downLoadOneAriticle(contribution_id:number) {
+    this.article.downloadOneArticle(contribution_id).subscribe((data: Blob) => {
+      const blobUrl = URL.createObjectURL(data);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'Download.zip';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(blobUrl);
+    }, (error) => {
+      console.error('Error downloading article:', error);
+    });
+  }
 }
