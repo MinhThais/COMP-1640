@@ -52,7 +52,7 @@
 
               </div>
               <div class="div-button">
-                <button *ngIf="c.comment_user_id == userID && contribution.isSelected != 'Selected'" class="button-button"
+                <button *ngIf="c.comment_user_id == userID" class="button-button"
                   (click)="getCommentToUpdate(c.comment_id, c.comment_content
                   )"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button *ngIf="c.comment_user_id == userID && contribution.isSelected != 'Selected'" class="button-button"
@@ -61,7 +61,7 @@
             </div>
             <!--  -->
           </div>
-          <div class="area" *ngIf="deadline && contribution.isSelected != 'Selected'">
+          <div class="area" *ngIf="deadline">
             <textarea class="area-textarea" [(ngModel)]="commentcontent" placeholder="Text something here..."
               required></textarea>
             <a class="button" style="--clr:#29d8d8; cursor: pointer;"

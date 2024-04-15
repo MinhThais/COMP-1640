@@ -19,6 +19,8 @@ export class ManagerStatisticApproveRejectComponent implements OnInit{
   pageSize = 5;
   currentPage = 1;
 
+  currentYear : any = "";
+
   constructor(
     private facultyAPI : FacultyService,
     private academicAPI : AcademicYearService,
@@ -26,6 +28,13 @@ export class ManagerStatisticApproveRejectComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    if(this.selectAcademic != 0){
+      this.sort(this.selectAcademic);
+    }
+    else{
+      this.sort(this.selectAcademic);
+    }
+
     this.getAllAcademicYear();
     this.getAllFaculty();
   }
@@ -42,9 +51,19 @@ export class ManagerStatisticApproveRejectComponent implements OnInit{
     });
   }
 
-  sort(){
-    this.statisticalAPI.statisticalContributionApprovedRejected(this.selectAcademic, this.selectedFaculty).subscribe(data => {
+
+  onSelectChange(value: any){
+    this.selectAcademic = value;
+    this.ngOnInit();
+  }
+
+  sort(academic:any){
+    this.statisticalAPI.statisticalContributionApprovedRejected(academic).subscribe(data => {
       this.lstStatistic = data;
+
+      for(const d of this.lstStatistic){
+        this.currentYear = d.academic;
+      }
     });
   }
 }
