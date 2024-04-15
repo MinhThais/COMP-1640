@@ -6,15 +6,15 @@
 <div class="div-combo">
     <div class="combo-combo">
         <select [(ngModel)]="selectAcademic" id="select-option" class="form-select" aria-label="Default select example">
-            <option selected value="0">Choose Academic Year</option>
+            <option selected disabled value="0">{{currentYear}}</option>
             <option *ngFor="let a of lstAcademic" value="{{a.academic_year_id}}">{{a.academic_year_title}}</option>
         </select>
 
-        <button class="ui-btn" (click)="sort()">
+        <!-- <button class="ui-btn" (click)="sort()">
             <span>
               Sort
             </span>
-          </button>
+          </button> -->
     </div>
 
     <div class="div-left" >
