@@ -47,6 +47,8 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
 
   public selectAcademic : number = 0;
 
+  currentYear : any = "";
+
   constructor(
     private router: Router,
     private statisticAPI:StatisticService,
@@ -54,26 +56,39 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if(this.selectAcademic != 0){
+      this.sort(this.selectAcademic);
+    }
+    else{
+      this.sort(this.selectAcademic);
+    }
+
     this.getAllAcademic();
-    this.sort();
+    // this.sort();
     // this.BarChart();
   }
 
-  sort(){
-    this.statisticAPI.statisticalContributionApprovedRejectedChart(this.selectAcademic).subscribe(data => {
+  sort(academic:any){
+    this.statisticAPI.statisticalContributionApprovedRejectedChart(academic).subscribe(data => {
       this.lstStatistic = data;
-      this.lstStatistic.forEach((item: { faculty_name: any; numberContributionRejected: any; numberContributionApproved: any; numberContribution: any; numberContributor: any; }) => {
+      this.lstStatistic.forEach((item: { faculty_name: any; numberContributionRejected: any; numberContributionApproved: any; numberContribution: any; numberContributor: any; academic:any }) => {
         this.labels.push(item.faculty_name);
         this.rejectData.push(item.numberContributionRejected);
         this.approveData.push(item.numberContributionApproved);
         this.contributionData.push(item.numberContribution);
         this.contributorData.push(item.numberContributor);
+        this.currentYear = item.academic;
      });
 
      console.log(this.lstStatistic);
 
      this.BarChart();
     });
+  }
+
+  onSelectChange(value: any){
+    this.selectAcademic = value;
+    this.ngOnInit();
   }
 
   getAllAcademic(){
