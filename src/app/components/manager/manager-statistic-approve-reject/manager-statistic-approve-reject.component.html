@@ -8,8 +8,7 @@
     <div class="div-combo">
         <div class="combo-combo">
           <select [(ngModel)]="selectAcademic" (ngModelChange)="onSelectChange($event)" id="select-option" class="form-select" aria-label="Default select example">
-            <option selected value="0" disabled>{{currentYear}}</option>
-            <option *ngFor="let a of lstAcademic" [value]="a.academic_year_id">{{a.academic_year_title}}</option>
+            <option *ngFor="let a of lstAcademic" [selected]="a.academic_year_title === currentYear"  [value]="a.academic_year_id">{{a.academic_year_title}}</option>
           </select>
           <!-- <select [(ngModel)]="selectedFaculty" id="select-option" class="form-select" aria-label="Default select example">
             <option selected value="0">Choose Faculty</option>

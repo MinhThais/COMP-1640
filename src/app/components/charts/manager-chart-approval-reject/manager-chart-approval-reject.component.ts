@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnDestroy, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
 import { Router } from '@angular/router';
 import { FacultyService } from 'src/app/services/faculty.service';
@@ -11,7 +11,7 @@ Chart.register(...registerables);
   templateUrl: './manager-chart-approval-reject.component.html',
   styleUrls: ['./manager-chart-approval-reject.component.css'],
 })
-export class ManagerChartApprovalRejectComponent implements OnInit {
+export class ManagerChartApprovalRejectComponent implements OnInit, OnDestroy {
   //Color
   red: string = '#ff014fff';
   white: string = 'white';
@@ -55,6 +55,25 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
     private academicAPI:AcademicYearService
   ) {}
 
+
+  ngOnDestroy(): void {
+    if(this.barChart){
+      this.barChart.destroy();
+    }
+  }
+
+  ngOnDestroyReject(): void {
+    if(this.radarChart){
+      this.radarChart.destroy();
+    }
+  }
+
+  ngOnDestroyApprove(): void {
+    if(this.lineChart){
+      this.lineChart.destroy();
+    }
+  }
+
   ngOnInit(): void {
     if(this.selectAcademic != 0){
       this.sort(this.selectAcademic);
@@ -71,6 +90,9 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
   sort(academic:any){
     this.statisticAPI.statisticalContributionApprovedRejectedChart(academic).subscribe(data => {
       this.lstStatistic = data;
+
+      this.currentYear = data.academic;
+
       this.lstStatistic.forEach((item: { faculty_name: any; numberContributionRejected: any; numberContributionApproved: any; numberContribution: any; numberContributor: any; academic:any }) => {
         this.labels.push(item.faculty_name);
         this.rejectData.push(item.numberContributionRejected);
@@ -78,16 +100,24 @@ export class ManagerChartApprovalRejectComponent implements OnInit {
         this.contributionData.push(item.numberContribution);
         this.contributorData.push(item.numberContributor);
         this.currentYear = item.academic;
-     });
+      });
 
-     console.log(this.currentYear);
-
-     this.BarChart();
+      this.BarChart();
     });
   }
 
   onSelectChange(value: any){
     this.selectAcademic = value;
+    this.ngOnDestroy();
+    this.ngOnDestroyReject();
+    this.ngOnDestroyApprove();
+
+    this.labels = [];
+    this.rejectData = [];
+    this.approveData = [];
+    this.contributionData = [];
+    this.contributorData = [];
+
     this.ngOnInit();
   }
 
